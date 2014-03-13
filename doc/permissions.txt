@@ -1,0 +1,15 @@
+                Receive approval notifications
+                |View available spaces
+                ||Request additional space
+                |||Grant/revoke access to space
+                ||||Promote/demote Data Manager
+                |||||Request access to space
+                ||||||Approve new/expanded space
+                |||||||Set Pri.Inv. owning space
+                ||||||||Comment on requests
+                |||||||||
+        Admins  XXXXXXXXX
+     Approvers  XXXXXXX
+Principal Invs  XXXXXX
+ Data Managers  XXXX
+   Researchers  XX
