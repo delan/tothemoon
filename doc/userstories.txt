@@ -1,0 +1,27 @@
+1 As a user, I want to login so that I can perform appropriate functions applicable to my role
+1 As a user, I want to view a list of my storage spaces so that I know my access level for my research projects
+2 As a data manager, I want to submit additional storage request so that I can store more research data in my storage space
+2 As a data manager, I want to grant other researchers access to my storage space so that I can collaborate with others
+3 As a data manager, I want to revoke existing researcher’s access to my storage space so that they can’t access my data
+3 As a data manager, I want to view the status of my request so that I know its progress
+3 As a data manager, I want to receive email notifications so that I am aware that requests has been completed
+1 As a Principal Investigator, I want to submit storage request so that I can have access to storage space for a research project
+2 As a Principal Investigator, I want to submit additional storage request so that I can store more research data in my storage space
+2 As a Principal Investigator, I want to grant other researchers access to my storage space so that I can collaborate with others
+3 As a Principal Investigator, I want to revoke existing researcher’s access to my storage space so that they can’t access my data
+2 As a Principal Investigator, I want to grant other researchers manager level access for my storage space so that can submit administrative requests
+3 As a Principal Investigator, I want to revoke an existing researchers manager level access for my storage space so that they cannot submit administrative requests
+3 As a Principal Investigator, I want to view the status of my request so that I know its progress
+3 As a Principal Investigator, I want to receive email notifications so that I am aware that requests has been completed
+3 As a researcher, I want to receive email notification when I am granted access to a storage space so that I can access the data
+3 As a researcher, I want to receive email notification when my access to a storage space is revoked so that I am aware I can no longer access it
+1 As a administrator, I want to login so that I review and approve requests
+3 As an administrator, I want to view a list of requests by submission date so that I can review them chronologically
+1 As an administrator, I want to approve a request so that storage can be provisioned, expanded or access permissions changed
+3 As an administrator I want to add a comment to a request so that I can highlight any special requirements or additional information related to the request
+3 As an administrator, I want to send appropriate notifications so that users can start using their storage spaces
+2 As an administrator, I want to change the Principal Investigator for a storage space to replace the existing Principal investigator
+1 As an approver, I want to login so that I approve storage requests
+1 As an approver, I want to review and approve a storage request so that storage can be provisioned
+2 As an approver, I want to view a list of all storage requests so that I am all requests by Principal Investigators in my faculty
+3 As an approver, I want to view a list of all storage spaces for my faculty so that I can determine storage space allocated for my faculty
