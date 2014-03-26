@@ -11,5 +11,5 @@
         Admins  X X X X X X X X X
      Approvers  X X X X X X X
 Principal Invs  X X X X X X
- Data Managers  X X X X
+ Data Managers  X X X X X
    Researchers  X X
