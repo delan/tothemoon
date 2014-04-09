@@ -1,0 +1,42 @@
+﻿@model ToTheMoon.Models.Space
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Space</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SpaceTotal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SpaceTotal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SpaceUsed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SpaceUsed)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
