@@ -8,7 +8,7 @@ namespace ToTheMoon.Models
         public string Title { get; set; }
         public int SpaceTotal { get; set; }
         public int SpaceUsed { get; set; }
-        public ApplicationUser PrincipleInvestigator { get; set; }
+        //public ApplicationUser PrincipleInvestigator { get; set; }
     }
 
     public class SpaceDbContext : DbContext
