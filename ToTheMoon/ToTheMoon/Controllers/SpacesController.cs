@@ -78,7 +78,7 @@ namespace ToTheMoon.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="ID,Title,SpaceTotal,SpaceUsed")] Space space)
+        public ActionResult Edit([Bind(Include="Title,SpaceTotal")] Space space)
         {
             if (ModelState.IsValid)
             {
