@@ -16,9 +16,4 @@ namespace ToTheMoon.Models
         public int SpaceUsed { get; set; }
         //public ApplicationUser PrincipalInvestigator { get; set; }
     }
-
-    public class SpaceDbContext : DbContext
-    {
-        public DbSet<Space> Spaces { get; set; }
-    }
 }

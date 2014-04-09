@@ -7,12 +7,13 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ToTheMoon.Models;
+using ToTheMoon.DAL;
 
 namespace ToTheMoon.Controllers
 {
     public class SpacesController : Controller
     {
-        private SpaceDbContext db = new SpaceDbContext();
+        private ProjectContext db = new ProjectContext();
 
         // GET: /Spaces/
         public ActionResult Index()
@@ -46,7 +47,7 @@ namespace ToTheMoon.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="ID,Title,SpaceTotal,SpaceUsed")] Space space)
+        public ActionResult Create([Bind(Include="ID,Name,SpaceTotal,SpaceUsed")] Space space)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +79,7 @@ namespace ToTheMoon.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="Title,SpaceTotal")] Space space)
+        public ActionResult Edit([Bind(Include="ID,Name,SpaceTotal,SpaceUsed")] Space space)
         {
             if (ModelState.IsValid)
             {
