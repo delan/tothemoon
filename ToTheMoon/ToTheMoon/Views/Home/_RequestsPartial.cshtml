@@ -1,15 +1,17 @@
 ﻿
-<table border="1" style="width:300px">
-    <tr>
-        <th bgcolor="#222" style="color:white"><div align="left">Storage Request</div></th>
-    </tr>
+<table class="table table-hover" border="1" style="width:50%">
+    <thead>
+        <td bgcolor="#222" style="color:white"><div align="left">Storage Request</div></td>
+    </thead>
     @foreach (ToTheMoon.Models.Request request in ViewBag.Requests)
     {
-        <tr>
+        <tbody>
             <td>
                 <p>@request.HumanReadableRequestString</p>
-                <p><a href="#113" target="_blank">[Approve]</a> <a href="#114" target="_blank">[Reject]</a> <a href="#115" target="_blank">[Comment]</a></p>
+                @Html.ActionLink("[Approve]", "Approve", "Request", new { request.RequestID })
+                @Html.ActionLink("[Reject]", "Reject", "Request", new { request.RequestID })
+                @Html.ActionLink("[Comment]", "Comment", "Request", new { request.RequestID })
             </td>
-        </tr>
+        </tbody>
     }
 </table>
