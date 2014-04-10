@@ -37,7 +37,7 @@ namespace ToTheMoon.Controllers
         {
             if (ModelState.IsValid)
             {
-                newspacerequest.RequestTimestamp = DateTime.UtcNow;
+                // newspacerequest.RequestTimestamp = DateTime.UtcNow;
                 newspacerequest.StorageUsed = 0;
                 newspacerequest.Requester = UserManager.FindById<ApplicationUser>(User.Identity.GetUserId());
 

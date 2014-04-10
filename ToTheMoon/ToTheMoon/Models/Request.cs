@@ -7,7 +7,7 @@ namespace ToTheMoon.Models
     {
         [Key]
         public int RequestID { get; set; }
-        public DateTime RequestTimestamp { get; set; }
+        // public DateTime RequestTimestamp { get; set; }
         public ApplicationUser Requester { get; set; }
 
         public abstract string HumanReadableRequestString { get; }
