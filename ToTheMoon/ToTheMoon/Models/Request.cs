@@ -47,38 +47,4 @@ namespace ToTheMoon.Models
             }
         }
     }
-
-    /*
-    public class RequestListViewModel
-    {
-        List<RequestListViewModelItem> Requests;
-        private static ProjectContext db = new ProjectContext();
-
-        public RequestListViewModel()
-        {
-            // get all request types.
-            IEnumerable requests = db.Requests.AsEnumerable();
-            List<RequestListViewModelItem> result;
-
-            foreach(var request in requests)
-            {
-                RequestListViewModelItem currentListItem = new RequestListViewModelItem();
-
-                if (request is NewSpaceRequest)
-                {
-                    NewSpaceRequest typedRequest = (NewSpaceRequest)request;
-                    currentListItem.Request = typedRequest;
-                    currentListItem.HumanReadableRequest = String.Format("New storage request for {0} ({1}GB)", typedRequest.SpaceName, typedRequest.StorageTotal);
-                }
-
-                Requests.Add(currentListItem);
-            }
-        }
-
-        public class RequestListViewModelItem
-        {
-            public Request Request;
-            public string HumanReadableRequest;
-        }
-    }*/
 }
