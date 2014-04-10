@@ -1,12 +1,13 @@
-﻿<table border="1" align="right" style="width:300px">
+﻿
+<table border="1" style="width:300px">
     <tr>
         <th bgcolor="#222" style="color:white"><div align="left">Storage Request</div></th>
     </tr>
-    @for(int i = 0; i < 5; i++)
+    @foreach (ToTheMoon.Models.Request request in ViewBag.Requests)
     {
         <tr>
             <td>
-                <p>Add 10GB to Tanto Cuore Strategy Guides</p>
+                <p>@request.HumanReadableRequestString</p>
                 <p><a href="#113" target="_blank">[Approve]</a> <a href="#114" target="_blank">[Reject]</a> <a href="#115" target="_blank">[Comment]</a></p>
             </td>
         </tr>

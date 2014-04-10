@@ -10,7 +10,6 @@ namespace ToTheMoon.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "ToTheMoon.DAL.ProjectContext";
         }
 
         protected override void Seed(ToTheMoon.DAL.ProjectContext context)

@@ -162,6 +162,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RequestController.cs" />
     <Compile Include="Controllers\SpacesController.cs" />
     <Compile Include="DAL\ProjectContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -171,9 +172,22 @@
     <Compile Include="Migrations\201404091532456_InitialCreate.Designer.cs">
       <DependentUpon>201404091532456_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201404091933095_requests.cs" />
+    <Compile Include="Migrations\201404091933095_requests.Designer.cs">
+      <DependentUpon>201404091933095_requests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201404092103388_init.cs" />
+    <Compile Include="Migrations\201404092103388_init.Designer.cs">
+      <DependentUpon>201404092103388_init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201404092301547_morestuff.cs" />
+    <Compile Include="Migrations\201404092301547_morestuff.Designer.cs">
+      <DependentUpon>201404092301547_morestuff.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Request.cs" />
     <Compile Include="Models\Space.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -228,9 +242,13 @@
     <Content Include="Views\Home\_NotificationsPartial.cshtml" />
     <Content Include="Views\Home\_RequestsPartial.cshtml" />
     <Content Include="Views\Home\_SpacesPartial.cshtml" />
+    <Content Include="Views\Request\Index.cshtml" />
+    <Content Include="Views\Home\Dashboard.cshtml" />
+    <Content Include="Views\Request\Space.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\NewSpaceRequest\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -241,6 +259,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201404091532456_InitialCreate.resx">
       <DependentUpon>201404091532456_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201404091933095_requests.resx">
+      <DependentUpon>201404091933095_requests.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201404092103388_init.resx">
+      <DependentUpon>201404092103388_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201404092301547_morestuff.resx">
+      <DependentUpon>201404092301547_morestuff.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
