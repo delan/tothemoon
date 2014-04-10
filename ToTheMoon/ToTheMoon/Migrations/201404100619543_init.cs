@@ -8,6 +8,25 @@ namespace ToTheMoon.Migrations
         public override void Up()
         {
             CreateTable(
+                "dbo.Requests",
+                c => new
+                    {
+                        RequestID = c.Int(nullable: false, identity: true),
+                        RequestTimestamp = c.DateTime(nullable: false),
+                        SpaceName = c.String(),
+                        ProjectID = c.Int(),
+                        Description = c.String(),
+                        StorageTotal = c.Int(),
+                        StorageUsed = c.Int(),
+                        YearlyGrowth = c.Int(),
+                        Discriminator = c.String(nullable: false, maxLength: 128),
+                        Requester_Id = c.String(maxLength: 128),
+                    })
+                .PrimaryKey(t => t.RequestID)
+                .ForeignKey("dbo.AspNetUsers", t => t.Requester_Id)
+                .Index(t => t.Requester_Id);
+            
+            CreateTable(
                 "dbo.AspNetUsers",
                 c => new
                     {
@@ -69,9 +88,17 @@ namespace ToTheMoon.Migrations
                     })
                 .PrimaryKey(t => t.Id);
             
-            AddColumn("dbo.Requests", "Requester_Id", c => c.String(maxLength: 128));
-            CreateIndex("dbo.Requests", "Requester_Id");
-            AddForeignKey("dbo.Requests", "Requester_Id", "dbo.AspNetUsers", "Id");
+            CreateTable(
+                "dbo.Spaces",
+                c => new
+                    {
+                        ID = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                        SpaceTotal = c.Int(nullable: false),
+                        SpaceUsed = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.ID);
+            
         }
         
         public override void Down()
@@ -86,12 +113,13 @@ namespace ToTheMoon.Migrations
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "User_Id" });
             DropIndex("dbo.Requests", new[] { "Requester_Id" });
-            DropColumn("dbo.Requests", "Requester_Id");
+            DropTable("dbo.Spaces");
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
+            DropTable("dbo.Requests");
         }
     }
 }

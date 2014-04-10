@@ -168,22 +168,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201404091532456_InitialCreate.cs" />
-    <Compile Include="Migrations\201404091532456_InitialCreate.Designer.cs">
-      <DependentUpon>201404091532456_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201404091933095_requests.cs" />
-    <Compile Include="Migrations\201404091933095_requests.Designer.cs">
-      <DependentUpon>201404091933095_requests.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201404092103388_init.cs" />
-    <Compile Include="Migrations\201404092103388_init.Designer.cs">
-      <DependentUpon>201404092103388_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201404092301547_morestuff.cs" />
-    <Compile Include="Migrations\201404092301547_morestuff.Designer.cs">
-      <DependentUpon>201404092301547_morestuff.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Migrations\201404100618138_init.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -201,6 +186,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\freedomspace.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -253,20 +239,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201404091532456_InitialCreate.resx">
-      <DependentUpon>201404091532456_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201404091933095_requests.resx">
-      <DependentUpon>201404091933095_requests.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201404092103388_init.resx">
-      <DependentUpon>201404092103388_init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201404092301547_morestuff.resx">
-      <DependentUpon>201404092301547_morestuff.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

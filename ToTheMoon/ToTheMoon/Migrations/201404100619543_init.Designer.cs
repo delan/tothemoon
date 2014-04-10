@@ -7,13 +7,13 @@ namespace ToTheMoon.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class requests : IMigrationMetadata
+    public sealed partial class init : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(requests));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(init));
         
         string IMigrationMetadata.Id
         {
-            get { return "201404091933095_requests"; }
+            get { return "201404100619543_init"; }
         }
         
         string IMigrationMetadata.Source
