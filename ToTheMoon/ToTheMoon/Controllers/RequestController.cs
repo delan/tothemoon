@@ -24,11 +24,13 @@ namespace ToTheMoon.Controllers
             return View(db.Requests.ToList());
         }
 
+        // GET: /Request/Space
         public ActionResult Space()
         {
             return View("Space");
         }
 
+        // POST: /Request/Space
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Space([Bind(Include = "RequestID,SpaceName,ProjectID,Description,StorageTotal,YearlyGrowth")] NewSpaceRequest newspacerequest)
@@ -41,7 +43,7 @@ namespace ToTheMoon.Controllers
 
                 db.NewSpaceRequests.Add(newspacerequest);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Dashboard", "Home");
             }
 
             return View(newspacerequest);
