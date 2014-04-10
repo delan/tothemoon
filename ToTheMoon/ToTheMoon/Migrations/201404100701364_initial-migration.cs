@@ -3,7 +3,7 @@ namespace ToTheMoon.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class init : DbMigration
+    public partial class initialmigration : DbMigration
     {
         public override void Up()
         {
@@ -12,7 +12,6 @@ namespace ToTheMoon.Migrations
                 c => new
                     {
                         RequestID = c.Int(nullable: false, identity: true),
-                        RequestTimestamp = c.DateTime(nullable: false),
                         SpaceName = c.String(),
                         ProjectID = c.Int(),
                         Description = c.String(),
