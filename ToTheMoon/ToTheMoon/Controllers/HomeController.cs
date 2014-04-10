@@ -18,23 +18,10 @@ namespace ToTheMoon.Controllers
             return View();
         }
 
+        [Route("Dashboard")]
         public ActionResult Dashboard()
         {
             ViewBag.Requests = db.Requests.ToList<Request>();
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }
