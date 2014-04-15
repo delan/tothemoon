@@ -5,7 +5,10 @@
 <div class="jumbotron">
     <h1>FreedomSpace</h1>
     <p class="lead">FreedomSpace respects your need for space.</p>
+    @if (!Request.IsAuthenticated)
+    {
     <p>@Html.ActionLink("Log in", "Login", "Account", null, new { @class = "btn btn-primary btn-large"})</p>
+    }
 </div>
 
 <div class="row">
@@ -14,7 +17,7 @@
         <p>
             FreedomSpace is used by Curtin University to allocate space to eligible researchers to store their work.
         </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <p><a class="btn btn-default" href="http://handbook.curtin.edu.au/units/45/4549.html">Learn more &raquo;</a></p>
     
 <!---    <div class="col-md-4">
         <h2>Get more libraries</h2>
