@@ -5,8 +5,6 @@
 *.snm
 *.toc
 *.pdf
-*.mdf
-*.ldf
 
 #################
 ## Visual Studio
