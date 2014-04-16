@@ -232,7 +232,7 @@
     <Content Include="Views\Request\Index.cshtml" />
     <Content Include="Views\Home\Dashboard.cshtml" />
     <Content Include="Views\Request\Space.cshtml">
-      <BrowseToURL>~/Request/Create</BrowseToURL>
+      <BrowseToURL>~/Request/Space</BrowseToURL>
     </Content>
   </ItemGroup>
   <ItemGroup>
