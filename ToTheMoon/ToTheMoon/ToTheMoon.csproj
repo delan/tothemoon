@@ -231,7 +231,9 @@
     <Content Include="Views\Home\_SpacesPartial.cshtml" />
     <Content Include="Views\Request\Index.cshtml" />
     <Content Include="Views\Home\Dashboard.cshtml" />
-    <Content Include="Views\Request\Space.cshtml" />
+    <Content Include="Views\Request\Space.cshtml">
+      <BrowseToURL>~/Request/Create</BrowseToURL>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
