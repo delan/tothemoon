@@ -5,12 +5,16 @@ namespace ToTheMoon.Models
 {
     public abstract class Request
     {
-        [Key]
         public int RequestID { get; set; }
-        // public DateTime RequestTimestamp { get; set; }
+
+        [Display(Name = "Time Requested")]
+        public DateTime RequestTimestamp { get; set; }
+
+        [Display(Name = "Requested by")]
         public ApplicationUser Requester { get; set; }
 
-        public abstract string HumanReadableRequestString { get; }
+        [Display(Name = "Request")]
+        public abstract string HumanReadableRequestString { get; set; }
     }
 
     public class NewSpaceRequest : Request
@@ -44,6 +48,11 @@ namespace ToTheMoon.Models
             get
             {
                 return String.Format("New space request for {0} ({1}GB).", SpaceName, StorageTotal);
+            }
+
+            set
+            {
+                return;
             }
         }
     }
