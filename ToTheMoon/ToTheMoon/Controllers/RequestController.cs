@@ -49,6 +49,32 @@ namespace ToTheMoon.Controllers
             return View(newspacerequest);
         }
 
+        // GET: /Request/Delete/5
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Request req = db.Requests.Find(id);
+            if (req == null)
+            {
+                return HttpNotFound();
+            }
+            return View(req);
+        }
+
+        // POST: /Request/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Request req = db.Requests.Find(id);
+            db.Requests.Remove(req);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
         /*protected override void Dispose(bool disposing)
         {
             if (disposing)
