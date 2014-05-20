@@ -188,6 +188,18 @@
     <Compile Include="Migrations\201405201607108_added_fields_to_spaces1.Designer.cs">
       <DependentUpon>201405201607108_added_fields_to_spaces1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201405201842542_added_fields_to_spaces2.cs" />
+    <Compile Include="Migrations\201405201842542_added_fields_to_spaces2.Designer.cs">
+      <DependentUpon>201405201842542_added_fields_to_spaces2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405201845302_added_fields_to_spaces3.cs" />
+    <Compile Include="Migrations\201405201845302_added_fields_to_spaces3.Designer.cs">
+      <DependentUpon>201405201845302_added_fields_to_spaces3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405201849133_added_fields_to_spaces4.cs" />
+    <Compile Include="Migrations\201405201849133_added_fields_to_spaces4.Designer.cs">
+      <DependentUpon>201405201849133_added_fields_to_spaces4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -275,6 +287,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201405201607108_added_fields_to_spaces1.resx">
       <DependentUpon>201405201607108_added_fields_to_spaces1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405201842542_added_fields_to_spaces2.resx">
+      <DependentUpon>201405201842542_added_fields_to_spaces2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405201845302_added_fields_to_spaces3.resx">
+      <DependentUpon>201405201845302_added_fields_to_spaces3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405201849133_added_fields_to_spaces4.resx">
+      <DependentUpon>201405201849133_added_fields_to_spaces4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -7,6 +7,7 @@ namespace ToTheMoon.Models
     {
         public int ID { get; set; }
 
+        [Required]
         public string SpaceName { get; set; }
 
         public int ProjectID { get; set; }
