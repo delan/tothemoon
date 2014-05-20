@@ -21,18 +21,20 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            @foreach (ToTheMoon.Models.Notification notification in ViewBag.Notifications)
-            {
 
+        @foreach (ToTheMoon.Models.Notification notification in ViewBag.Notifications)
+        {
+            <tr>
                 <td height="55">
                     <p>@notification.Title</p>
                     <p>@notification.Desc</p>
                     @*@Html.ActionLink("[Approve]", "Approve", "Request", new { request.RequestID })
-                    @Html.ActionLink("[Reject]", "Reject", "Request", new { request.RequestID })
-                    @Html.ActionLink("[Comment]", "Comment", "Request", new { request.RequestID })*@
-                </td>
-            }
-        </tr>
+                        @Html.ActionLink("[Reject]", "Reject", "Request", new { request.RequestID })
+                        @Html.ActionLink("[Comment]", "Comment", "Request", new { request.RequestID })*@
+                </td>            
+            </tr> 
+        }
+
     </tbody>
+
 </table>

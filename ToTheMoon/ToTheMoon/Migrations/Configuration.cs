@@ -30,10 +30,22 @@ namespace ToTheMoon.Migrations
             context.Notifications.AddOrUpdate(n => n.NotificationID,
             new Models.Notification()
             {
-                Title = "Millie is the prettiest girl",
-                Desc = "Obviously.",
-                NotificationID = 0
+
+                Title = "Michael `Millie' Mroz (13333337)",
+                Desc = "Cardiology 420 - now the Principal Investigator",
+                NotificationID = 1
             });
+
+            context.Spaces.AddOrUpdate(n => n.ID,
+            new Models.Space()
+            {
+                SpaceName = "Software Components",
+                Description = "Patrick's students who miss him",
+                SpaceUsed = 27,
+                SpaceTotal = 107,
+                ID = 0
+            });
+
         }
     }
 }

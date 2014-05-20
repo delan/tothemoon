@@ -6,8 +6,12 @@ namespace ToTheMoon.Models
     public class Space
     {
         public int ID { get; set; }
-        
-        public string Name { get; set; }
+
+        public string SpaceName { get; set; }
+
+        public int ProjectID { get; set; }
+
+        public string Description { get; set; }
 
         [Display (Name="Total Space")]
         public int SpaceTotal { get; set; }

@@ -5,20 +5,17 @@
             <th>Total Space</th>
         </tr>
     </thead>
+
+    <tbody>
+@foreach (ToTheMoon.Models.Space space in ViewBag.Spaces)
+    {
     <tr>
         <td>
-            <p>Software Components</p>
-            <p>Patrick's students who miss him</p>
+            <p>@space.SpaceName </p>
+            <p>@space.Description</p>
         </td>
-        <td>107GB</td>
+        <td>@space.SpaceUsed GB of @space.SpaceTotal GB</td>
     </tr>
-
-    <tr>
-        <td>
-            <p>Dogecoin Mining 100</p>
-            <p> Lecture 1: To the Moon</p>
-        </td>
-        <td>1000GB</td>
-    </tr>
-
+}
+    </tbody>
 </table>

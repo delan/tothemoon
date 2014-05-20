@@ -23,6 +23,7 @@ namespace ToTheMoon.Controllers
         {
             ViewBag.Requests = db.Requests.ToList<Request>();
             ViewBag.Notifications = db.Notifications.ToList<Notification>();
+            ViewBag.Spaces = db.Spaces.ToList<Space>();
             return View();
         }
     }
