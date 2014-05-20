@@ -22,6 +22,7 @@ namespace ToTheMoon.Controllers
         public ActionResult Dashboard()
         {
             ViewBag.Requests = db.Requests.ToList<Request>();
+            ViewBag.Notifications = db.Notifications.ToList<Notification>();
             return View();
         }
     }

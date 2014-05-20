@@ -1,4 +1,4 @@
-﻿<table class="table table-hover" border="1" style="width:48%">
+﻿@*<table class="table table-hover" border="1" style="width:48%">
     <thead bgcolor="#222" style="color:white">
         <tr>
             <th>My Notifications</th>
@@ -7,9 +7,32 @@
     <tr>
         <td height="55">
             <a href="#111" target="_blank">
-                <p>Michael Mroz (15522353)</p>
-                <p>Cardiology 320 - now the Prinipal Investigator</p>
+                <p>Michael `Millie' Mroz (13333337)</p>
+                <p>Cardiology 420 - now the Principal Investigator</p>
             </a>
         </td>
     </tr>
+</table>*@
+
+<table class="table table-hover" border="1" style="width:48%">
+    <thead bgcolor="#222" style="color:white">
+        <tr>
+            <th>My Notifications</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            @foreach (ToTheMoon.Models.Notification notification in ViewBag.Notifications)
+            {
+
+                <td height="55">
+                    <p>@notification.Title</p>
+                    <p>@notification.Desc</p>
+                    @*@Html.ActionLink("[Approve]", "Approve", "Request", new { request.RequestID })
+                    @Html.ActionLink("[Reject]", "Reject", "Request", new { request.RequestID })
+                    @Html.ActionLink("[Comment]", "Comment", "Request", new { request.RequestID })*@
+                </td>
+            }
+        </tr>
+    </tbody>
 </table>

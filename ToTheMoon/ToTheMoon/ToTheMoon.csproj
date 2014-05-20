@@ -176,9 +176,14 @@
     <Compile Include="Migrations\201404180415482_add-timestamp.Designer.cs">
       <DependentUpon>201404180415482_add-timestamp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201405200902085_added notifications.cs" />
+    <Compile Include="Migrations\201405200902085_added notifications.Designer.cs">
+      <DependentUpon>201405200902085_added notifications.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Notification.cs" />
     <Compile Include="Models\Request.cs" />
     <Compile Include="Models\Space.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -253,6 +258,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201404180415482_add-timestamp.resx">
       <DependentUpon>201404180415482_add-timestamp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405200902085_added notifications.resx">
+      <DependentUpon>201405200902085_added notifications.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -26,6 +26,14 @@ namespace ToTheMoon.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            context.Notifications.AddOrUpdate(n => n.NotificationID,
+            new Models.Notification()
+            {
+                Title = "Millie is the prettiest girl",
+                Desc = "Obviously.",
+                NotificationID = 0
+            });
         }
     }
 }
