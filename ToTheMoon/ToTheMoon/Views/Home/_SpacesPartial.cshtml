@@ -14,7 +14,15 @@
             <p>@space.SpaceName </p>
             <p>@space.Description</p>
         </td>
-        <td>@space.SpaceUsed GB of @space.SpaceTotal GB</td>
+        <td>
+            <p>@space.SpaceUsed GB of @space.SpaceTotal GB</p>
+            <p>
+                <div class="progress">
+                    @{double percentageComplete = ((float)space.SpaceUsed / (float)space.SpaceTotal) * 100;}
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="@space.SpaceUsed" aria-valuemin="0" aria-valuemax=@space.SpaceTotal style="width: @percentageComplete%"></div>
+                </div>
+            </p>
+        </td>
     </tr>
 }
     </tbody>
