@@ -34,12 +34,15 @@
                 </td>
                 <td>
                     <div class="progress">
-                        @{double percentageComplete = ((float)item.SpaceUsed / (float)item.SpaceTotal) * 100;}
+                        @{
+                            double percentageComplete = ((float)item.SpaceUsed / (float)item.SpaceTotal) * 100;
+                            percentageComplete = Math.Round(percentageComplete, 0);
+                          }
                         <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="@item.SpaceUsed" aria-valuemin="0" aria-valuemax=@item.SpaceTotal style="width: @percentageComplete%"></div>
                     </div>
                 </td>
                 <td>
-                    @item.SpaceUsed GB / @item.SpaceTotal GB (@percentageComplete %)
+                    @item.SpaceUsed GB / @item.SpaceTotal GB (@percentageComplete%)
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |

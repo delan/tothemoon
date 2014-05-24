@@ -7,6 +7,7 @@
     {
         <tbody>
             <td>
+               @* <p>Requested by: @request.Requester.FirstName</p>*@
                 <p>@request.HumanReadableRequestString</p>
                 @Html.ActionLink("[Approve]", "Approve", "Request", new { request.RequestID })
                 @Html.ActionLink("[Reject]", "Reject", "Request", new { request.RequestID })
