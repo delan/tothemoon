@@ -27,7 +27,7 @@
         </dd>
 
         <dt>
-            Approval Status
+            @Html.DisplayNameFor(model => model.Approved)
         </dt>
         <dd>
             @{
@@ -46,7 +46,9 @@
             }
         </dd>
 
-        @{if(Model.Comment != "5")
+
+        @*Doesn't work, i need to look at this again later*@
+        @{if(Model.Comment != "")
             {
                 @("<dt>");
                 Html.DisplayNameFor(model => model.Comment);

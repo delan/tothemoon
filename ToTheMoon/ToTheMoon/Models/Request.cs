@@ -17,6 +17,7 @@ namespace ToTheMoon.Models
         [Display(Name = "Request")]
         public abstract string HumanReadableRequestString { get; set; }
 
+        [Display(Name = "Approval Status")]
         public bool? Approved { get; set; }
 
         [Display(Name = "Comment")]

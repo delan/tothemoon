@@ -36,9 +36,10 @@
                 @Html.DisplayFor(modelItem => item.RequestTimestamp)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.RequestID }) |
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.RequestID }) |*@
                 @Html.ActionLink("Details", "Details", new { id = item.RequestID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.RequestID })
+                @Html.ActionLink("Cancel", "Delete", new { id = item.RequestID })
+                @* Comment link here for admins *@
             </td>
         </tr>
     }

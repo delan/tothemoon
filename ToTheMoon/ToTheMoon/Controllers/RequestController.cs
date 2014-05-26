@@ -29,7 +29,8 @@ namespace ToTheMoon.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("Index");
             }
             Request req = db.Requests.Find(id);
             if (req == null)
@@ -64,12 +65,45 @@ namespace ToTheMoon.Controllers
             return View(newspacerequest);
         }
 
+        // GET: /Request/Comment/<id>
+        public ActionResult Comment(int? id)
+        {
+            if (id == null)
+            {
+                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("Index");
+            }
+            Request req  = db.Requests.Find(id);
+            if (req == null)
+            {
+                return HttpNotFound();
+            }
+            return View(req);
+        }
+
+        // POST: /Request/Comment/<id>
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Comment([Bind(Include="RequestID,Comment")] Request req)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(req).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(req);
+        }
+
         // GET: /Request/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("Index");
             }
             Request req = db.Requests.Find(id);
             if (req == null)

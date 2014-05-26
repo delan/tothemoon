@@ -26,7 +26,8 @@ namespace ToTheMoon.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("Index");
             }
             Space space = db.Spaces.Find(id);
             if (space == null)
@@ -64,7 +65,8 @@ namespace ToTheMoon.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("Index");
             }
             Space space = db.Spaces.Find(id);
             if (space == null)
@@ -95,7 +97,8 @@ namespace ToTheMoon.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("Index");
             }
             Space space = db.Spaces.Find(id);
             if (space == null)
