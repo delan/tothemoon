@@ -265,6 +265,7 @@
     <Content Include="Views\Request\Index.cshtml" />
     <Content Include="Views\Home\Dashboard.cshtml" />
     <Content Include="Views\Request\Space.cshtml" />
+    <Content Include="Views\Request\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\NewSpaceRequest\" />
