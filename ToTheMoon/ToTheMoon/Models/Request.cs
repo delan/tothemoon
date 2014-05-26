@@ -16,6 +16,18 @@ namespace ToTheMoon.Models
 
         [Display(Name = "Request")]
         public abstract string HumanReadableRequestString { get; set; }
+
+        public bool? Approved { get; set; }
+
+        [Display(Name = "Comment")]
+        public string Comment { get; set; }
+
+        //Constructor
+        public Request()
+        {
+            Comment = "";
+            Approved = null;
+        }
     }
 
     public class NewSpaceRequest : Request

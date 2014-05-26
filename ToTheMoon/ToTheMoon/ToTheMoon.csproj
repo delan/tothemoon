@@ -200,6 +200,10 @@
     <Compile Include="Migrations\201405201849133_added_fields_to_spaces4.Designer.cs">
       <DependentUpon>201405201849133_added_fields_to_spaces4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201405261226212_Request_Comments.cs" />
+    <Compile Include="Migrations\201405261226212_Request_Comments.Designer.cs">
+      <DependentUpon>201405261226212_Request_Comments.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -266,6 +270,7 @@
     <Content Include="Views\Home\Dashboard.cshtml" />
     <Content Include="Views\Request\Space.cshtml" />
     <Content Include="Views\Request\Delete.cshtml" />
+    <Content Include="Views\Request\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\NewSpaceRequest\" />
@@ -300,6 +305,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201405201849133_added_fields_to_spaces4.resx">
       <DependentUpon>201405201849133_added_fields_to_spaces4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405261226212_Request_Comments.resx">
+      <DependentUpon>201405261226212_Request_Comments.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

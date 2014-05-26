@@ -1,0 +1,64 @@
+﻿@model ToTheMoon.Models.Request
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Request</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HumanReadableRequestString)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HumanReadableRequestString)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestTimestamp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestTimestamp)
+        </dd>
+
+        <dt>
+            Approval Status
+        </dt>
+        <dd>
+            @{
+                if(Model.Approved == null)
+                {
+                    @("Pending");
+                }
+                else if((bool)Model.Approved)
+                {
+                    @("Approved");
+                }
+                else
+                {
+                    @("Rejected");
+                }
+            }
+        </dd>
+
+        @{if(Model.Comment != "5")
+            {
+                @("<dt>");
+                Html.DisplayNameFor(model => model.Comment);
+                @("</dt> <dd>");
+                Html.DisplayFor(model => model.Comment);
+                @("</dd>");
+            }
+         }
+
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |*@
+    @Html.ActionLink("Back to List", "Index")
+</p>
