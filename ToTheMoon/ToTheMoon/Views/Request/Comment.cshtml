@@ -4,7 +4,7 @@
     ViewBag.Title = "Comment";
 }
 
-<h2>Edit</h2>
+<h2>Comment</h2>
 
 
 @using (Html.BeginForm())
@@ -17,17 +17,17 @@
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.RequestID)
 
-        @*<div class="form-group">
+        <div class="form-group">
             @Html.LabelFor(model => model.HumanReadableRequestString, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DisplayFor(model => model.HumanReadableRequestString)
             </div>
-        </div>*@
+        </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Comment, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Comment)
+                @Html.TextAreaFor(model => model.Comment, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Comment)
             </div>
         </div>

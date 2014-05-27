@@ -204,6 +204,10 @@
     <Compile Include="Migrations\201405261226212_Request_Comments.Designer.cs">
       <DependentUpon>201405261226212_Request_Comments.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201405270219165_nothing-changed.cs" />
+    <Compile Include="Migrations\201405270219165_nothing-changed.Designer.cs">
+      <DependentUpon>201405270219165_nothing-changed.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -309,6 +313,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201405261226212_Request_Comments.resx">
       <DependentUpon>201405261226212_Request_Comments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405270219165_nothing-changed.resx">
+      <DependentUpon>201405270219165_nothing-changed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

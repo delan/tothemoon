@@ -46,17 +46,16 @@
             }
         </dd>
 
-
-        @*Doesn't work, i need to look at this again later*@
-        @{if(Model.Comment != "")
-            {
-                @("<dt>");
-                Html.DisplayNameFor(model => model.Comment);
-                @("</dt> <dd>");
-                Html.DisplayFor(model => model.Comment);
-                @("</dd>");
+        <dt>
+            @{if (Model.Comment != null)
+                {
+                    @Html.DisplayNameFor(model => model.Comment);
+                }
             }
-         }
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Comment)
+        </dd>
 
     </dl>
 </div>
