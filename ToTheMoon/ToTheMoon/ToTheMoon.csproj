@@ -236,7 +236,7 @@
     <Content Include="Views\NewSpaceRequest\Delete.cshtml" />
     <Content Include="Views\NewSpaceRequest\Details.cshtml" />
     <Content Include="Views\NewSpaceRequest\Edit.cshtml" />
-    <Content Include="Views\NewSpaceRequest\Index.cshtml" />
+    <Content Include="Views\Home\_RequestPartial2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\Requests\" />
