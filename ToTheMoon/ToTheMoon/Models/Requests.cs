@@ -55,7 +55,7 @@ namespace ToTheMoon.Models
         public string brief { get; set; }
 
         [Display(Name = "Increase (GB)")]
-        public int increas { get; set; }
+        public int increase { get; set; }
 
         //[Required]
         public ApplicationUser requester { get; set; }

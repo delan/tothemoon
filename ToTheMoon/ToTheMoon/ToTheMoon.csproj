@@ -162,6 +162,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IncreaseSpaceRequestController.cs" />
     <Compile Include="Controllers\NewSpaceRequestController.cs" />
     <Compile Include="DAL\ProjectContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -182,6 +183,10 @@
     <Compile Include="Migrations\201405272002122_not-req.cs" />
     <Compile Include="Migrations\201405272002122_not-req.Designer.cs">
       <DependentUpon>201405272002122_not-req.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405272114004_typo-increas.cs" />
+    <Compile Include="Migrations\201405272114004_typo-increas.Designer.cs">
+      <DependentUpon>201405272114004_typo-increas.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -245,6 +250,11 @@
     <Content Include="Views\NewSpaceRequest\Details.cshtml" />
     <Content Include="Views\NewSpaceRequest\Edit.cshtml" />
     <Content Include="Views\Home\_RequestPartial2.cshtml" />
+    <Content Include="Views\IncreaseSpaceRequest\Create.cshtml" />
+    <Content Include="Views\IncreaseSpaceRequest\Delete.cshtml" />
+    <Content Include="Views\IncreaseSpaceRequest\Details.cshtml" />
+    <Content Include="Views\IncreaseSpaceRequest\Edit.cshtml" />
+    <Content Include="Views\Home\_IncreaseSpacePartial.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -265,6 +275,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201405272002122_not-req.resx">
       <DependentUpon>201405272002122_not-req.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405272114004_typo-increas.resx">
+      <DependentUpon>201405272114004_typo-increas.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
