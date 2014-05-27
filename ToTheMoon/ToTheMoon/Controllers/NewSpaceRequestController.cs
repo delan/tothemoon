@@ -51,13 +51,13 @@ namespace ToTheMoon.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include="name,brief,SpaceID,capacity,increase")] NewSpaceRequest newspacerequest)
         {
-           
-            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ProjectContext()));
-            var currentUser = manager.FindById(User.Identity.GetUserId());
 
-            newspacerequest.requester = currentUser;
+            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ProjectContext()));
+            ApplicationUser currentUser = manager.FindById(User.Identity.GetUserId());
+
+            newspacerequest.requester = (ApplicationUser)db.Users.Find(currentUser.Id);
             newspacerequest.timestamp = DateTime.Now;
-            
+    
             if (ModelState.IsValid)
             {
 
