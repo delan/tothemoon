@@ -16,13 +16,13 @@ namespace ToTheMoon.Models
         public string Name { get; set; }
 
         [Required]
-        public uint capacity { get; set; }
+        public int capacity { get; set; }
 
         [Required]
-        public uint used { get; set; }
+        public int used { get; set; }
 
         [Required]
-        public uint increase { get; set; }
+        public int increase { get; set; }
 
         //[Required]
         public ApplicationUser PI { get; set; }

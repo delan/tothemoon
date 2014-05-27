@@ -175,6 +175,10 @@
     <Compile Include="Migrations\201405271852176_removed-request-state.Designer.cs">
       <DependentUpon>201405271852176_removed-request-state.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201405271925425_no-more-uint.cs" />
+    <Compile Include="Migrations\201405271925425_no-more-uint.Designer.cs">
+      <DependentUpon>201405271925425_no-more-uint.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Requests.cs" />
@@ -238,9 +242,7 @@
     <Content Include="Views\NewSpaceRequest\Edit.cshtml" />
     <Content Include="Views\Home\_RequestPartial2.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\Requests\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -253,6 +255,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201405271852176_removed-request-state.resx">
       <DependentUpon>201405271852176_removed-request-state.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405271925425_no-more-uint.resx">
+      <DependentUpon>201405271925425_no-more-uint.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

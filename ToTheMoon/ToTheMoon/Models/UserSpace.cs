@@ -12,7 +12,7 @@ namespace ToTheMoon.Models
         public ApplicationUser user { get; set; }
 
         [Key]
-        public Space spacev { get; set; }
+        public Space space { get; set; }
 
         [Required]
         public SpaceRole role { get; set; }

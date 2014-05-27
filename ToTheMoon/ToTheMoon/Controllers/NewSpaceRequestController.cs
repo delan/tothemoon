@@ -6,6 +6,8 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using ToTheMoon.Models;
 using ToTheMoon.DAL;
 
@@ -47,10 +49,17 @@ namespace ToTheMoon.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="ID,name,brief,comment,timestamp")] NewSpaceRequest newspacerequest)
+        public ActionResult Create([Bind(Include="ID,name,brief,SpaceID,capacity,increase")] NewSpaceRequest newspacerequest)
         {
             if (ModelState.IsValid)
             {
+                newspacerequest.timestamp = DateTime.Now;
+                
+                var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ProjectContext()));
+                var currentUser = manager.FindById(User.Identity.GetUserId());
+
+                newspacerequest.requester = currentUser;
+
                 db.NewSpaceRequests.Add(newspacerequest);
                 db.SaveChanges();
                 return RedirectToAction("Index");

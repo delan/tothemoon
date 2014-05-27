@@ -19,7 +19,7 @@ namespace ToTheMoon.Models
 
         [Required]
         [Display(Name = "Project ID")]
-        public uint SpaceID { get; set; }
+        public int SpaceID { get; set; }
 
         [Display(Name = "Brief")]
         public string brief { get; set; }
@@ -29,11 +29,11 @@ namespace ToTheMoon.Models
 
         [Required]
         [Display(Name = "Capacity (GB)")]
-        public uint capacity { get; set; }
+        public int capacity { get; set; }
 
         [Required]
         [Display(Name = "Yearly Increase")]
-        public uint increase { get; set; }
+        public int increase { get; set; }
 
         [Required]
         public ApplicationUser requester { get; set; }
@@ -55,7 +55,7 @@ namespace ToTheMoon.Models
         public string brief { get; set; }
 
         [Display(Name = "Increase (GB)")]
-        public uint increas { get; set; }
+        public int increas { get; set; }
 
         [Required]
         public ApplicationUser requester { get; set; }
