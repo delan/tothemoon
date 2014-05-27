@@ -73,6 +73,11 @@ namespace ToTheMoon.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            if(User.Identity.IsAuthenticated)
+            {
+                return Redirect("Dashboard");
+            }
+
             return View();
         }
 
