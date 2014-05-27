@@ -49,6 +49,12 @@ namespace ToTheMoon.Controllers
                 var user = await UserManager.FindAsync(model.UserName, model.Password);
                 if (user != null)
                 {
+                    var identity = await UserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
+                    identity.AddClaim(new Claim("FirstName", user.FirstName));
+                    identity.AddClaim(new Claim("LastName", user.LastName));
+                    identity.AddClaim(new Claim("Email", user.Email));
+                    identity.AddClaim(new Claim("Role", user.role.ToString()));
+
                     await SignInAsync(user, model.RememberMe);
                     return RedirectToLocal(returnUrl);
                 }
