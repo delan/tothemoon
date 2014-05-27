@@ -162,6 +162,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NewSpaceRequestController.cs" />
     <Compile Include="DAL\ProjectContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -231,6 +232,11 @@
     <Content Include="Views\Home\_RequestsPartial.cshtml" />
     <Content Include="Views\Home\_SpacesPartial.cshtml" />
     <Content Include="Views\Home\Dashboard.cshtml" />
+    <Content Include="Views\NewSpaceRequest\Create.cshtml" />
+    <Content Include="Views\NewSpaceRequest\Delete.cshtml" />
+    <Content Include="Views\NewSpaceRequest\Details.cshtml" />
+    <Content Include="Views\NewSpaceRequest\Edit.cshtml" />
+    <Content Include="Views\NewSpaceRequest\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\Requests\" />
