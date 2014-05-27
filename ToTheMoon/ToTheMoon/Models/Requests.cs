@@ -35,10 +35,10 @@ namespace ToTheMoon.Models
         [Display(Name = "Yearly Increase")]
         public int increase { get; set; }
 
-        [Required]
+        //[Required]
         public ApplicationUser requester { get; set; }
 
-        [Required]
+        //[Required]
         public DateTime timestamp { get; set; }
     }
 
@@ -57,10 +57,10 @@ namespace ToTheMoon.Models
         [Display(Name = "Increase (GB)")]
         public int increas { get; set; }
 
-        [Required]
+        //[Required]
         public ApplicationUser requester { get; set; }
 
-        [Required]
+        //[Required]
         public DateTime timestamp { get; set; }
     }
 

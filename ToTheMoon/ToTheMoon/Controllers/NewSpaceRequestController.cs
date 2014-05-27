@@ -49,16 +49,17 @@ namespace ToTheMoon.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="ID,name,brief,SpaceID,capacity,increase")] NewSpaceRequest newspacerequest)
+        public ActionResult Create([Bind(Include="name,brief,SpaceID,capacity,increase")] NewSpaceRequest newspacerequest)
         {
+           
+            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ProjectContext()));
+            var currentUser = manager.FindById(User.Identity.GetUserId());
+
+            newspacerequest.requester = currentUser;
+            newspacerequest.timestamp = DateTime.Now;
+            
             if (ModelState.IsValid)
             {
-                newspacerequest.timestamp = DateTime.Now;
-                
-                var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ProjectContext()));
-                var currentUser = manager.FindById(User.Identity.GetUserId());
-
-                newspacerequest.requester = currentUser;
 
                 db.NewSpaceRequests.Add(newspacerequest);
                 db.SaveChanges();
