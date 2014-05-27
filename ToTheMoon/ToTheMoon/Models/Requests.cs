@@ -36,10 +36,6 @@ namespace ToTheMoon.Models
         public uint increase { get; set; }
 
         [Required]
-        [Display(Name = "Request Status")]
-        public RequestStatus status { get; set; }
-
-        [Required]
         public ApplicationUser requester { get; set; }
 
         [Required]
@@ -62,20 +58,10 @@ namespace ToTheMoon.Models
         public uint increas { get; set; }
 
         [Required]
-        [Display(Name = "Request Status")]
-        public RequestStatus status { get; set; }
-
-        [Required]
         public ApplicationUser requester { get; set; }
 
         [Required]
         public DateTime timestamp { get; set; }
     }
 
-    public enum RequestStatus
-    {
-        PENDING,
-        APPROVED,
-        DENIED
-    }
 }
