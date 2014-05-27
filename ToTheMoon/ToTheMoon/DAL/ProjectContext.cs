@@ -14,9 +14,7 @@ namespace ToTheMoon.DAL
         }
 
         public DbSet<Space> Spaces { get; set; }
-        public DbSet<Request> Requests { get; set; }
-        public DbSet<Notification> Notifications { get; set; }
-
-        public System.Data.Entity.DbSet<ToTheMoon.Models.NewSpaceRequest> NewSpaceRequests { get; set; }
+        public DbSet<NewSpaceRequest> NewSpaceRequests { get; set; }
+        public DbSet<IncreaseSpaceRequest> IncreaseSpaceRequests { get; set; }
     }
 }

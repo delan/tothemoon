@@ -162,54 +162,20 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\RequestController.cs" />
-    <Compile Include="Controllers\SpacesController.cs" />
     <Compile Include="DAL\ProjectContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201404100701364_initial-migration.cs" />
-    <Compile Include="Migrations\201404100701364_initial-migration.Designer.cs">
-      <DependentUpon>201404100701364_initial-migration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201404180415482_add-timestamp.cs" />
-    <Compile Include="Migrations\201404180415482_add-timestamp.Designer.cs">
-      <DependentUpon>201404180415482_add-timestamp.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201405200902085_added notifications.cs" />
-    <Compile Include="Migrations\201405200902085_added notifications.Designer.cs">
-      <DependentUpon>201405200902085_added notifications.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201405201548399_added_fields_to_spaces.cs" />
-    <Compile Include="Migrations\201405201548399_added_fields_to_spaces.Designer.cs">
-      <DependentUpon>201405201548399_added_fields_to_spaces.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201405201607108_added_fields_to_spaces1.cs" />
-    <Compile Include="Migrations\201405201607108_added_fields_to_spaces1.Designer.cs">
-      <DependentUpon>201405201607108_added_fields_to_spaces1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201405201842542_added_fields_to_spaces2.cs" />
-    <Compile Include="Migrations\201405201842542_added_fields_to_spaces2.Designer.cs">
-      <DependentUpon>201405201842542_added_fields_to_spaces2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201405201845302_added_fields_to_spaces3.cs" />
-    <Compile Include="Migrations\201405201845302_added_fields_to_spaces3.Designer.cs">
-      <DependentUpon>201405201845302_added_fields_to_spaces3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201405201849133_added_fields_to_spaces4.cs" />
-    <Compile Include="Migrations\201405201849133_added_fields_to_spaces4.Designer.cs">
-      <DependentUpon>201405201849133_added_fields_to_spaces4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201405261226212_Request_Comments.cs" />
-    <Compile Include="Migrations\201405261226212_Request_Comments.Designer.cs">
-      <DependentUpon>201405261226212_Request_Comments.cs</DependentUpon>
+    <Compile Include="Migrations\201405271649426_fixes-more-things.cs" />
+    <Compile Include="Migrations\201405271649426_fixes-more-things.Designer.cs">
+      <DependentUpon>201405271649426_fixes-more-things.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\Notification.cs" />
-    <Compile Include="Models\Request.cs" />
+    <Compile Include="Models\Requests.cs" />
     <Compile Include="Models\Space.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\UserSpace.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -258,22 +224,12 @@
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Spaces\Create.cshtml" />
-    <Content Include="Views\Spaces\Delete.cshtml" />
-    <Content Include="Views\Spaces\Details.cshtml" />
-    <Content Include="Views\Spaces\Edit.cshtml" />
-    <Content Include="Views\Spaces\Index.cshtml" />
-    <Content Include="Views\Home\_NotificationsPartial.cshtml" />
     <Content Include="Views\Home\_RequestsPartial.cshtml" />
     <Content Include="Views\Home\_SpacesPartial.cshtml" />
-    <Content Include="Views\Request\Index.cshtml" />
     <Content Include="Views\Home\Dashboard.cshtml" />
-    <Content Include="Views\Request\Space.cshtml" />
-    <Content Include="Views\Request\Delete.cshtml" />
-    <Content Include="Views\Request\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\NewSpaceRequest\" />
+    <Folder Include="Models\Requests\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -282,32 +238,8 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201404100701364_initial-migration.resx">
-      <DependentUpon>201404100701364_initial-migration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201404180415482_add-timestamp.resx">
-      <DependentUpon>201404180415482_add-timestamp.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201405200902085_added notifications.resx">
-      <DependentUpon>201405200902085_added notifications.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201405201548399_added_fields_to_spaces.resx">
-      <DependentUpon>201405201548399_added_fields_to_spaces.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201405201607108_added_fields_to_spaces1.resx">
-      <DependentUpon>201405201607108_added_fields_to_spaces1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201405201842542_added_fields_to_spaces2.resx">
-      <DependentUpon>201405201842542_added_fields_to_spaces2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201405201845302_added_fields_to_spaces3.resx">
-      <DependentUpon>201405201845302_added_fields_to_spaces3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201405201849133_added_fields_to_spaces4.resx">
-      <DependentUpon>201405201849133_added_fields_to_spaces4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201405261226212_Request_Comments.resx">
-      <DependentUpon>201405261226212_Request_Comments.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201405271649426_fixes-more-things.resx">
+      <DependentUpon>201405271649426_fixes-more-things.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

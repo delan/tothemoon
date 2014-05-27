@@ -1,24 +1,30 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.ComponentModel.DataAnnotations;
+
 
 namespace ToTheMoon.Models
 {
     public class Space
     {
-        public int ID { get; set; }
+        [Key]
+        public int key { get; set; }
 
         [Required]
-        public string SpaceName { get; set; }
+        public string Name { get; set; }
 
-        public int ProjectID { get; set; }
+        [Required]
+        public uint capacity { get; set; }
 
-        public string Description { get; set; }
+        [Required]
+        public uint used { get; set; }
 
-        [Display (Name="Total Space")]
-        public int SpaceTotal { get; set; }
+        [Required]
+        public uint increase { get; set; }
 
-        [Display (Name="Space Used")]
-        public int SpaceUsed { get; set; }
-        //public ApplicationUser PrincipalInvestigator { get; set; }
+        //[Required]
+        public ApplicationUser PI { get; set; }
     }
 }

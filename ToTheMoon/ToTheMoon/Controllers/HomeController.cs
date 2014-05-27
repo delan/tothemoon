@@ -21,8 +21,8 @@ namespace ToTheMoon.Controllers
         [Route("Dashboard")]
         public ActionResult Dashboard()
         {
-            ViewBag.Requests = db.Requests.ToList<Request>();
-            ViewBag.Notifications = db.Notifications.ToList<Notification>();
+            ViewBag.NewSpaceRequests = db.NewSpaceRequests.ToList<NewSpaceRequest>();
+            ViewBag.IncreaseSpaceRequests = db.IncreaseSpaceRequests.ToList<IncreaseSpaceRequest>();
             ViewBag.Spaces = db.Spaces.ToList<Space>();
             return View();
         }
