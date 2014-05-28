@@ -52,20 +52,6 @@ namespace ToTheMoon.Controllers
             return View(incspacerequest);
         }
 
-        public ActionResult Comment(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            IncreaseSpaceRequest incspacerequest = db.IncreaseSpaceRequests.Find(id);
-            if (incspacerequest == null)
-            {
-                return HttpNotFound();
-            }
-            return View(incspacerequest);
-        }
-
 
         // GET: /IncreaseSpaceRequest/Create/<id>
         public ActionResult Create(int? SpaceID)
@@ -88,7 +74,7 @@ namespace ToTheMoon.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="brief,increase")] IncreaseSpaceRequest increasespacerequest)
+        public ActionResult Create([Bind(Include="space,brief,increase")] IncreaseSpaceRequest increasespacerequest)
         {
             var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ProjectContext()));
             ApplicationUser currentUser = manager.FindById(User.Identity.GetUserId());
@@ -100,7 +86,7 @@ namespace ToTheMoon.Controllers
             {
                 db.IncreaseSpaceRequests.Add(increasespacerequest);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("../Dashboard");
             }
 
             return View(increasespacerequest);
@@ -126,28 +112,14 @@ namespace ToTheMoon.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Review([Bind(Include = "ID,brief,increas,timestamp")] IncreaseSpaceRequest increasespacerequest)
+        public ActionResult Comment([Bind(Include = "space,brief,increase")] IncreaseSpaceRequest increasespacerequest)
         {
             if (ModelState.IsValid)
             {
+                increasespacerequest.timestamp = DateTime.Now;
                 db.Entry(increasespacerequest).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(increasespacerequest);
-        }
-        // POST: /IncreaseSpaceRequest/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Comment([Bind(Include = "ID,brief,increas,timestamp")] IncreaseSpaceRequest increasespacerequest)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(increasespacerequest).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("../Dashboard");
             }
             return View(increasespacerequest);
         }
@@ -184,7 +156,7 @@ namespace ToTheMoon.Controllers
             ///////////////////////////////
 
 
-            return RedirectToAction("Index");
+            return RedirectToAction("../Dashboard");
         }
 
         // POST: /incspacerequest/Delete/5
@@ -203,7 +175,7 @@ namespace ToTheMoon.Controllers
             ///////////////////////////////
             ///////////////////////////////
 
-            return RedirectToAction("Index");
+            return RedirectToAction("../Dashboard");
         }
 /*
         // POST: /IncreaseSpaceRequest/Delete/5
