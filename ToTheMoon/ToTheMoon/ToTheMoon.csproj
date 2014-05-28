@@ -188,6 +188,10 @@
     <Compile Include="Migrations\201405272114004_typo-increas.Designer.cs">
       <DependentUpon>201405272114004_typo-increas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201405281259091_userspace.cs" />
+    <Compile Include="Migrations\201405281259091_userspace.Designer.cs">
+      <DependentUpon>201405281259091_userspace.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Requests.cs" />
@@ -279,6 +283,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201405272114004_typo-increas.resx">
       <DependentUpon>201405272114004_typo-increas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405281259091_userspace.resx">
+      <DependentUpon>201405281259091_userspace.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

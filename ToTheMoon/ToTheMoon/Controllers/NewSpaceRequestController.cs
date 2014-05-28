@@ -129,7 +129,13 @@ namespace ToTheMoon.Controllers
             space.PI = newspacerequest.requester;
             space.used = 0;
 
+            UserSpace userspace = new UserSpace();
+            userspace.space = space;
+            userspace.user = space.PI;
+            userspace.role = SpaceRole.DATAMANAGER;
+
             db.Spaces.Add(space);
+            //db.UserSpace.Add(userspace);
             db.NewSpaceRequests.Remove(newspacerequest);
             db.SaveChanges();
 
