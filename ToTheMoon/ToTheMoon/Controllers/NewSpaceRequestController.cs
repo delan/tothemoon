@@ -87,18 +87,23 @@ namespace ToTheMoon.Controllers
         // POST: /NewSpaceRequest/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Edit([Bind(Include="ID,name,brief,comment,timestamp")] NewSpaceRequest newspacerequest)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        db.Entry(newspacerequest).State = EntityState.Modified;
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-        //    return View(newspacerequest);
-        //}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Review([Bind(Include = "ID,name,SpaceID,capacity,increase,comment")] NewSpaceRequest newspacerequest)
+        {
+            String comment = newspacerequest.comment;
+            newspacerequest = db.NewSpaceRequests.Find(newspacerequest.ID);
+            newspacerequest.comment = comment;
+            newspacerequest.timestamp = DateTime.Now;
+
+            if (ModelState.IsValid)
+            {
+                db.Entry(newspacerequest).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("../Dashboard");
+            }
+            return View(newspacerequest);
+        }
 
         // GET: /NewSpaceRequest/Delete/5
         public ActionResult Review(int? id)
