@@ -113,7 +113,7 @@ namespace ToTheMoon.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Comment([Bind(Include = "space,brief,increase")] IncreaseSpaceRequest increasespacerequest)
+        public ActionResult Comment([Bind(Include = "SpaceID,brief,increase")] IncreaseSpaceRequest increasespacerequest)
         {
             if (ModelState.IsValid)
             {
