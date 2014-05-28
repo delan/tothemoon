@@ -101,7 +101,7 @@ namespace ToTheMoon.Controllers
         //}
 
         // GET: /NewSpaceRequest/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Review(int? id)
         {
             if (id == null)
             {
@@ -116,13 +116,49 @@ namespace ToTheMoon.Controllers
         }
 
         // POST: /NewSpaceRequest/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("Review")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult Approve(int id)
         {
             NewSpaceRequest newspacerequest = db.NewSpaceRequests.Find(id);
+            Space space = new Space();
+            space.capacity = newspacerequest.capacity;
+            space.increase = newspacerequest.increase;
+            space.key = newspacerequest.SpaceID;
+            space.Name = newspacerequest.name;
+            space.PI = newspacerequest.requester;
+            space.used = 0;
+
+            db.Spaces.Add(space);
             db.NewSpaceRequests.Remove(newspacerequest);
             db.SaveChanges();
+
+            ///////////////////////////////
+            ///////////////////////////////
+            ////Send Email to Requester////
+            ///////////////////////////////
+            ///////////////////////////////
+
+
+            return RedirectToAction("Index");
+        }
+
+        // POST: /NewSpaceRequest/Delete/5
+        [HttpPost, ActionName("Review")]
+        [ValidateAntiForgeryToken]
+        public ActionResult Decline(int id)
+        {
+            NewSpaceRequest newspacerequest = db.NewSpaceRequests.Find(id);
+           
+            db.NewSpaceRequests.Remove(newspacerequest);
+            db.SaveChanges();
+
+            ///////////////////////////////
+            ///////////////////////////////
+            ////Send Email to Requester////
+            ///////////////////////////////
+            ///////////////////////////////
+
             return RedirectToAction("Index");
         }
 
