@@ -31,15 +31,11 @@ namespace ToTheMoon.Controllers
 
 
 
-            if(currentUser.role == GlobalRole.ADMIN)
+            if(currentUser.role == GlobalRole.ADMIN || currentUser.role == GlobalRole.APPROVER)
             {
                 ViewBag.NewSpaceRequests = db.NewSpaceRequests.ToList<NewSpaceRequest>();
                 ViewBag.IncreaseSpaceRequests = db.IncreaseSpaceRequests.ToList<IncreaseSpaceRequest>();
                 ViewBag.Spaces = db.Spaces.ToList<Space>();
-            }
-            else if(currentUser.role == GlobalRole.APPROVER)
-            {
-                //things
             }
             else
             {
