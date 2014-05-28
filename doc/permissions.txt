@@ -1,15 +1,14 @@
                 Receive approval notifications
                 | View available spaces
-                | | Request additional space
+                | | Request access to space
                 | | | Grant/revoke access to space
                 | | | | Promote/demote Data Manager
-                | | | | | Request access to space
+                | | | | | Request additional space
                 | | | | | | Approve new/expanded space
                 | | | | | | | Set Pri.Inv. owning space
                 | | | | | | | | Comment on requests
                 | | | | | | | | |
         Admins  X X X X X X X X X
-     Approvers  X X X X X X X
-Principal Invs  X X X X X X
- Data Managers  X X X X X
-   Researchers  X X
+     Approvers  X X X X X X X X
+ Data Managers  X X X X X X
+   Researchers  X X X
