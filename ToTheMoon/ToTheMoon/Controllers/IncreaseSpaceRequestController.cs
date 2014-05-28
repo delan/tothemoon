@@ -24,7 +24,7 @@ namespace ToTheMoon.Controllers
         }
 
         // GET: /IncreaseSpaceRequest/Details/5
-        public ActionResult Details(int? id)
+       /* public ActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -36,7 +36,36 @@ namespace ToTheMoon.Controllers
                 return HttpNotFound();
             }
             return View(increasespacerequest);
+        }*/
+
+        public ActionResult Review(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            IncreaseSpaceRequest incspacerequest = db.IncreaseSpaceRequests.Find(id);
+            if (incspacerequest == null)
+            {
+                return HttpNotFound();
+            }
+            return View(incspacerequest);
         }
+
+        public ActionResult Comment(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            IncreaseSpaceRequest incspacerequest = db.IncreaseSpaceRequests.Find(id);
+            if (incspacerequest == null)
+            {
+                return HttpNotFound();
+            }
+            return View(incspacerequest);
+        }
+
 
         // GET: /IncreaseSpaceRequest/Create/<id>
         public ActionResult Create(int? SpaceID)
@@ -77,7 +106,7 @@ namespace ToTheMoon.Controllers
             return View(increasespacerequest);
         }
 
-        // GET: /IncreaseSpaceRequest/Edit/5
+       /* // GET: /IncreaseSpaceRequest/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -90,14 +119,29 @@ namespace ToTheMoon.Controllers
                 return HttpNotFound();
             }
             return View(increasespacerequest);
-        }
+        }*/
 
         // POST: /IncreaseSpaceRequest/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="ID,brief,increas,timestamp")] IncreaseSpaceRequest increasespacerequest)
+        public ActionResult Review([Bind(Include = "ID,brief,increas,timestamp")] IncreaseSpaceRequest increasespacerequest)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(increasespacerequest).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(increasespacerequest);
+        }
+        // POST: /IncreaseSpaceRequest/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Comment([Bind(Include = "ID,brief,increas,timestamp")] IncreaseSpaceRequest increasespacerequest)
         {
             if (ModelState.IsValid)
             {
@@ -123,6 +167,45 @@ namespace ToTheMoon.Controllers
             return View(increasespacerequest);
         }
 
+        [HttpPost, ActionName("Review")]
+        [ValidateAntiForgeryToken]
+        public ActionResult Approve(int id)
+        {
+            IncreaseSpaceRequest incspacerequest = db.IncreaseSpaceRequests.Find(id);
+            Space space = db.Spaces.Find(incspacerequest.space.key);
+            space.capacity += incspacerequest.increase;
+            db.IncreaseSpaceRequests.Remove(incspacerequest);
+            db.SaveChanges();
+
+            ///////////////////////////////
+            ///////////////////////////////
+            ////Send Email to Requester////
+            ///////////////////////////////
+            ///////////////////////////////
+
+
+            return RedirectToAction("Index");
+        }
+
+        // POST: /incspacerequest/Delete/5
+        [HttpPost, ActionName("Review")]
+        [ValidateAntiForgeryToken]
+        public ActionResult Decline(int id)
+        {
+            IncreaseSpaceRequest incspacerequest = db.IncreaseSpaceRequests.Find(id);
+
+            db.IncreaseSpaceRequests.Remove(incspacerequest);
+            db.SaveChanges();
+
+            ///////////////////////////////
+            ///////////////////////////////
+            ////Send Email to Requester////
+            ///////////////////////////////
+            ///////////////////////////////
+
+            return RedirectToAction("Index");
+        }
+/*
         // POST: /IncreaseSpaceRequest/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -132,7 +215,7 @@ namespace ToTheMoon.Controllers
             db.IncreaseSpaceRequests.Remove(increasespacerequest);
             db.SaveChanges();
             return RedirectToAction("Index");
-        }
+        }*/
 
         protected override void Dispose(bool disposing)
         {
