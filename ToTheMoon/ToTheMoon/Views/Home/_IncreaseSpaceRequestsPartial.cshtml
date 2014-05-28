@@ -7,10 +7,8 @@
         {
             <tr>
                 <td>
-                    <p>@Request for +@(request.space)GB for {@request.space.key} @request.space.Name</p>
-                    @Html.ActionLink("[Approve]", "Approve", "Request", new { request.ID })
-                    @Html.ActionLink("[Reject]", "Reject", "Request", new { request.ID })
-                    @Html.ActionLink("[Comment]", "Comment", "Request", new { request.ID })
+                    <p>Request for +@(request.increase)GB for {@request.space.key} @request.space.Name</p>
+                    @Html.ActionLink("[Review]", "../IncreaseSpaceRequest/Review/" + request.ID)
                 </td>
             </tr>
         }
