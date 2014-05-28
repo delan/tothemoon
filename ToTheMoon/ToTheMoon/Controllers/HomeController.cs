@@ -26,9 +26,27 @@ namespace ToTheMoon.Controllers
         [Route("Dashboard")]
         public ActionResult Dashboard()
         {
-            ViewBag.NewSpaceRequests = db.NewSpaceRequests.ToList<NewSpaceRequest>();
-            ViewBag.IncreaseSpaceRequests = db.IncreaseSpaceRequests.ToList<IncreaseSpaceRequest>();
-            ViewBag.Spaces = db.Spaces.ToList<Space>();
+            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ProjectContext()));
+            ApplicationUser currentUser = manager.FindById(User.Identity.GetUserId());
+
+
+
+            if(currentUser.role == GlobalRole.ADMIN)
+            {
+                ViewBag.NewSpaceRequests = db.NewSpaceRequests.ToList<NewSpaceRequest>();
+                ViewBag.IncreaseSpaceRequests = db.IncreaseSpaceRequests.ToList<IncreaseSpaceRequest>();
+                ViewBag.Spaces = db.Spaces.ToList<Space>();
+            }
+            else if(currentUser.role == GlobalRole.APPROVER)
+            {
+                //things
+            }
+            else
+            {
+
+            }
+
+            
             return View();
         }
     }
