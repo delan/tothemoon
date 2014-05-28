@@ -1,0 +1,27 @@
+﻿<table class="table table-hover" border="1">
+    <thead bgcolor="#222" style="color:white">
+        <tr>
+            <th>Requests for New Space</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (ToTheMoon.Models.NewSpaceRequest request in ViewBag.NewSpaceRequests)
+        {
+            <tr>
+                <td>
+                    <p>Request for [@(request.SpaceID)] @(request.name) with @(request.capacity)GB</p>
+                    @Html.ActionLink("[Approve]", "Approve", "Request", new { request.ID })
+                    @Html.ActionLink("[Reject]", "Reject", "Request", new { request.ID })
+                    @Html.ActionLink("[Comment]", "Comment", "Request", new { request.ID })
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>
+                To request new space, go @Html.ActionLink("here", "Create", "NewSpaceRequest").
+            </td>
+        </tr>
+    </tfoot>
+</table>

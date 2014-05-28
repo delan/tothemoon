@@ -3,9 +3,20 @@
 }
 
 <h2>Dashboard</h2>
-@*@Html.Partial("_SpacesPartial")
-@Html.Partial("_RequestsPartial")
-@Html.Partial("_NotificationsPartial")*@
+
+<div class="row">
+    <div class="col-md-12">
+        @Html.Partial("_SpacesPartial")
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        @Html.Partial("_NewSpaceRequestsPartial")
+    </div>
+    <div class="col-md-6">
+        @Html.Partial("_IncreaseSpaceRequestsPartial")
+    </div>
+</div>
 
 
 

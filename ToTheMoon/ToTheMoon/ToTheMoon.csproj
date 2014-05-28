@@ -242,7 +242,7 @@
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Home\_RequestsPartial.cshtml" />
+    <Content Include="Views\Home\_NewSpaceRequestsPartial.cshtml" />
     <Content Include="Views\Home\_SpacesPartial.cshtml" />
     <Content Include="Views\Home\Dashboard.cshtml" />
     <Content Include="Views\NewSpaceRequest\Create.cshtml" />
@@ -255,6 +255,7 @@
     <Content Include="Views\IncreaseSpaceRequest\Details.cshtml" />
     <Content Include="Views\IncreaseSpaceRequest\Edit.cshtml" />
     <Content Include="Views\Home\_IncreaseSpacePartial.cshtml" />
+    <Content Include="Views\Home\_IncreaseSpaceRequestsPartial.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

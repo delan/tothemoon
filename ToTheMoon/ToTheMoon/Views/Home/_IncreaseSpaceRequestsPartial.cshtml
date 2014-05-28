@@ -1,0 +1,50 @@
+﻿<table class="table table-hover" border="1">
+    <thead bgcolor="#222" style="color:white">
+        <th>Requests for Space Increase</th>
+    </thead>
+    <tbody>
+        @foreach (ToTheMoon.Models.IncreaseSpaceRequest request in ViewBag.IncreaseSpaceRequests)
+        {
+            <tr>
+                <td>
+                    <p>@Request for +@(request.space)GB for {@request.space.key} @request.space.Name</p>
+                    @Html.ActionLink("[Approve]", "Approve", "Request", new { request.ID })
+                    @Html.ActionLink("[Reject]", "Reject", "Request", new { request.ID })
+                    @Html.ActionLink("[Comment]", "Comment", "Request", new { request.ID })
+                </td>
+            </tr>
+        }
+        <!-- static ones. -->
+        <tr>
+            <td>
+                <p>Request for 1GB for [1234] Test</p>
+                @Html.ActionLink("[Approve]", "Approve", "Request", 3)
+                @Html.ActionLink("[Reject]", "Reject", "Request", 3)
+                @Html.ActionLink("[Comment]", "Comment", "Request", 3)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Request for 1GB for [1234] Test</p>
+                @Html.ActionLink("[Approve]", "Approve", "Request", 3)
+                @Html.ActionLink("[Reject]", "Reject", "Request", 3)
+                @Html.ActionLink("[Comment]", "Comment", "Request", 3)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Request for 1GB for [1234] Test</p>
+                @Html.ActionLink("[Approve]", "Approve", "Request", 3)
+                @Html.ActionLink("[Reject]", "Reject", "Request", 3)
+                @Html.ActionLink("[Comment]", "Comment", "Request", 3)
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>
+                <b>Tip: </b>You can request a space increase from the details page of spaces you manage.
+            </td>
+        </tr>
+    </tfoot>
+</table>
