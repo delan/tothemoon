@@ -48,8 +48,12 @@ namespace ToTheMoon.Models
         public int ID { get; set; }
 
         [Required]
+        [Display(Name = "Project ID")]
+        public int SpaceID { get; set; }
+
         [Display(Name = "Space")]
         public Space space { get; set; }
+
 
         [Display(Name = "Brief")]
         public string brief { get; set; }

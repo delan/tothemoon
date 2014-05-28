@@ -62,6 +62,7 @@ namespace ToTheMoon.Controllers
             }
             IncreaseSpaceRequest increasespacerequest = new IncreaseSpaceRequest();
             increasespacerequest.space = db.Spaces.Find(SpaceID);
+            increasespacerequest.SpaceID = (int)SpaceID;
             if(increasespacerequest.space == null)
             {
                 return HttpNotFound();
@@ -74,11 +75,11 @@ namespace ToTheMoon.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="space,brief,increase")] IncreaseSpaceRequest increasespacerequest)
+        public ActionResult Create([Bind(Include="SpaceID,brief,increase")] IncreaseSpaceRequest increasespacerequest)
         {
             var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ProjectContext()));
             ApplicationUser currentUser = manager.FindById(User.Identity.GetUserId());
-
+            increasespacerequest.space = db.Spaces.Find(increasespacerequest.SpaceID);
             increasespacerequest.requester = (ApplicationUser)db.Users.Find(currentUser.Id);
             increasespacerequest.timestamp = DateTime.Now;
 

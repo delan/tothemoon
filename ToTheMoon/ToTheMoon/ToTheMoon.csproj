@@ -192,6 +192,14 @@
     <Compile Include="Migrations\201405281259091_userspace.Designer.cs">
       <DependentUpon>201405281259091_userspace.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201405281415393_jason.cs" />
+    <Compile Include="Migrations\201405281415393_jason.Designer.cs">
+      <DependentUpon>201405281415393_jason.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405281422489_blame_jason.cs" />
+    <Compile Include="Migrations\201405281422489_blame_jason.Designer.cs">
+      <DependentUpon>201405281422489_blame_jason.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Requests.cs" />
@@ -286,6 +294,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201405281259091_userspace.resx">
       <DependentUpon>201405281259091_userspace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405281415393_jason.resx">
+      <DependentUpon>201405281415393_jason.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405281422489_blame_jason.resx">
+      <DependentUpon>201405281422489_blame_jason.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

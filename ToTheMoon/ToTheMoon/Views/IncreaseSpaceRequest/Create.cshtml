@@ -15,7 +15,7 @@
         <h4>IncreaseSpaceRequest</h4>
         <hr />
         @Html.ValidationSummary(true)
-        @Html.HiddenFor(model => model.space)
+        @Html.HiddenFor(model => model.SpaceID)
 
         <div class="form-group">
             @Html.LabelFor(model => model.space.Name, new { @class = "control-label col-md-2" })
