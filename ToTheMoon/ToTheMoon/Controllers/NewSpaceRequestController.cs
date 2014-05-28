@@ -63,7 +63,7 @@ namespace ToTheMoon.Controllers
 
                 db.NewSpaceRequests.Add(newspacerequest);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("../Dashboard");
             }
 
             return View(newspacerequest);
@@ -146,7 +146,7 @@ namespace ToTheMoon.Controllers
             ///////////////////////////////
 
 
-            return RedirectToAction("Index");
+            return RedirectToAction("../Dashboard");
         }
 
         // POST: /NewSpaceRequest/Delete/5
@@ -165,7 +165,7 @@ namespace ToTheMoon.Controllers
             ///////////////////////////////
             ///////////////////////////////
 
-            return RedirectToAction("Index");
+            return RedirectToAction("../Dashboard");
         }
 
         protected override void Dispose(bool disposing)
