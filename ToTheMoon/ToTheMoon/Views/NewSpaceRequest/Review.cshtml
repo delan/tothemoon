@@ -1,7 +1,7 @@
 ﻿@model ToTheMoon.Models.NewSpaceRequest
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Review";
 }
 
 <h2>Edit</h2>
@@ -44,9 +44,12 @@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-default" />
+                @Html.ActionLink("[Approve]", "Approve/" + Model.ID)
+                @Html.ActionLink("[Decline]", "Decline/" + Model.ID)
             </div>
         </div>
     </div>
+    
 }
 
 <div>
