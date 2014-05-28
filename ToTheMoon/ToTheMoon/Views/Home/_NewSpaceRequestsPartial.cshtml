@@ -10,9 +10,7 @@
             <tr>
                 <td>
                     <p>Request for [@(request.SpaceID)] @(request.name) with @(request.capacity)GB</p>
-                    @Html.ActionLink("[Approve]", "Approve", "Request", new { request.ID })
-                    @Html.ActionLink("[Reject]", "Reject", "Request", new { request.ID })
-                    @Html.ActionLink("[Comment]", "Comment", "Request", new { request.ID })
+                    @Html.ActionLink("[Review]", "../NewSpaceRequest/Review/" + request.ID)
                 </td>
             </tr>
         }

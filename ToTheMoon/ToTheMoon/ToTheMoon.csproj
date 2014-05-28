@@ -248,7 +248,7 @@
     <Content Include="Views\NewSpaceRequest\Create.cshtml" />
     <Content Include="Views\NewSpaceRequest\Delete.cshtml" />
     <Content Include="Views\NewSpaceRequest\Details.cshtml" />
-    <Content Include="Views\NewSpaceRequest\Edit.cshtml" />
+    <Content Include="Views\NewSpaceRequest\Review.cshtml" />
     <Content Include="Views\Home\_RequestPartial2.cshtml" />
     <Content Include="Views\IncreaseSpaceRequest\Create.cshtml" />
     <Content Include="Views\IncreaseSpaceRequest\Delete.cshtml" />
