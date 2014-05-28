@@ -116,8 +116,8 @@ namespace ToTheMoon.Controllers
         }
 
         // POST: /NewSpaceRequest/Delete/5
-        [HttpPost, ActionName("Review")]
-        [ValidateAntiForgeryToken]
+        //[HttpPost, ActionName("Review")]
+        //[ValidateAntiForgeryToken]
         public ActionResult Approve(int id)
         {
             NewSpaceRequest newspacerequest = db.NewSpaceRequests.Find(id);
@@ -144,8 +144,8 @@ namespace ToTheMoon.Controllers
         }
 
         // POST: /NewSpaceRequest/Delete/5
-        [HttpPost, ActionName("Review")]
-        [ValidateAntiForgeryToken]
+        //[HttpPost, ActionName("Review")]
+        //[ValidateAntiForgeryToken]
         public ActionResult Decline(int id)
         {
             NewSpaceRequest newspacerequest = db.NewSpaceRequests.Find(id);
