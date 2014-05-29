@@ -142,12 +142,12 @@ namespace ToTheMoon.Controllers
             return View(increasespacerequest);
         }
 
-        [HttpPost, ActionName("Approve")]
-        [ValidateAntiForgeryToken]
+        //[HttpPost, ActionName("Approve")]
+        //[ValidateAntiForgeryToken]
         public ActionResult Approve(int id)
         {
             IncreaseSpaceRequest incspacerequest = db.IncreaseSpaceRequests.Find(id);
-            Space space = db.Spaces.Find(incspacerequest.space.key);
+            Space space = db.Spaces.Find(incspacerequest.SpaceID);
             space.capacity += incspacerequest.increase;
             db.IncreaseSpaceRequests.Remove(incspacerequest);
             db.SaveChanges();
