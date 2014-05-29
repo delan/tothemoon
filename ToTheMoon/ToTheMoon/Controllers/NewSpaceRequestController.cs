@@ -108,6 +108,7 @@ namespace ToTheMoon.Controllers
         // GET: /NewSpaceRequest/Delete/5
         public ActionResult Review(int? id)
         {
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -118,6 +119,7 @@ namespace ToTheMoon.Controllers
                 return HttpNotFound();
             }
             return View(newspacerequest);
+
         }
 
         // POST: /NewSpaceRequest/Delete/5
@@ -125,30 +127,37 @@ namespace ToTheMoon.Controllers
         //[ValidateAntiForgeryToken]
         public ActionResult Approve(int id)
         {
-            NewSpaceRequest newspacerequest = db.NewSpaceRequests.Find(id);
-            Space space = new Space();
-            space.capacity = newspacerequest.capacity;
-            space.increase = newspacerequest.increase;
-            space.key = newspacerequest.SpaceID;
-            space.Name = newspacerequest.name;
-            space.PI = newspacerequest.requester;
-            space.used = 0;
+            if (ViewBag.UserRole != GlobalRole.REGULAR)
+            {
+                NewSpaceRequest newspacerequest = db.NewSpaceRequests.Find(id);
+                Space space = new Space();
+                space.capacity = newspacerequest.capacity;
+                space.increase = newspacerequest.increase;
+                space.key = newspacerequest.SpaceID;
+                space.Name = newspacerequest.name;
+                space.PI = newspacerequest.requester;
+                
+                //make our progress bars look pretty
+                Random random = new Random();
+                space.used = random.Next(0, space.capacity);
 
-            UserSpace userspace = new UserSpace();
-            userspace.space = space;
-            userspace.user = space.PI;
-            userspace.role = SpaceRole.DATAMANAGER;
+                UserSpace userspace = new UserSpace();
+                userspace.space = space;
+                userspace.user = space.PI;
+                userspace.role = SpaceRole.DATAMANAGER;
 
-            db.Spaces.Add(space);
-            //db.UserSpace.Add(userspace);
-            db.NewSpaceRequests.Remove(newspacerequest);
-            db.SaveChanges();
+                db.Spaces.Add(space);
+                //db.UserSpace.Add(userspace);
+                db.NewSpaceRequests.Remove(newspacerequest);
+                db.SaveChanges();
 
             ///////////////////////////////
             ///////////////////////////////
             ////Send Email to Requester////
             ///////////////////////////////
             ///////////////////////////////
+
+            }
 
 
             return RedirectToAction("../Dashboard");

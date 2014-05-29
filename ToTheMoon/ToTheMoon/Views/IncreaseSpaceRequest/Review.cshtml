@@ -24,7 +24,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.brief, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.brief);
+                @Html.DisplayFor(model => model.brief)
 
                 @Html.ValidationMessageFor(model => model.brief)
             </div>
@@ -56,7 +56,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "../Dashboard")
 </div>
 
 @section Scripts {
