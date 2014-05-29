@@ -40,6 +40,11 @@ namespace ToTheMoon.Controllers
 
         public ActionResult Review(int? id)
         {
+            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ProjectContext()));
+            ApplicationUser currentUser = manager.FindById(User.Identity.GetUserId());
+
+            ViewBag.UserRole = currentUser.role;
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

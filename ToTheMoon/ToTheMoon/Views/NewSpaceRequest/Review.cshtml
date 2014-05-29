@@ -13,7 +13,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>NewSpaceRequest</h4>
         <hr />
@@ -24,6 +24,7 @@
             @Html.LabelFor(model => model.name, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DisplayFor(model => model.name)
+                @Html.HiddenFor(model => model.name)
                 @Html.ValidationMessageFor(model => model.name)
             </div>
         </div>
@@ -39,7 +40,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.comment, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @{if (ViewBag.UserRole == GlobalRole.ADMIN && 1 == 0)
+                @{if (ViewBag.UserRole == GlobalRole.ADMIN)
                 {
                     @Html.TextAreaFor(model => model.comment, new { @class = "form-control" });
                 }
@@ -54,13 +55,15 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                @{if (ViewBag.UserRole == GlobalRole.ADMIN){ <input type="submit" value="Save" class="btn btn-default" /> }}
-                @Html.ActionLink("[Approve]", "Approve/" + Model.ID)
-                @Html.ActionLink("[Decline]", "Decline/" + Model.ID)
+                @{if (ViewBag.UserRole == GlobalRole.ADMIN)
+                { <input type="submit" value="Save" class="btn btn-default" />
+                    @Html.ActionLink("[Approve]", "Approve/" + Model.ID)
+                    @Html.ActionLink("[Decline]", "Decline/" + Model.ID)}
+                }
             </div>
         </div>
     </div>
-    
+
 }
 
 <div>

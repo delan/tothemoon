@@ -1,16 +1,24 @@
-﻿<table class="table table-hover" border="1">
+﻿@using Microsoft.AspNet.Identity
+@using Microsoft.AspNet.Identity.EntityFramework
+@using ToTheMoon.Models;
+
+<table class="table table-hover" border="1">
     <thead bgcolor="#222" style="color:white">
-        <th>Requests for Space Increase</th>
+    <th>Requests for Space Increase</th>
     </thead>
     <tbody>
-        @foreach (ToTheMoon.Models.IncreaseSpaceRequest request in ViewBag.IncreaseSpaceRequests)
+        @foreach (IncreaseSpaceRequest request in ViewBag.IncreaseSpaceRequests)
         {
             <tr>
                 <td>
                     <p>Request for +@(request.increase)GB for {@request.space.key} @request.space.Name</p>
                     @Html.ActionLink("[Review]", "../IncreaseSpaceRequest/Review/" + request.ID)
-                    @Html.ActionLink("[Approve]", "../IncreaseSpaceRequest/Approve/" + request.ID)
-                    @Html.ActionLink("[Decline]", "../IncreaseSpaceRequest/Decline/" + request.ID)
+                    @{if (ViewBag.UserRole == GlobalRole.ADMIN) { 
+                        @Html.ActionLink("[Approve]", "../IncreaseSpaceRequest/Approve/" + request.ID)
+                        @Html.ActionLink("[Decline]", "../IncreaseSpaceRequest/Decline/" + request.ID)}
+                    }
+
+
 
 
                 </td>

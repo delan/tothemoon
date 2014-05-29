@@ -25,7 +25,6 @@
             @Html.LabelFor(model => model.brief, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DisplayFor(model => model.brief)
-
                 @Html.ValidationMessageFor(model => model.brief)
             </div>
         </div>
@@ -47,9 +46,9 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                @{if(ViewBag.UserRole == GlobalRole.ADMIN){ <input type="submit" value="Save" class="btn btn-default" /> }}
+                @{if(ViewBag.UserRole == GlobalRole.ADMIN){ <input type="submit" value="Save" class="btn btn-default" /> }
                 @Html.ActionLink("[Approve]", "Approve/" + Model.ID)
-                @Html.ActionLink("[Decline]", "Decline/" + Model.ID)
+                @Html.ActionLink("[Decline]", "Decline/" + Model.ID)}
             </div>
         </div>
     </div>

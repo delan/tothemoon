@@ -92,22 +92,26 @@ namespace ToTheMoon.Controllers
         public ActionResult Review([Bind(Include = "ID,name,SpaceID,capacity,increase,comment")] NewSpaceRequest newspacerequest)
         {
             String comment = newspacerequest.comment;
-            newspacerequest = db.NewSpaceRequests.Find(newspacerequest.ID);
-            newspacerequest.comment = comment;
-            newspacerequest.timestamp = DateTime.Now;
+            NewSpaceRequest nsr = db.NewSpaceRequests.Find(newspacerequest.ID);
+            nsr.comment = comment;
+            nsr.timestamp = DateTime.Now;
 
             if (ModelState.IsValid)
             {
-                db.Entry(newspacerequest).State = EntityState.Modified;
+                db.Entry(nsr).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("../Dashboard");
             }
-            return View(newspacerequest);
+            return View(nsr);
         }
 
         // GET: /NewSpaceRequest/Delete/5
         public ActionResult Review(int? id)
         {
+            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ProjectContext()));
+            ApplicationUser currentUser = manager.FindById(User.Identity.GetUserId());
+
+            ViewBag.UserRole = currentUser.role;
 
             if (id == null)
             {
