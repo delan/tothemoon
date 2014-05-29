@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using ToTheMoon.Models;
 using ToTheMoon.DAL;
 
@@ -26,9 +28,23 @@ namespace ToTheMoon.Controllers
         [Route("Dashboard")]
         public ActionResult Dashboard()
         {
-            ViewBag.NewSpaceRequests = db.NewSpaceRequests.ToList<NewSpaceRequest>();
-            ViewBag.IncreaseSpaceRequests = db.IncreaseSpaceRequests.ToList<IncreaseSpaceRequest>();
-            ViewBag.Spaces = db.Spaces.ToList<Space>();
+            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ProjectContext()));
+            ApplicationUser currentUser = manager.FindById(User.Identity.GetUserId());
+
+
+
+            if(currentUser.role == GlobalRole.ADMIN || currentUser.role == GlobalRole.APPROVER)
+            {
+                ViewBag.NewSpaceRequests = db.NewSpaceRequests.ToList<NewSpaceRequest>();
+                ViewBag.IncreaseSpaceRequests = db.IncreaseSpaceRequests.ToList<IncreaseSpaceRequest>();
+                ViewBag.Spaces = db.Spaces.ToList<Space>();
+            }
+            else
+            {
+
+            }
+
+            
             return View();
         }
     }
