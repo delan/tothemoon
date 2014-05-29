@@ -15,7 +15,7 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>NewSpaceRequest</h4>
+        <h4>New Space Request</h4>
         <hr />
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.ID)
@@ -36,22 +36,27 @@
                 @Html.ValidationMessageFor(model => model.brief)
             </div>
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.comment, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @{if (ViewBag.UserRole == GlobalRole.ADMIN)
-                {
-                    @Html.TextAreaFor(model => model.comment, new { @class = "form-control" });
-                }
-                else
-                {
-                    @Html.DisplayFor(model => model.comment, new { @class = "form-control" });
-                }
-                }
-                @Html.ValidationMessageFor(model => model.comment)
+        @{if (ViewBag.UserRole == GlobalRole.ADMIN)
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.comment, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.comment, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.comment)
+                </div>
             </div>
-        </div>
+        }
+        else if (Model.comment != null && Model.comment != "")
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.comment, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DisplayFor(model => model.comment, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.comment)
+                </div>
+            </div>
+        }
+        }
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
