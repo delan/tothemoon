@@ -75,7 +75,7 @@ namespace ToTheMoon.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="SpaceID,brief,increase")] IncreaseSpaceRequest increasespacerequest)
+        public ActionResult Create([Bind(Include="ID,SpaceID,brief,increase")] IncreaseSpaceRequest increasespacerequest)
         {
             var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ProjectContext()));
             ApplicationUser currentUser = manager.FindById(User.Identity.GetUserId());
@@ -111,14 +111,16 @@ namespace ToTheMoon.Controllers
         // POST: /IncreaseSpaceRequest/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        [HttpPost, ActionName("Review")]
         [ValidateAntiForgeryToken]
-        public ActionResult Comment([Bind(Include = "SpaceID,brief,increase")] IncreaseSpaceRequest increasespacerequest)
+        public ActionResult Review([Bind(Include = "ID,SpaceID,brief,increase")] IncreaseSpaceRequest increasespacerequest)
         {
+            IncreaseSpaceRequest isr = db.IncreaseSpaceRequests.Find(increasespacerequest.ID);
+            isr.brief = increasespacerequest.brief;
+            isr.space = db.Spaces.Find(increasespacerequest.SpaceID);
             if (ModelState.IsValid)
             {
-                increasespacerequest.timestamp = DateTime.Now;
-                db.Entry(increasespacerequest).State = EntityState.Modified;
+                isr.timestamp = DateTime.Now;
                 db.SaveChanges();
                 return RedirectToAction("../Dashboard");
             }
@@ -140,7 +142,7 @@ namespace ToTheMoon.Controllers
             return View(increasespacerequest);
         }
 
-        [HttpPost, ActionName("Review")]
+        [HttpPost, ActionName("Approve")]
         [ValidateAntiForgeryToken]
         public ActionResult Approve(int id)
         {
@@ -161,7 +163,7 @@ namespace ToTheMoon.Controllers
         }
 
         // POST: /incspacerequest/Delete/5
-        [HttpPost, ActionName("Review")]
+        [HttpPost, ActionName("Decline")]
         [ValidateAntiForgeryToken]
         public ActionResult Decline(int id)
         {

@@ -265,7 +265,7 @@
     <Content Include="Views\IncreaseSpaceRequest\Create.cshtml" />
     <Content Include="Views\IncreaseSpaceRequest\Delete.cshtml" />
     <Content Include="Views\IncreaseSpaceRequest\Details.cshtml" />
-    <Content Include="Views\IncreaseSpaceRequest\Edit.cshtml" />
+    <Content Include="Views\IncreaseSpaceRequest\Review.cshtml" />
     <Content Include="Views\Home\_IncreaseSpacePartial.cshtml" />
     <Content Include="Views\Home\_IncreaseSpaceRequestsPartial.cshtml" />
   </ItemGroup>
