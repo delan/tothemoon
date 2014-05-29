@@ -1,0 +1,24 @@
+The use of computers and information technology has increasingly become an integral factor in research at universities. While the technology and it's role has increased, Curtin University still uses traditional methods such as paper forms for allocating storage for research projects. In order for us to keep up with the increasing demand of IT services, much of these traditional methods should be digitised and automated.
+
+In order to eliminate the needless paperwork and bureaucracy Curtin could implement a web based portal for staff members to request and allocate storage space for each project. This would reduce time loss in waiting for request turn around, improve record keeping and offer extra opportunity for Curtin to analyse and optimise it's storage space.
+
+Objectives:
+The objective of this project is to create a prototype of a web based portal for managing space requests at Curtin. This will allow us to demonstrate the concept to the stakeholders and refine it as needed. The prototype isn't required to have the complete functionality, however the user experience should be complete. The prototype should focus on user experience, with usability being the main measure of success as many staff members may not be proficient in technology.
+
+Scope
+The scope of the project will include gathering the user requirements of the system, designing the user experience of the system and implementing a prototype of this user experience. Actual functionality and requirements regarding integration with Curtin's information systems is out of the scope of this project and will depend on the reception of the prototype from Curtin's IT department.
+
+Limitations
+- The project does not have a budget, all software used must be freely available and hardware sourced from that either available at Curtin or from the group members.
+
+- The prototype will be developed on academic versions of the Visual Studio 2013 Profession IDE, which means that the code compiled with these systems cannot be deployed commercially.
+
+- The developers will not have access to Curtin's internal LDAP server infrastructure and other information systems. This means the prototype's main focus will be on the front end user experience and the back-end which facilitates that. Enhancements such as Blackboard LMS integration and LDAP integration will be features likely available in a final product but will not be represented in the prototype.
+
+- There is only twelve weeks to complete the entire project, from requirements gathering to user testing. Developers will also be on separate timetables with differing skill sets.
+
+Approach
+Our team is developing the prototype using the scrum methodology. First the Product Backlog is decided upon each item is allocated a priority, then we choose some of the Product Backlog to completely design, implement and test during a sprint. The team meets before and after each sprint to discuss how the sprint went and what needs to go into the next one. This allows us to adapt to any issues with our requirements.
+
+Structure
+This report will guide us through the background which has lead to this project, the requirements which have been decided on for the prototype, the design of the web portal and the processes used during development of the project.
