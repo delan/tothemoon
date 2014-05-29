@@ -133,7 +133,7 @@ namespace ToTheMoon.Controllers
         {
             if (ViewBag.UserRole != GlobalRole.REGULAR)
             {
-                NewSpaceRequest newspacerequest = db.NewSpaceRequests.Find(id);
+                NewSpaceRequest newspacerequest = (NewSpaceRequest)db.NewSpaceRequests.Find(id);
                 Space space = new Space();
                 space.capacity = newspacerequest.capacity;
                 space.increase = newspacerequest.increase;
@@ -147,11 +147,11 @@ namespace ToTheMoon.Controllers
 
                 UserSpace userspace = new UserSpace();
                 userspace.space = space;
-                userspace.user = space.PI;
+                userspace.user = newspacerequest.requester;
                 userspace.role = SpaceRole.DATAMANAGER;
 
                 db.Spaces.Add(space);
-                //db.UserSpace.Add(userspace);
+                db.UserSpaces.Add(userspace);
                 db.NewSpaceRequests.Remove(newspacerequest);
                 db.SaveChanges();
 
