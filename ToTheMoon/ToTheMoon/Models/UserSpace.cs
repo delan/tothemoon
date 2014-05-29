@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ToTheMoon.Models
 {
     public class UserSpace
     {
-        [Key]
+        [Key, Column(Order = 0)]
+        public int ProductId { get; set; }
+
+        [Key, Column(Order = 1)]
         public ApplicationUser user { get; set; }
 
         [Key]
