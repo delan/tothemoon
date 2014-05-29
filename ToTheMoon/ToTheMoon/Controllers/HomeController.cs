@@ -31,7 +31,7 @@ namespace ToTheMoon.Controllers
             var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ProjectContext()));
             ApplicationUser currentUser = manager.FindById(User.Identity.GetUserId());
 
-
+            ViewBag.UserRole = currentUser.role;
 
             if(currentUser.role == GlobalRole.ADMIN || currentUser.role == GlobalRole.APPROVER)
             {
@@ -41,7 +41,10 @@ namespace ToTheMoon.Controllers
             }
             else
             {
-
+                //change this to only show the right things
+                ViewBag.NewSpaceRequests = db.NewSpaceRequests.ToList<NewSpaceRequest>();
+                ViewBag.IncreaseSpaceRequests = db.IncreaseSpaceRequests.ToList<IncreaseSpaceRequest>();
+                ViewBag.Spaces = db.Spaces.ToList<Space>();
             }
 
             

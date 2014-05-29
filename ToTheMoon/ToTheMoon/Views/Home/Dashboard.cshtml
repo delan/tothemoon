@@ -1,4 +1,8 @@
-﻿@{
+﻿@using Microsoft.AspNet.Identity
+@using Microsoft.AspNet.Identity.EntityFramework
+@using ToTheMoon.Models;
+
+@{
     ViewBag.Title = "Dashboard";
 }
 
@@ -10,12 +14,31 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-md-6">
+    
+    @{
+        //make div col-md-12 if a regular user
+        string RequestWidth = "col-md-6";
+        
+        if(ViewBag.UserRole == GlobalRole.REGULAR)
+        {
+            RequestWidth = "col-md-12";
+        }
+    }
+    <div class="@RequestWidth">
         @Html.Partial("_NewSpaceRequestsPartial")
     </div>
+
+   
+    @if(ViewBag.UserRole != GlobalRole.REGULAR)
+    { 
+    
+    //show div if not a globalrole.regular-->User
+        
     <div class="col-md-6">
         @Html.Partial("_IncreaseSpaceRequestsPartial")
     </div>
+        
+    }
 </div>
 
 

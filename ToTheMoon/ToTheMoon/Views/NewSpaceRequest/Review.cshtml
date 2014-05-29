@@ -1,4 +1,7 @@
-﻿@model ToTheMoon.Models.NewSpaceRequest
+﻿@using Microsoft.AspNet.Identity
+@using Microsoft.AspNet.Identity.EntityFramework
+@using ToTheMoon.Models;
+@model ToTheMoon.Models.NewSpaceRequest
 
 @{
     ViewBag.Title = "Review";
@@ -36,14 +39,22 @@
         <div class="form-group">
             @Html.LabelFor(model => model.comment, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.comment, new { @class = "form-control" })
+                @{if (ViewBag.UserRole == GlobalRole.ADMIN && 1 == 0)
+                {
+                    @Html.TextAreaFor(model => model.comment, new { @class = "form-control" });
+                }
+                else
+                {
+                    @Html.DisplayFor(model => model.comment, new { @class = "form-control" });
+                }
+                }
                 @Html.ValidationMessageFor(model => model.comment)
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                @{if (ViewBag.UserRole == GlobalRole.ADMIN){ <input type="submit" value="Save" class="btn btn-default" /> }}
                 @Html.ActionLink("[Approve]", "Approve/" + Model.ID)
                 @Html.ActionLink("[Decline]", "Decline/" + Model.ID)
             </div>

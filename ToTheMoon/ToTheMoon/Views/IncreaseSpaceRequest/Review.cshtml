@@ -1,4 +1,7 @@
-﻿@model ToTheMoon.Models.IncreaseSpaceRequest
+﻿@using Microsoft.AspNet.Identity
+@using Microsoft.AspNet.Identity.EntityFramework
+@using ToTheMoon.Models;
+@model ToTheMoon.Models.IncreaseSpaceRequest
 
 @{
     ViewBag.Title = "Review";
@@ -21,7 +24,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.brief, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.brief)
+                @Html.EditorFor(model => model.brief);
+
                 @Html.ValidationMessageFor(model => model.brief)
             </div>
         </div>
@@ -43,7 +47,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                @{if(ViewBag.UserRole == GlobalRole.ADMIN){ <input type="submit" value="Save" class="btn btn-default" /> }}
                 @Html.ActionLink("[Approve]", "Approve/" + Model.ID)
                 @Html.ActionLink("[Decline]", "Decline/" + Model.ID)
             </div>
