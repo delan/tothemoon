@@ -163,8 +163,8 @@ namespace ToTheMoon.Controllers
         }
 
         // POST: /incspacerequest/Delete/5
-        [HttpPost, ActionName("Decline")]
-        [ValidateAntiForgeryToken]
+        //[HttpPost, ActionName("Decline")]
+        //[ValidateAntiForgeryToken]
         public ActionResult Decline(int id)
         {
             IncreaseSpaceRequest incspacerequest = db.IncreaseSpaceRequests.Find(id);
