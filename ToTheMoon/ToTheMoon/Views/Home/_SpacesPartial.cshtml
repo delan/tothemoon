@@ -7,28 +7,28 @@
     </thead>
 
     <tbody>
-@foreach (ToTheMoon.Models.Space space in ViewBag.Spaces)
-    {
-    <tr>
-        <td class="col-md-5">
-            <p>@space.Name </p>
-        </td>
-        <td class="col-md-2">
-            <p>@space.used GB of @space.capacity GB</p>
-        </td>
-        <td class="col-md-5">
-            <p>
-                <div class="progress">
-                  @{
-                        double percentageComplete = ((float)space.used / (float)space.capacity) * 100;
-                        percentageComplete = Math.Round(percentageComplete, 0);
-                    }   
-                      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="@space.used" aria-valuemin="0" aria-valuemax=@space.capacity style="width: @percentageComplete%"></div>
-                </div>
-            </p>
-        </td>
-    </tr>
-}
+        @foreach (ToTheMoon.Models.Space space in ViewBag.Spaces)
+        {
+            <tr>
+                <td class="col-md-5">
+                    <p>@space.Name</p>
+                </td>
+                <td class="col-md-3">
+                    <p>@space.used GB of @space.capacity GB | @Html.ActionLink("Request Increase", "../IncreaseSpaceRequest/Create", new { SpaceID = space.key })</p>
+                </td>
+                <td class="col-md-5">
+                    <p>
+                        <div class="progress">
+                            @{
+            double percentageComplete = ((float)space.used / (float)space.capacity) * 100;
+            percentageComplete = Math.Round(percentageComplete, 0);
+                            }
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="@space.used" aria-valuemin="0" aria-valuemax=@space.capacity style="width: @percentageComplete%"></div>
+                        </div>
+                </p>
+            </td>
+        </tr>
+        }
 
         <!-- Static Stuff -->
         <tr>
