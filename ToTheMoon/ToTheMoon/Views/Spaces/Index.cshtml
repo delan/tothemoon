@@ -10,41 +10,47 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 <div class="row">
-    <table class="table">
-        <tr>
-            <th class="col-md-2">
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th class="col-md-5">
-                Space
-            </th>
-            <th class="col-md-3">
-                
-            </th>
-            <th class="col-md-2"></th>
-        </tr>
-    
-        @foreach (var item in Model) {
+    <table class="table table-hover" border="1">
+        <thead bgcolor ="#222" style="color:white">
+            <tr>
+                <th class="col-md-2">
+                    @Html.DisplayNameFor(model => model.SpaceName)
+                </th>
+                <th class="col-md-5">
+                    Space
+                </th>
+                <th class="col-md-3">
+
+                </th>
+                <th class="col-md-2"></th>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model)
+        {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Name)
+                    @Html.DisplayFor(modelItem => item.SpaceName)
                 </td>
                 <td>
                     <div class="progress">
-                        @{double percentageComplete = ((float)item.SpaceUsed / (float)item.SpaceTotal) * 100;}
+                        @{
+                            double percentageComplete = ((float)item.SpaceUsed / (float)item.SpaceTotal) * 100;
+                            percentageComplete = Math.Round(percentageComplete, 0);
+                          }
                         <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="@item.SpaceUsed" aria-valuemin="0" aria-valuemax=@item.SpaceTotal style="width: @percentageComplete%"></div>
                     </div>
                 </td>
                 <td>
-                    @item.SpaceUsed GB / @item.SpaceTotal GB (@percentageComplete %)
+                    @item.SpaceUsed GB / @item.SpaceTotal GB (@percentageComplete%)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-                    @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
                 </td>
             </tr>
         }
-    
+
     </table>
 </div>

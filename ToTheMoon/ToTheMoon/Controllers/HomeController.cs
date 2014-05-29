@@ -15,13 +15,20 @@ namespace ToTheMoon.Controllers
         [AllowAnonymous]
         public ActionResult Index()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return Redirect("Dashboard");
+            }
+
             return View();
         }
 
         [Route("Dashboard")]
         public ActionResult Dashboard()
         {
-            ViewBag.Requests = db.Requests.ToList<Request>();
+            ViewBag.NewSpaceRequests = db.NewSpaceRequests.ToList<NewSpaceRequest>();
+            ViewBag.IncreaseSpaceRequests = db.IncreaseSpaceRequests.ToList<IncreaseSpaceRequest>();
+            ViewBag.Spaces = db.Spaces.ToList<Space>();
             return View();
         }
     }

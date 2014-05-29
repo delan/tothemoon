@@ -9,8 +9,11 @@
 <p>
     @Html.ActionLink("Create New", "Space")
 </p>
-<table class="table">
-    <tr>
+<table class="table table-hover" border="1">
+    <thead bgcolor="#222" style="color:white">
+        @*<th>
+            @Html.DisplayNameFor(model => model.Requester)
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.HumanReadableRequestString)
         </th>
@@ -18,22 +21,26 @@
             @Html.DisplayNameFor(model => model.RequestTimestamp)
         </th>
         <th></th>
-    </tr>
+    </thead>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.HumanReadableRequestString)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RequestTimestamp)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RequestID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RequestID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RequestID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Requester)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.HumanReadableRequestString)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestTimestamp)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.RequestID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.RequestID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.RequestID })
+            </td>
+        </tr>
+    }
 
 </table>

@@ -1,21 +1,21 @@
-1 As a administrator, I want to login so that I review and approve requests
-1 As a Principal Investigator, I want to submit storage request so that I can have access to storage space for a research project
+﻿1 As a administrator, I want to login so that I can review and approve requests
+1 As a Principal Investigator, I want to submit a storage request so that I can have access to storage space for a research project
 1 As a user, I want to login so that I can perform appropriate functions applicable to my role
 1 As a user, I want to view a list of my storage spaces so that I know my access level for my research projects
 1 As an administrator, I want to approve a request so that storage can be provisioned, expanded or access permissions changed
-1 As an approver, I want to login so that I approve storage requests
+1 As an approver, I want to login so that I can approve storage requests
 1 As an approver, I want to review and approve a storage request so that storage can be provisioned
 2 As a data manager, I want to grant other researchers access to my storage space so that I can collaborate with others
-2 As a data manager, I want to submit additional storage request so that I can store more research data in my storage space
+2 As a data manager, I want to submit additional storage requests so that I can store more research data in my storage space
 2 As a Principal Investigator, I want to grant other researchers access to my storage space so that I can collaborate with others
-2 As a Principal Investigator, I want to grant other researchers manager level access for my storage space so that can submit administrative requests
-2 As a Principal Investigator, I want to submit additional storage request so that I can store more research data in my storage space
+2 As a Principal Investigator, I want to grant other researchers data manager level access for my storage space so they that can submit administrative requests
+2 As a Principal Investigator, I want to submit additional storage requests so that I can store more research data in my storage space
 2 As an administrator, I want to change the Principal Investigator for a storage space to replace the existing Principal investigator
-2 As an approver, I want to view a list of all storage requests so that I am all requests by Principal Investigators in my faculty
-3 As a data manager, I want to receive email notifications so that I am aware that requests has been completed
-3 As a data manager, I want to revoke existing researcher’s access to my storage space so that they can’t access my data
+2 As an approver, I want to view a list of all storage requests so that I am aware of all requests by Principal Investigators in my faculty
+3 As a data manager, I want to receive email notifications so that I am aware that requests have been completed
+3 As a data manager, I want to revoke an existing researcher’s access to my storage space so that they can’t access my data
 3 As a data manager, I want to view the status of my request so that I know its progress
-3 As a Principal Investigator, I want to receive email notifications so that I am aware that requests has been completed
+3 As a Principal Investigator, I want to receive email notifications so that I am aware that requests have been completed
 3 As a Principal Investigator, I want to revoke an existing researchers manager level access for my storage space so that they cannot submit administrative requests
 3 As a Principal Investigator, I want to revoke existing researcher’s access to my storage space so that they can’t access my data
 3 As a Principal Investigator, I want to view the status of my request so that I know its progress

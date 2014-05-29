@@ -47,7 +47,7 @@ namespace ToTheMoon.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="ID,Name,SpaceTotal,SpaceUsed")] Space space)
+        public ActionResult Create([Bind(Include="ID,SpaceName,Description,SpaceTotal,SpaceUsed")] Space space)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace ToTheMoon.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="ID,Name,SpaceTotal,SpaceUsed")] Space space)
+        public ActionResult Edit([Bind(Include="ID,SpaceName,Description,SpaceTotal,SpaceUsed")] Space space)
         {
             if (ModelState.IsValid)
             {

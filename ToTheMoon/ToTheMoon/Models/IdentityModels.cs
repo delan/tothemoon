@@ -4,23 +4,31 @@ using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
 using System.Data.Entity;
   
-
 namespace ToTheMoon.Models
 {
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
-        //[Required]
-        [Key]
-        [Display(Name = "Curtin ID")]
-        public string CurtinID { get; set; }
-
-       // [Required]
+        [Required]
         [Display (Name = "First Name")]
         public string FirstName { get; set; }
 
-        //[Required]
+        [Required]
         [Display (Name = "Last Name")]
         public string LastName { get; set; }
+
+        [Required]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+
+        [Required]
+        public GlobalRole role { get; set; }
+    }
+
+    public enum GlobalRole
+    {
+        REGULAR,
+        APPROVER,
+        ADMIN
     }
 }

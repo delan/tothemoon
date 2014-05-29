@@ -24,6 +24,21 @@ namespace ToTheMoon.Controllers
             return View(db.Requests.ToList());
         }
 
+        // GET: /Request/Details/<id>
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Request req = db.Requests.Find(id);
+            if (req == null)
+            {
+                return HttpNotFound();
+            }
+            return View(req);
+        }
+
         // GET: /Request/Space
         public ActionResult Space()
         {

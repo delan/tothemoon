@@ -162,29 +162,58 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\RequestController.cs" />
-    <Compile Include="Controllers\SpacesController.cs" />
+    <Compile Include="Controllers\IncreaseSpaceRequestController.cs" />
+    <Compile Include="Controllers\NewSpaceRequestController.cs" />
     <Compile Include="DAL\ProjectContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201404100701364_initial-migration.cs" />
-    <Compile Include="Migrations\201404100701364_initial-migration.Designer.cs">
-      <DependentUpon>201404100701364_initial-migration.cs</DependentUpon>
+    <Compile Include="Migrations\201405271649426_fixes-more-things.cs" />
+    <Compile Include="Migrations\201405271649426_fixes-more-things.Designer.cs">
+      <DependentUpon>201405271649426_fixes-more-things.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201404180415482_add-timestamp.cs" />
-    <Compile Include="Migrations\201404180415482_add-timestamp.Designer.cs">
-      <DependentUpon>201404180415482_add-timestamp.cs</DependentUpon>
+    <Compile Include="Migrations\201405271852176_removed-request-state.cs" />
+    <Compile Include="Migrations\201405271852176_removed-request-state.Designer.cs">
+      <DependentUpon>201405271852176_removed-request-state.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405271925425_no-more-uint.cs" />
+    <Compile Include="Migrations\201405271925425_no-more-uint.Designer.cs">
+      <DependentUpon>201405271925425_no-more-uint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405272002122_not-req.cs" />
+    <Compile Include="Migrations\201405272002122_not-req.Designer.cs">
+      <DependentUpon>201405272002122_not-req.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405272114004_typo-increas.cs" />
+    <Compile Include="Migrations\201405272114004_typo-increas.Designer.cs">
+      <DependentUpon>201405272114004_typo-increas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405281259091_userspace.cs" />
+    <Compile Include="Migrations\201405281259091_userspace.Designer.cs">
+      <DependentUpon>201405281259091_userspace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405281415393_jason.cs" />
+    <Compile Include="Migrations\201405281415393_jason.Designer.cs">
+      <DependentUpon>201405281415393_jason.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405281422489_blame_jason.cs" />
+    <Compile Include="Migrations\201405281422489_blame_jason.Designer.cs">
+      <DependentUpon>201405281422489_blame_jason.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\Request.cs" />
+    <Compile Include="Models\Requests.cs" />
     <Compile Include="Models\Space.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\UserSpace.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Database.mdf" />
+    <Content Include="App_Data\Database_log.ldf">
+      <DependentUpon>Database.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -225,22 +254,22 @@
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Spaces\Create.cshtml" />
-    <Content Include="Views\Spaces\Delete.cshtml" />
-    <Content Include="Views\Spaces\Details.cshtml" />
-    <Content Include="Views\Spaces\Edit.cshtml" />
-    <Content Include="Views\Spaces\Index.cshtml" />
-    <Content Include="Views\Home\_NotificationsPartial.cshtml" />
-    <Content Include="Views\Home\_RequestsPartial.cshtml" />
+    <Content Include="Views\Home\_NewSpaceRequestsPartial.cshtml" />
     <Content Include="Views\Home\_SpacesPartial.cshtml" />
-    <Content Include="Views\Request\Index.cshtml" />
     <Content Include="Views\Home\Dashboard.cshtml" />
-    <Content Include="Views\Request\Space.cshtml" />
+    <Content Include="Views\NewSpaceRequest\Create.cshtml" />
+    <Content Include="Views\NewSpaceRequest\Delete.cshtml" />
+    <Content Include="Views\NewSpaceRequest\Details.cshtml" />
+    <Content Include="Views\NewSpaceRequest\Review.cshtml" />
+    <Content Include="Views\Home\_RequestPartial2.cshtml" />
+    <Content Include="Views\IncreaseSpaceRequest\Create.cshtml" />
+    <Content Include="Views\IncreaseSpaceRequest\Delete.cshtml" />
+    <Content Include="Views\IncreaseSpaceRequest\Details.cshtml" />
+    <Content Include="Views\IncreaseSpaceRequest\Review.cshtml" />
+    <Content Include="Views\Home\_IncreaseSpacePartial.cshtml" />
+    <Content Include="Views\Home\_IncreaseSpaceRequestsPartial.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Views\NewSpaceRequest\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -248,11 +277,29 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201404100701364_initial-migration.resx">
-      <DependentUpon>201404100701364_initial-migration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201405271649426_fixes-more-things.resx">
+      <DependentUpon>201405271649426_fixes-more-things.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201404180415482_add-timestamp.resx">
-      <DependentUpon>201404180415482_add-timestamp.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201405271852176_removed-request-state.resx">
+      <DependentUpon>201405271852176_removed-request-state.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405271925425_no-more-uint.resx">
+      <DependentUpon>201405271925425_no-more-uint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405272002122_not-req.resx">
+      <DependentUpon>201405272002122_not-req.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405272114004_typo-increas.resx">
+      <DependentUpon>201405272114004_typo-increas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405281259091_userspace.resx">
+      <DependentUpon>201405281259091_userspace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405281415393_jason.resx">
+      <DependentUpon>201405281415393_jason.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405281422489_blame_jason.resx">
+      <DependentUpon>201405281422489_blame_jason.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

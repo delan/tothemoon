@@ -1,16 +1,40 @@
-﻿<table width="329" border="1" style="width:300px">
+﻿@*<table class="table table-hover" border="1" style="width:48%">
+    <thead bgcolor="#222" style="color:white">
         <tr>
-            <th width="319" bgcolor="#222" style="color:white"><div align="left">My Notifications</div></th>
+            <th>My Notifications</th>
         </tr>
-        @for(int i = 0; i < 5; i++)
+    </thead>
+    <tr>
+        <td height="55">
+            <a href="#111" target="_blank">
+                <p>Michael `Millie' Mroz (13333337)</p>
+                <p>Cardiology 420 - now the Principal Investigator</p>
+            </a>
+        </td>
+    </tr>
+</table>*@
+
+<table class="table table-hover" border="1" style="width:48%">
+    <thead bgcolor="#222" style="color:white">
+        <tr>
+            <th>My Notifications</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (ToTheMoon.Models.Notification notification in ViewBag.Notifications)
         {
             <tr>
                 <td height="55">
-                    <a href="#111" target="_blank">
-                        <p>Michael Mroz (15522353)</p>
-                        <p>Cardiology 320 - now the Prinipal Investigator</p>
-                    </a>
-                </td>
-            </tr>
+                    <p>@notification.Title</p>
+                    <p>@notification.Desc</p>
+                    @*@Html.ActionLink("[Approve]", "Approve", "Request", new { request.RequestID })
+                        @Html.ActionLink("[Reject]", "Reject", "Request", new { request.RequestID })
+                        @Html.ActionLink("[Comment]", "Comment", "Request", new { request.RequestID })*@
+                </td>            
+            </tr> 
         }
-    </table>
+
+    </tbody>
+
+</table>
