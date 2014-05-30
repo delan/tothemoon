@@ -146,7 +146,15 @@ namespace ToTheMoon.Controllers
         {
             IncreaseSpaceRequest incspacerequest = db.IncreaseSpaceRequests.Find(id);
             Space space = db.Spaces.Find(incspacerequest.SpaceID);
-            space.capacity += incspacerequest.increase;
+            if(((Int64)space.capacity + (Int64)incspacerequest.increase) > int.MaxValue)
+            {
+                space.capacity = int.MaxValue;
+            }
+            else
+            {
+                space.capacity += incspacerequest.increase;
+            }
+            
             db.IncreaseSpaceRequests.Remove(incspacerequest);
             db.SaveChanges();
 
