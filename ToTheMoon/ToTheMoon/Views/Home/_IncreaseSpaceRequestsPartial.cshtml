@@ -11,7 +11,7 @@
         {
             <tr>
                 <td>
-                    <p>Request for +@(request.increase)GB for {@request.space.key} @request.space.Name</p>
+                    <p>Request for +@(request.increase)GB for [@request.space.key] @request.space.Name</p>
                     @Html.ActionLink("[Review]", "../IncreaseSpaceRequest/Review/" + request.ID)
                     @{if (ViewBag.UserRole == GlobalRole.ADMIN) { 
                         @Html.ActionLink("[Approve]", "../IncreaseSpaceRequest/Approve/" + request.ID)
