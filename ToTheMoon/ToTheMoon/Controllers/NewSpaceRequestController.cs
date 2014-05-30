@@ -151,7 +151,8 @@ namespace ToTheMoon.Controllers
 
                 UserSpace userspace = new UserSpace();
                 userspace.space = space;
-                userspace.user = newspacerequest.requester;
+                userspace.user = (ApplicationUser)db.Users.Find(newspacerequest.requester_key);
+
                 userspace.role = SpaceRole.DATAMANAGER;
 
                 db.Spaces.Add(space);

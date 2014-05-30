@@ -48,16 +48,9 @@ namespace ToTheMoon.Controllers
             else
             {
                 //change this to only show the right things
-                ViewBag.NewSpaceRequests = db.NewSpaceRequests.ToList<NewSpaceRequest>();
-                ViewBag.IncreaseSpaceRequests = db.IncreaseSpaceRequests.ToList<IncreaseSpaceRequest>();
-                List<UserSpace> UserSpaces = db.UserSpaces.ToList<UserSpace>().FindAll(us => us.Equals(currentUser));
-                ViewBag.Spaces = new List<Space>();
-                ViewBag.UserList = new List<Object>();
-                foreach (UserSpace us in UserSpaces)
-                {
-                    ViewBag.Spaces.Append(db.Spaces.Find(us.space));
-                    ViewBag.UserList.Append(new {us.space.key, us.user.UserName});
-                }
+                ViewBag.NewSpaceRequests = db.NewSpaceRequests.ToList<NewSpaceRequest>().FindAll(nsr => nsr.requester_key.Equals(currentUser.Id));
+                ViewBag.IncreaseSpaceRequests = db.IncreaseSpaceRequests.ToList<IncreaseSpaceRequest>().FindAll(isr => isr.requester_key.Equals(currentUser.Id));
+                ViewBag.UserSpaces = db.UserSpaces.ToList<UserSpace>().FindAll(us => us.user.UserName.Equals(currentUser.UserName));
             }
             return View();
         }

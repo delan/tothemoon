@@ -13,10 +13,10 @@ namespace ToTheMoon.Models
         public int ProductId { get; set; }
 
         [Key, Column(Order = 1)]
-        public ApplicationUser user { get; set; }
+        public virtual ApplicationUser user { get; set; }
 
         [Key]
-        public Space space { get; set; }
+        public virtual Space space { get; set; }
 
         [Required]
         public SpaceRole role { get; set; }

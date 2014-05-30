@@ -64,6 +64,7 @@ namespace ToTheMoon.Models
 
         //[Required]
         public ApplicationUser requester { get; set; }
+        public string requester_key { get; set; }
 
         //[Required]
         public DateTime timestamp { get; set; }

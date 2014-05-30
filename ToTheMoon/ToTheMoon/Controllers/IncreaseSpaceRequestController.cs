@@ -40,6 +40,7 @@ namespace ToTheMoon.Controllers
             {
                 return HttpNotFound();
             }
+            incspacerequest.requester = (ApplicationUser)db.Users.Find(incspacerequest.requester_key);
 
             return View(incspacerequest);
         }
@@ -73,6 +74,10 @@ namespace ToTheMoon.Controllers
             ApplicationUser currentUser = manager.FindById(User.Identity.GetUserId());
             increasespacerequest.space = db.Spaces.Find(increasespacerequest.SpaceID);
             increasespacerequest.requester = (ApplicationUser)db.Users.Find(currentUser.Id);
+            increasespacerequest.requester_key = currentUser.Id;
+
+
+
             increasespacerequest.timestamp = DateTime.Now;
 
             if (ModelState.IsValid)
