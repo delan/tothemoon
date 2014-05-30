@@ -6,6 +6,7 @@
     <thead bgcolor="#222" style="color:white">
         <tr>
             <th>Faculty Storage Spaces</th>
+            <th>Role</th>
             <th colspan="2">Total Space</th>
         </tr>
     </thead>
@@ -17,12 +18,15 @@
                 <td class="col-md-5">
                     <p>@space.Name</p>
                 </td>
+                <td class="col-md-2">
+                    <p>@ViewBag.UserSpaces.Find(space).</p>
+                </td>
                 <td class="col-md-3">
                     <p>@space.used GB of @space.capacity GB @{ 
                         if (ViewBag.UserRole != GlobalRole.REGULAR || /*something about user not being DM for this space*/ 1 == 1) 
-                        { 
+                        {
                             @("| "); @Html.ActionLink("Request Increase", "../IncreaseSpaceRequest/Create", new { SpaceID = space.key });
-                        } 
+                        }
                      }</p>
                 </td>
                 <td class="col-md-5">

@@ -39,7 +39,7 @@ namespace ToTheMoon.Controllers
 
             ViewBag.UserRole = currentUser.role;
 
-            if(currentUser.role == GlobalRole.ADMIN || currentUser.role == GlobalRole.APPROVER)
+            if (currentUser.role == GlobalRole.ADMIN || currentUser.role == GlobalRole.APPROVER)
             {
                 ViewBag.NewSpaceRequests = db.NewSpaceRequests.ToList<NewSpaceRequest>();
                 ViewBag.IncreaseSpaceRequests = db.IncreaseSpaceRequests.ToList<IncreaseSpaceRequest>();
@@ -50,10 +50,15 @@ namespace ToTheMoon.Controllers
                 //change this to only show the right things
                 ViewBag.NewSpaceRequests = db.NewSpaceRequests.ToList<NewSpaceRequest>();
                 ViewBag.IncreaseSpaceRequests = db.IncreaseSpaceRequests.ToList<IncreaseSpaceRequest>();
-                ViewBag.Spaces = db.Spaces.ToList<Space>();
+                List<UserSpace> UserSpaces = db.UserSpaces.ToList<UserSpace>().FindAll(us => us.Equals(currentUser));
+                ViewBag.Spaces = new List<Space>();
+                ViewBag.UserList = new List<Object>();
+                foreach (UserSpace us in UserSpaces)
+                {
+                    ViewBag.Spaces.Append(db.Spaces.Find(us.space));
+                    ViewBag.UserList.Append(new {us.space.key, us.user.UserName});
+                }
             }
-
-            
             return View();
         }
     }
