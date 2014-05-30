@@ -28,10 +28,12 @@ namespace ToTheMoon.Models
         public string comment { get; set; }
 
         [Required]
+        [Range(1, int.MaxValue)]
         [Display(Name = "Capacity (GB)")]
         public int capacity { get; set; }
 
         [Required]
+        [Range(0, int.MaxValue)]
         [Display(Name = "Yearly Increase")]
         public int increase { get; set; }
 
@@ -59,6 +61,7 @@ namespace ToTheMoon.Models
         [Display(Name = "Brief")]
         public string brief { get; set; }
 
+        [Range(1, int.MaxValue)]
         [Display(Name = "Increase (GB)")]
         public int increase { get; set; }
 
