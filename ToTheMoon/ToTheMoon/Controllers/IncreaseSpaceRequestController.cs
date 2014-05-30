@@ -32,13 +32,14 @@ namespace ToTheMoon.Controllers
 
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("../Dashboard");
             }
 
             IncreaseSpaceRequest incspacerequest = db.IncreaseSpaceRequests.Find(id);
             if (incspacerequest == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("../Dashboard");
             }
             incspacerequest.requester = (ApplicationUser)db.Users.Find(incspacerequest.requester_key);
 
@@ -51,14 +52,14 @@ namespace ToTheMoon.Controllers
         {
             if(SpaceID == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("../Dashboard");
             }
             IncreaseSpaceRequest increasespacerequest = new IncreaseSpaceRequest();
             increasespacerequest.space = db.Spaces.Find(SpaceID);
             increasespacerequest.SpaceID = (int)SpaceID;
             if(increasespacerequest.space == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("../Dashboard");
             }
             return View(increasespacerequest);
         }
@@ -129,12 +130,12 @@ namespace ToTheMoon.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("../Dashboard");
             }
             IncreaseSpaceRequest increasespacerequest = db.IncreaseSpaceRequests.Find(id);
             if (increasespacerequest == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("../Dashboard");
             }
             return View(increasespacerequest);
         }
