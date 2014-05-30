@@ -56,6 +56,8 @@ namespace ToTheMoon.Controllers
             ApplicationUser currentUser = manager.FindById(User.Identity.GetUserId());
 
             newspacerequest.requester = (ApplicationUser)db.Users.Find(currentUser.Id);
+            newspacerequest.requester_key = currentUser.Id;
+
             newspacerequest.timestamp = DateTime.Now;
     
             if (ModelState.IsValid)
@@ -122,6 +124,8 @@ namespace ToTheMoon.Controllers
             {
                 return HttpNotFound();
             }
+
+            newspacerequest.requester = (ApplicationUser)db.Users.Find(newspacerequest.requester_key);
             return View(newspacerequest);
 
         }
