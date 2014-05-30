@@ -28,8 +28,14 @@ namespace ToTheMoon.Controllers
         [Route("Dashboard")]
         public ActionResult Dashboard()
         {
+
             var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ProjectContext()));
             ApplicationUser currentUser = manager.FindById(User.Identity.GetUserId());
+
+            if (currentUser == null)
+            {
+                return Redirect("/");
+            }
 
             ViewBag.UserRole = currentUser.role;
 

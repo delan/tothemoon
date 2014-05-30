@@ -23,21 +23,6 @@ namespace ToTheMoon.Controllers
             return View(db.IncreaseSpaceRequests.ToList());
         }
 
-        // GET: /IncreaseSpaceRequest/Details/5
-       /* public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            IncreaseSpaceRequest increasespacerequest = db.IncreaseSpaceRequests.Find(id);
-            if (increasespacerequest == null)
-            {
-                return HttpNotFound();
-            }
-            return View(increasespacerequest);
-        }*/
-
         public ActionResult Review(int? id)
         {
             var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ProjectContext()));
@@ -49,11 +34,13 @@ namespace ToTheMoon.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             IncreaseSpaceRequest incspacerequest = db.IncreaseSpaceRequests.Find(id);
             if (incspacerequest == null)
             {
                 return HttpNotFound();
             }
+
             return View(incspacerequest);
         }
 

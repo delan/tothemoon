@@ -7,21 +7,20 @@
     ViewBag.Title = "Review";
 }
 
-<h2>Comment</h2>
-
+<h2><b>Review</b> New Space Request</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>New Space Request</h4>
+        <h4>@Html.DisplayFor(model => model.name)</h4>
         <hr />
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.ID)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.name, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.name, new { @class = "col-md-2" })
             <div class="col-md-10">
                 @Html.DisplayFor(model => model.name)
                 @Html.HiddenFor(model => model.name)
@@ -30,16 +29,45 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.brief, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.brief, new { @class = "col-md-2" })
             <div class="col-md-10">
                 @Html.DisplayFor(model => model.brief)
                 @Html.ValidationMessageFor(model => model.brief)
             </div>
         </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.capacity, new { @class = "col-md-2" })
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.capacity) GB
+                @Html.ValidationMessageFor(model => model.increase)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.increase, new { @class = "col-md-2" })
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.increase) GB
+                @Html.ValidationMessageFor(model => model.increase)
+            </div>
+        </div>
+
+        @{if ((ViewBag.UserRole == GlobalRole.ADMIN) || (ViewBag.UserRole == GlobalRole.APPROVER))
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.requester, new { @class = "col-md-2" })
+                <div class="col-md-10">
+                    @Html.DisplayFor(model => model.requester.FirstName)
+                    @Html.ValidationMessageFor(model => model.requester)
+                </div>
+            </div>
+        }
+        }
+
         @{if (ViewBag.UserRole == GlobalRole.ADMIN)
         {
             <div class="form-group">
-                @Html.LabelFor(model => model.comment, new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.comment, new { @class = "col-md-2" })
                 <div class="col-md-10">
                     @Html.TextAreaFor(model => model.comment, new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.comment)
@@ -49,7 +77,7 @@
         else if (Model.comment != null && Model.comment != "")
         {
             <div class="form-group">
-                @Html.LabelFor(model => model.comment, new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.comment, new { @class = "col-md-2" })
                 <div class="col-md-10">
                     @Html.DisplayFor(model => model.comment, new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.comment)

@@ -168,45 +168,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201405271649426_fixes-more-things.cs" />
-    <Compile Include="Migrations\201405271649426_fixes-more-things.Designer.cs">
-      <DependentUpon>201405271649426_fixes-more-things.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201405271852176_removed-request-state.cs" />
-    <Compile Include="Migrations\201405271852176_removed-request-state.Designer.cs">
-      <DependentUpon>201405271852176_removed-request-state.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201405271925425_no-more-uint.cs" />
-    <Compile Include="Migrations\201405271925425_no-more-uint.Designer.cs">
-      <DependentUpon>201405271925425_no-more-uint.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201405272002122_not-req.cs" />
-    <Compile Include="Migrations\201405272002122_not-req.Designer.cs">
-      <DependentUpon>201405272002122_not-req.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201405272114004_typo-increas.cs" />
-    <Compile Include="Migrations\201405272114004_typo-increas.Designer.cs">
-      <DependentUpon>201405272114004_typo-increas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201405281259091_userspace.cs" />
-    <Compile Include="Migrations\201405281259091_userspace.Designer.cs">
-      <DependentUpon>201405281259091_userspace.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201405281415393_jason.cs" />
-    <Compile Include="Migrations\201405281415393_jason.Designer.cs">
-      <DependentUpon>201405281415393_jason.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201405281422489_blame_jason.cs" />
-    <Compile Include="Migrations\201405281422489_blame_jason.Designer.cs">
-      <DependentUpon>201405281422489_blame_jason.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201405291524292_test.cs" />
-    <Compile Include="Migrations\201405291524292_test.Designer.cs">
-      <DependentUpon>201405291524292_test.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201405291544442_name-conflicts.cs" />
-    <Compile Include="Migrations\201405291544442_name-conflicts.Designer.cs">
-      <DependentUpon>201405291544442_name-conflicts.cs</DependentUpon>
+    <Compile Include="Migrations\201405300840025_everything..cs" />
+    <Compile Include="Migrations\201405300840025_everything..Designer.cs">
+      <DependentUpon>201405300840025_everything..cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -275,44 +239,16 @@
     <Content Include="Views\IncreaseSpaceRequest\Review.cshtml" />
     <Content Include="Views\Home\_IncreaseSpaceRequestsPartial.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201405300840025_everything..resx">
+      <DependentUpon>201405300840025_everything..cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201405271649426_fixes-more-things.resx">
-      <DependentUpon>201405271649426_fixes-more-things.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201405271852176_removed-request-state.resx">
-      <DependentUpon>201405271852176_removed-request-state.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201405271925425_no-more-uint.resx">
-      <DependentUpon>201405271925425_no-more-uint.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201405272002122_not-req.resx">
-      <DependentUpon>201405272002122_not-req.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201405272114004_typo-increas.resx">
-      <DependentUpon>201405272114004_typo-increas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201405281259091_userspace.resx">
-      <DependentUpon>201405281259091_userspace.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201405281415393_jason.resx">
-      <DependentUpon>201405281415393_jason.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201405281422489_blame_jason.resx">
-      <DependentUpon>201405281422489_blame_jason.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201405291524292_test.resx">
-      <DependentUpon>201405291524292_test.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201405291544442_name-conflicts.resx">
-      <DependentUpon>201405291544442_name-conflicts.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
