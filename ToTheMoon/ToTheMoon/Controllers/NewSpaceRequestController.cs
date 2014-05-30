@@ -117,12 +117,14 @@ namespace ToTheMoon.Controllers
 
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("../Dashboard");
             }
             NewSpaceRequest newspacerequest = db.NewSpaceRequests.Find(id);
             if (newspacerequest == null)
             {
-                return HttpNotFound();
+                //return HttpNotFound();
+                return RedirectToAction("../Dashboard");
             }
 
             newspacerequest.requester = (ApplicationUser)db.Users.Find(newspacerequest.requester_key);
