@@ -164,6 +164,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IncreaseSpaceRequestController.cs" />
     <Compile Include="Controllers\NewSpaceRequestController.cs" />
+    <Compile Include="Controllers\SpaceController.cs" />
     <Compile Include="DAL\ProjectContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -250,6 +251,11 @@
     <Content Include="Views\IncreaseSpaceRequest\Create.cshtml" />
     <Content Include="Views\IncreaseSpaceRequest\Review.cshtml" />
     <Content Include="Views\Home\_IncreaseSpaceRequestsPartial.cshtml" />
+    <Content Include="Views\Space\Create.cshtml" />
+    <Content Include="Views\Space\Delete.cshtml" />
+    <Content Include="Views\Space\Details.cshtml" />
+    <Content Include="Views\Space\Edit.cshtml" />
+    <Content Include="Views\Space\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201405300840025_everything..resx">

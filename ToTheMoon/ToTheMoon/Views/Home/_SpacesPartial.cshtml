@@ -49,12 +49,7 @@
                     }
                     <td class="col-md-3">
                         <p>
-                            @userspace.space.used GB of @userspace.space.capacity GB @{
-                if (ViewBag.UserRole != GlobalRole.REGULAR || userspace.role == SpaceRole.DATAMANAGER)
-                {
-                    @("| "); @Html.ActionLink("Request Increase", "../IncreaseSpaceRequest/Create", new { SpaceID = userspace.space.key });
-                }
-                            }
+                           @Html.ActionLink("Review", "Review"); @("| ");  @userspace.space.used GB of @userspace.space.capacity GB
                         </p>
                     </td>
                     <td class="col-md-5">
