@@ -260,6 +260,7 @@
     <Content Include="Views\Space\Index.cshtml" />
     <Content Include="Views\UserSpace\Edit.cshtml" />
     <Content Include="Views\Space\ChangeCapacity.cshtml" />
+    <Content Include="Views\UserSpace\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201405300840025_everything..resx">
