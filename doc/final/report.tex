@@ -134,8 +134,9 @@ the web-based portal and the process used during development of this project.
 Our solution approach was to first prioritise the user stories given, so that
 vital functionality would be implemented in early sprints. Shortly afterwards,
 the team had a meeting to discuss the various permissions of the different user
-account roles. In this meeting we made a permissions table so as to clear up
-any confusion of the various user privileges.
+account roles. In this meeting we made a permissions table, as shown in
+Figure~\ref{fig:permissions}, so as to clear up any confusion of the various
+user privileges.
 
 The overarching method was to figure out the solutions for the larger problems
 as a group, and then to allocate tasks to be solved by assorted group members
@@ -147,6 +148,28 @@ Trello to organise user stories as well as Basecamp.
 
 The time allocated to various tasks in the project can be seen in the Gantt
 chart in Figure~\ref{fig:gantt}.
+
+\begin{figure}[h]
+	\caption{The user access permissions model for this prototype}
+	\label{fig:permissions}
+	\quad\\
+\begin{lstlisting}
+                Receive approval notifications
+                | View available spaces
+                | | Request access to space
+                | | | Grant/revoke access to space
+                | | | | Promote/demote Data Manager
+                | | | | | Request additional space
+                | | | | | | Approve new/expanded space
+                | | | | | | | Set Pri.Inv. owning space
+                | | | | | | | | Comment on requests
+                | | | | | | | | |
+        Admins  X X X X X X X X X
+     Approvers  X X X X X X X X
+ Data Managers  X X X X X X
+   Researchers  X X X
+\end{lstlisting}
+\end{figure}
 
 \begin{landscape}
 	\quad % ugly hack because there needs to be some text here
@@ -409,23 +432,6 @@ roles help define what users are allowed to do and access within the system.
 Due to the key nature of system integrity we decided to come up with a diagram
 of user permission levels for all the user types. This was used throughout the
 design phase to create the different user logins in the system.
-
-\begin{lstlisting}
-                Receive approval notifications
-                | View available spaces
-                | | Request access to space
-                | | | Grant/revoke access to space
-                | | | | Promote/demote Data Manager
-                | | | | | Request additional space
-                | | | | | | Approve new/expanded space
-                | | | | | | | Set Pri.Inv. owning space
-                | | | | | | | | Comment on requests
-                | | | | | | | | |
-        Admins  X X X X X X X X X
-     Approvers  X X X X X X X X
- Data Managers  X X X X X X
-   Researchers  X X X
-\end{lstlisting}
 
 For the second level of user stories we see a lot more stories about
 collaboration and changing user access levels for the existing storage spaces.
