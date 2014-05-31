@@ -1,4 +1,7 @@
 \documentclass[a4paper,titlepage,12pt]{article}
+\usepackage{filecontents}
+\usepackage[backend=biber,authordate]{biblatex-chicago}
+\addbibresource{report.bib}
 \usepackage{parskip}
 \usepackage{graphicx}
 \usepackage{listings}
@@ -17,6 +20,13 @@
 
 \let\stdsection\section
 \renewcommand\section{\newpage\stdsection}
+\newcommand\figimg[3][\textwidth]{
+	\begin{figure}
+		\caption{{#3}.}
+		\label{fig:#2}
+		\quad\\\includegraphics[width={#1}]{{#2}.png}
+	\end{figure}
+}
 
 \title{Project Design and Management 300\\FreedomSpace}
 \date{June 1, 2014}
@@ -130,24 +140,30 @@ The overarching method was to figure out the solutions for the larger problems
 as a group, and then to allocate tasks to be solved by assorted group members
 by the end of the next sprint.
 
+Existing free technologies were used to coordinate project management and
+communications, including a Facebook group, Google form for time logging,
+Trello to organise user stories as well as Basecamp.
+
 The time allocated to various tasks in the project can be seen in the Gantt
 chart in Figure~\ref{fig:gantt}.
-
-\subsection{(TODO: Jasmine) Tools considered for development}
-
-\subsection{(TODO: Jasmine) User interface mockups}
 
 \begin{landscape}
 	\quad % ugly hack because there needs to be some text here
 	\thispagestyle{empty}
 	\begin{textblock}{270}(-33,-30)
-		\begin{figure}
-			\caption{Gantt chart for this project}
-			\label{fig:gantt}
-			\includegraphics[width=280mm]{gantt.png}
-		\end{figure}
+		\figimg[280mm]{gantt}{the Gantt chart for this project}
 	\end{textblock}
 \end{landscape}
+
+\subsection{(TODO: Jasmine) Tools considered for development}
+
+\begin{itemize}
+	\item Django `is a high-level Python Web framework that encourages
+	      rapid development and clean, pragmatic design.'
+	      (\cite{Django2014})
+\end{itemize}
+
+\subsection{(TODO: Jasmine) User interface mockups}
 
 \section{Product backlog}
 
@@ -181,22 +197,26 @@ be able to log in and approve requests. From this we can assume that they want
 to be able to log in so that they will be able to have access to this feature,
 not just anyone.
 
-(TODO: insert login screen here)
+\figimg{login}{the login screen}
 
 We can further assume that this is also related to wanting some level of system
 and user security so that only authorised personnel have access to requests.
 This is also seen in the third story where the approver wants to be able to log
 in to approve requests. From this we can see that approving requests is a
-privileged feature and only these two types of users are able to do this.
+privileged feature and only these two types of users are able to do this. This
+can be seen in the login screen feature shown in Figure~\ref{fig:login}.
 
 The second user story shows that all users do want to be able to log in and
 perform functions applicable to their role. This can be expanded to users want
 to be able to log in and only see functions related to their own role,
 therefore only displaying functions that they can use. From this assumption we
 can work out that users only want to see what they can do and they don't want
-to see everything else.
+to see everything else, as illustrated in Figure~\ref{fig:user0} and
+Figure~\ref{fig:user2}.
 
-(TODO: insert screenshots of different user roles)
+\figimg{user0}{the dashboard as seen by a plebeian user}
+
+\figimg{user2}{the dashboard as seen by an administrator}
 
 While this may seem like an ease of use story it is important to make sure that
 all users can log in as soon as the first part of the working system is
@@ -412,7 +432,7 @@ not been stored otherwise. Although similar there are other stories that make a
 note of faculty so it would be a bit more obvious to store which faculty a
 project is part of.
 
-The final user stories are about requests for storage. 
+The final user stories are about requests for storage.
 
 \begin{itemize}
 	\item As a data manager, I want to view the status of my request so
@@ -1050,6 +1070,15 @@ End time: 4:27 p.m.
 
 \section{(TODO: Delan) Details of the design}
 
+After much deliberation over the user stories and the permissions model, our
+team devised a set of models and their relationships as defined by the UML and
+entity-relationship diagrams in Figure~\ref{fig:uml} and Figure~\ref{fig:erd}
+respectively.
+
+\figimg{uml}{the Unified Modeling Language diagram for this prototype}
+
+\figimg{erd}{the entity-relationship diagram for this prototype}
+
 \section{(TODO: Jasmine) Details of the implementation}
 
 \section{Project review}
@@ -1100,5 +1129,9 @@ work in taking to work well together as a team increases a lot for each new
 person added in to the project.
 
 \section{(TODO: Delan) Conclusions and summary}
+
+\section{References}
+
+\printbibliography
 
 \end{document}

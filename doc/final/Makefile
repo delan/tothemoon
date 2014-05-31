@@ -1,0 +1,5 @@
+report.pdf: report.tex report.bib
+	pdflatex report
+	biber report
+	pdflatex report
+	pdflatex report
