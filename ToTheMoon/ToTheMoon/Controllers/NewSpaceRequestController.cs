@@ -62,7 +62,6 @@ namespace ToTheMoon.Controllers
     
             if (ModelState.IsValid)
             {
-
                 db.NewSpaceRequests.Add(newspacerequest);
                 db.SaveChanges();
                 return RedirectToAction("../Dashboard");
@@ -70,21 +69,6 @@ namespace ToTheMoon.Controllers
 
             return View(newspacerequest);
         }
-
-        // GET: /NewSpaceRequest/Edit/5
-        //public ActionResult Edit(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    NewSpaceRequest newspacerequest = db.NewSpaceRequests.Find(id);
-        //    if (newspacerequest == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(newspacerequest);
-        //}
 
         // POST: /NewSpaceRequest/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -121,6 +105,7 @@ namespace ToTheMoon.Controllers
                 return RedirectToAction("../Dashboard");
             }
             NewSpaceRequest newspacerequest = db.NewSpaceRequests.Find(id);
+
             if (newspacerequest == null)
             {
                 //return HttpNotFound();

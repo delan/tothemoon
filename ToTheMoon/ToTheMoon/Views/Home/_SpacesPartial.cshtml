@@ -6,11 +6,14 @@
     <thead bgcolor="#222" style="color:white">
         <tr>
             <th>Faculty Storage Spaces</th>
+
             @if (ViewBag.UserRole == GlobalRole.REGULAR)
             {
                 <th>Role</th>
             }
-            <th colspan="2">Total Space</th>
+            
+            <th colspan="1">Total Space</th>
+            <th>Options</th>
         </tr>
     </thead>
 
@@ -20,53 +23,51 @@
             foreach (ToTheMoon.Models.UserSpace userspace in ViewBag.UserSpaces)
             {
                 <tr>
-                    <td class="col-md-5">
-                        <p>@userspace.space.Name</p>
-                    </td>
-                    @if (ViewBag.UserRole == GlobalRole.REGULAR)
-                    {
-
-                        <td class="col-md-2">
-                        @{
-                            if(userspace.space.PIKey == User.Identity.GetUserId())
-                            {
-                                <p>Principal Investigator</p>
-                            }
-                            else if(userspace.role == SpaceRole.COLLAB_RO)
-                            {
-                                <p>Read-Only Reasearcher</p>
-                            }
-                            else if(userspace.role == SpaceRole.COLLAB_RW)
-                            {
-                                <p>Read/Write Reasearcher</p>
-                            }
-                            else //SpaceRole.DATAMANAGER
-                            {
-                                <p>Data Manager</p>
-                            }
-                        }
-                        </td>
-                    }
+                    <!-- space name -->
                     <td class="col-md-3">
-                        <p>
-                            @userspace.space.used GB of @userspace.space.capacity GB @{
-                if (ViewBag.UserRole != GlobalRole.REGULAR || userspace.role == SpaceRole.DATAMANAGER)
-                {
-                    @("| "); @Html.ActionLink("Request Increase", "../IncreaseSpaceRequest/Create", new { SpaceID = userspace.space.key });
-                }
-                            }
-                        </p>
+                        <span>@userspace.space.Name</span>
                     </td>
-                    <td class="col-md-5">
+
+                    <!-- user's space-specific permissions -->
+                    <td class="col-md-2">
+                    @{
+                        if(userspace.space.PIKey == User.Identity.GetUserId())
+                        {
+                            <span>Principal Investigator</span>
+                        }
+                        else if(userspace.role == SpaceRole.COLLAB_RO)
+                        {
+                            <span>Read-Only Reasearcher</span>
+                        }
+                        else if(userspace.role == SpaceRole.COLLAB_RW)
+                        {
+                            <span>Read/Write Reasearcher</span>
+                        }
+                        else //SpaceRole.DATAMANAGER
+                        {
+                            <span>Data Manager</span>
+                        }
+                    }
+                    </td>
+
+                    <!-- percentage bar -->
+                    <td class="col-md-6">
                         <p>
                             <div class="progress">
                                 @{
-                double percentageComplete = ((float)userspace.space.used / (float)userspace.space.capacity) * 100;
-                percentageComplete = Math.Round(percentageComplete, 0);
+                                    double percentageComplete = ((float)userspace.space.used / (float)userspace.space.capacity) * 100;
+                                    percentageComplete = Math.Round(percentageComplete, 0);
                                 }
-                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="@userspace.space.used" aria-valuemin="0" aria-valuemax=@userspace.space.capacity style="width: @percentageComplete%"></div>
+                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="@userspace.space.used" aria-valuemin="0" aria-valuemax=@userspace.space.capacity style="width: @percentageComplete%">
+                                    @userspace.space.used GB of @userspace.space.capacity GB
+                                </div>
                             </div>
                         </p>
+                    </td>
+
+                    <!-- review link -->
+                    <td class="col-md-1">
+                        @Html.ActionLink("Review", "Review")
                     </td>
                 </tr>
             }
@@ -76,29 +77,25 @@
             foreach (ToTheMoon.Models.Space space in ViewBag.Spaces)
             {
                 <tr>
-                    <td class="col-md-5">
-                        <p>@space.Name</p>
-                    </td>
+                    <!-- space name -->
                     <td class="col-md-3">
-                        <p>
-                            @space.used GB of @space.capacity GB @{
-                if (ViewBag.UserRole != GlobalRole.REGULAR || /*something about user not being DM for this space*/ 1 == 1)
-                {
-                    @("| "); @Html.ActionLink("Request Increase", "../IncreaseSpaceRequest/Create", new { SpaceID = space.key });
-                }
-                            }
-                        </p>
+                        <span>@space.Name</span>
                     </td>
-                    <td class="col-md-5">
-                        <p>
-                            <div class="progress">
+
+                    <td class="col-md-8">
+                            <div class="progress" style="margin-bottom: 0px">
                                 @{
                 double percentageComplete = ((float)space.used / (float)space.capacity) * 100;
                 percentageComplete = Math.Round(percentageComplete, 0);
                                 }
-                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="@space.used" aria-valuemin="0" aria-valuemax="@space.capacity" style="width: @percentageComplete%"></div>
+                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="@space.used" aria-valuemin="0" aria-valuemax="@space.capacity" style="width: @percentageComplete%">
+                                    <p>@space.used GB of @space.capacity GB</p>
+                                </div>
                             </div>
-                        </p>
+                    </td>
+
+                    <td class="col-md-1">
+                        @Html.ActionLink("Review", "Review", "Space", new { ID = space.key }, null)
                     </td>
                 </tr>
             }
