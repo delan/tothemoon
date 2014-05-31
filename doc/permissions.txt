@@ -8,16 +8,7 @@
                 | | | | | | | Set Pri.Inv. owning space
                 | | | | | | | | Comment on requests
                 | | | | | | | | |
-<<<<<<< HEAD
-        Admins X X X X X X X X X
-     Approvers X X X X X X X X
- Data Managers X X X X X X
-   Researchers X X X
-
-
-=======
         Admins  X X X X X X X X X
      Approvers  X X X X X X X X
  Data Managers  X X X X X X
    Researchers  X X X
->>>>>>> bd5154e649420d29be7548b16e76e15041a5e5b2
