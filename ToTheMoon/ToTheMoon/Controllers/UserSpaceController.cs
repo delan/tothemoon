@@ -63,8 +63,8 @@ namespace ToTheMoon.Controllers
         }
 
         // POST: /UserSpace/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
         public ActionResult Delete(int id)
         {
             UserSpace userspace = db.UserSpaces.Find(id);
