@@ -95,6 +95,7 @@
                     @String.Join(" ", sp.user.FirstName, sp.user.LastName);
                     @(" | ")
                     @Html.ActionLink("Edit", "../UserSpace/Edit/" + sp.ProductId);
+                    @(" | ")
                     @Html.ActionLink("Remove", "../UserSpace/Delete/" + sp.ProductId);
                 }
                 }
