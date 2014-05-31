@@ -1,4 +1,5 @@
 \documentclass[a4paper,titlepage,12pt]{article}
+\usepackage[margin=1in]{geometry}
 \usepackage{filecontents}
 \usepackage[backend=biber,authordate]{biblatex-chicago}
 \addbibresource{report.bib}
@@ -25,7 +26,7 @@
 	\begin{figure}
 		\caption{#4}
 		\label{fig:#2}
-		\quad\\\includegraphics[width=#1]{#3.png}
+		\includegraphics[width=#1]{#3.png}
 	\end{figure}
 }
 
@@ -152,7 +153,6 @@ chart in Figure~\ref{fig:gantt}.
 \begin{figure}[h]
 	\caption{The user access permissions model for this prototype}
 	\label{fig:permissions}
-	\quad\\
 \begin{lstlisting}
                 Receive approval notifications
                 | View available spaces
@@ -174,8 +174,8 @@ chart in Figure~\ref{fig:gantt}.
 \begin{landscape}
 	\quad % ugly hack because there needs to be some text here
 	\thispagestyle{empty}
-	\begin{textblock}{270}(-33,-30)
-		\figimg[280mm]{gantt}{gantt}
+	\begin{textblock}{270}(-12,0)
+		\figimg[270mm]{gantt}{gantt}
 			{The Gantt chart for this project}
 	\end{textblock}
 \end{landscape}
@@ -280,7 +280,7 @@ for several private repositories if signed up with a .edu email address which
 was another benefit, as we didn't want to risk other groups plagiarising our
 hard work.
 
-Draw.io was used before the unofficial `sprint zero' presentation to display
+draw.io was used before the unofficial `sprint zero' presentation to display
 our initial mockups of our website. At this point we had not started any
 development, and the focus was on planning the first sprint. The group decided
 to use Draw.io as a couple of members had used it previously for another group
@@ -292,12 +292,17 @@ the project as documented in this report.
 Google Docs was used heavily in the making of the final report, as well as
 communicating between members progress of web backend functionality. A group
 member suggested using Google Docs and this was found in agreement with other
-members. One of Google Docs' greatest merits is its ability to support online
-live collaboration. When working among a group of seven busy university
-students, this support is necessary. This feature was extremely helpful in
-seeing where other group members were up to in their allocated section of the
-report, as well as being able to refer to others' sections when working on
-one's own sections.
+members. One of its greatest merits is its ability to support online live
+collaboration. When working among a group of seven busy university students,
+this support is necessary. This feature was extremely helpful in seeing where
+other group members were up to in their allocated section of the report, as
+well as being able to refer to others' sections when working on one's own
+sections.
+
+The final report was transcribed from a Google Docs file to be typeset using
+\LaTeX, in order to exercise a greater degree of control over the aesthetics
+and typography, while automating tedious tasks such as figure layout and
+bibliography management.
 
 \subsection{User interface mockups}
 
@@ -407,9 +412,7 @@ them. The second part could very easily be forgotten due to the significance of
 the first part and that is that the users also want to know their access levels
 for these projects that have space allocated.
 
-(TODO: picture of storage spaces)
-
-The third story gives insight on what is wanted from the system in terms of
+The third story gives insight into what is wanted from the system in terms of
 changing the storage of users. From this we can understand that administrators
 want to be able to change the permissions, expand and approve storage. This
 means the system needs to be able to dynamically set storage and user
@@ -433,7 +436,7 @@ Due to the key nature of system integrity we decided to come up with a diagram
 of user permission levels for all the user types. This was used throughout the
 design phase to create the different user logins in the system.
 
-For the second level of user stories we see a lot more stories about
+For the second level of user stories we see many more stories concerning
 collaboration and changing user access levels for the existing storage spaces.
 
 \begin{itemize}
@@ -1000,10 +1003,10 @@ team devised a set of models and their relationships as defined by the UML and
 entity-relationship diagrams in Figure~\ref{fig:uml} and Figure~\ref{fig:erd}
 respectively.
 
-It is apparent that there is much in common between the
-\texttt{NewSpaceRequest} and \texttt{IncreaseSpaceRequest} model classes. While
+It is apparent that there is much in common between the model classes
+\texttt{NewSpaceRequest} and \texttt{IncreaseSpaceRequest}. While
 we initially tried to refactor this by making them subclasses of an abstract
-parent class \texttt{Request}, this caused issues with the
+parent class \texttt{Request}, this conflicted with the
 \texttt{EntityFramework} object-relational mapper that is an integral part of
 ASP.NET MVC 5. The ORM would return instances of the parent class, which would
 require casting, then fail to store in the database when changed. This
@@ -1138,8 +1141,8 @@ Figure~\ref{fig:effort3}.
 \begin{landscape}
 	\quad % ugly hack because there needs to be some text here
 	\thispagestyle{empty}
-	\begin{textblock}{270}(-33,-30)
-		\figimg[280mm]{effort1}{effort1}
+	\begin{textblock}{270}(-12,0)
+		\figimg[270mm]{effort1}{effort1}
 			{The task effort chart for the first sprint}
 	\end{textblock}
 \end{landscape}
@@ -1147,8 +1150,8 @@ Figure~\ref{fig:effort3}.
 \begin{landscape}
 	\quad % ugly hack because there needs to be some text here
 	\thispagestyle{empty}
-	\begin{textblock}{270}(-33,-30)
-		\figimg[280mm]{effort2}{effort2}
+	\begin{textblock}{270}(-12,0)
+		\figimg[270mm]{effort2}{effort2}
 			{The task effort chart for the second sprint}
 	\end{textblock}
 \end{landscape}
@@ -1156,8 +1159,8 @@ Figure~\ref{fig:effort3}.
 \begin{landscape}
 	\quad % ugly hack because there needs to be some text here
 	\thispagestyle{empty}
-	\begin{textblock}{270}(-33,-30)
-		\figimg[280mm]{effort3}{effort3}
+	\begin{textblock}{270}(-12,0)
+		\figimg[270mm]{effort3}{effort3}
 			{The task effort chart for the third sprint}
 	\end{textblock}
 \end{landscape}
