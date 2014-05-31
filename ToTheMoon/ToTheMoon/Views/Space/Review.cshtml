@@ -102,11 +102,11 @@
                 @Html.ValidationMessageFor(model => model.PI)
             </div>
         </div>
-
-
+        <div>@Html.ActionLink("Add User", "../UserSpace/Create/" + Model.key)</div>
+       
     </div>
 }
-
+<br />
 <div>
     @Html.ActionLink("Back to Dashboard", "Dashboard", "Home")
 </div>
