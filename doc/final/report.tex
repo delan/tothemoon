@@ -987,6 +987,93 @@ a joint effort from all members the project was completed on time.
 
 \subsection{(TODO: Delan) Sprint 3 retrospective}
 
+\section{Details of the design}
+
+After much deliberation over the user stories and the permissions model, our
+team devised a set of models and their relationships as defined by the UML and
+entity-relationship diagrams in Figure~\ref{fig:uml} and Figure~\ref{fig:erd}
+respectively.
+
+It is apparent that there is much in common between the
+\texttt{NewSpaceRequest} and \texttt{IncreaseSpaceRequest} model classes. While
+we initially tried to refactor this by making them subclasses of an abstract
+parent class \texttt{Request}, this caused issues with the
+\texttt{EntityFramework} object-relational mapper that is an integral part of
+ASP.NET MVC 5. The ORM would return instances of the parent class, which would
+require casting, then fail to store in the database when changed. This
+impasse forced us to allow the small amount of code duplication required
+through the elimination of inheritance.
+
+\figimg{uml}{uml}{The Unified Modeling Language diagram for this prototype}
+
+\figimg{erd}{erd}{The entity-relationship diagram for this prototype}
+
+\section{Details of the implementation}
+
+\subsection{Sprint 1}
+
+Planned tasks:
+
+\begin{itemize}
+	\item Set up project management tools;
+	\item Authentication system;
+	\item Submit storage and additional storage requests;
+	\item View a list of all users' and faculty storage spaces; and
+	\item Approve and review requests.
+\end{itemize}
+
+Completed tasks:
+
+\begin{itemize}
+	\item Set up project management tools;
+	\item Authentication system;
+	\item Submit storage and additional storage requests;
+	\item Redesign of navigation bar; and
+	\item Frontend addition of interleaved links to relevant pages.
+\end{itemize}
+
+Due to most of the group being new to web development, we focused on achieving
+the functionality of the user stories, and decided to adjust the frontend to
+match the inital mockups at a later date.
+
+The task effort breakdown for the first sprint is illustrated in
+Figure~\ref{fig:effort1}.
+
+\newpage
+
+\subsection{Sprint 2}
+
+\newpage
+
+\subsection{Sprint 3}
+
+\begin{landscape}
+	\quad % ugly hack because there needs to be some text here
+	\thispagestyle{empty}
+	\begin{textblock}{270}(-33,-30)
+		\figimg[280mm]{effort1}{effort1}
+			{The task effort chart for the first sprint}
+	\end{textblock}
+\end{landscape}
+
+\begin{landscape}
+	\quad % ugly hack because there needs to be some text here
+	\thispagestyle{empty}
+	\begin{textblock}{270}(-33,-30)
+		\figimg[280mm]{effort2}{effort2}
+			{The task effort chart for the second sprint}
+	\end{textblock}
+\end{landscape}
+
+\begin{landscape}
+	\quad % ugly hack because there needs to be some text here
+	\thispagestyle{empty}
+	\begin{textblock}{270}(-33,-30)
+		\figimg[280mm]{effort3}{effort3}
+			{The task effort chart for the third sprint}
+	\end{textblock}
+\end{landscape}
+
 \section{Scrum meeting minutes}
 
 \subsection{Scrum meeting 1}
@@ -1202,22 +1289,9 @@ will be made to the prototype.
 
 End time: 4:27 p.m.
 
-\section{(TODO: Delan) Details of the design}
-
-After much deliberation over the user stories and the permissions model, our
-team devised a set of models and their relationships as defined by the UML and
-entity-relationship diagrams in Figure~\ref{fig:uml} and Figure~\ref{fig:erd}
-respectively.
-
-\figimg{uml}{uml}{The Unified Modeling Language diagram for this prototype}
-
-\figimg{erd}{erd}{The entity-relationship diagram for this prototype}
-
-\section{(TODO: Jasmine) Details of the implementation}
-
 \section{Project review}
 
-There were many lessons learnt from working on this project using the Scrum
+There were many lessons learned from working on this project using the Scrum
 process. We did quite a few things right with our process. In our initial group
 meetings we sorted out our product backlog right away which really gave us a
 good idea of what we needed to do. We also split the work load up into the
