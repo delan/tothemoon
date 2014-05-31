@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using ToTheMoon.Models;
 using ToTheMoon.DAL;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace ToTheMoon.Controllers
 {
@@ -24,11 +22,18 @@ namespace ToTheMoon.Controllers
         // GET: /Space/Details/5
         public ActionResult Review(int? id)
         {
+            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ProjectContext()));
+            ApplicationUser currentUser = manager.FindById(User.Identity.GetUserId());
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Space space = db.Spaces.Find(id);
+
+
+            ViewBag.spaceRole = (db.UserSpaces.ToList<UserSpace>().Find(us => us.user.UserName.Equals(currentUser.UserName) && us.space.Equals(space))).role;
+            
             if (space == null)
             {
                 return HttpNotFound();
@@ -36,12 +41,9 @@ namespace ToTheMoon.Controllers
             return View(space);
         }
 
-        // POST: /Space/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="key,Name,capacity,used,increase,PIKey")] Space space)
+        public ActionResult Review([Bind(Include="key,Name,capacity,used,increase,PIKey")] Space space)
         {
             if (ModelState.IsValid)
             {

@@ -17,14 +17,19 @@
     @{
         //Only bother to show Requests for Increased Space if user actually has the ability to make one
         bool DM = false;
-        foreach (UserSpace us in ViewBag.UserSpaces)
+        
+        if (ViewBag.UserSpaces != null)
         {
-            if (us.role == SpaceRole.DATAMANAGER)
+            foreach (UserSpace us in ViewBag.UserSpaces)
             {
-                DM = true;
-                break;
+                if (us.role == SpaceRole.DATAMANAGER)
+                {
+                    DM = true;
+                    break;
+                }
             }
         }
+        
         //make div col-md-12 if a regular user
         string RequestWidth = "col-md-12";
    

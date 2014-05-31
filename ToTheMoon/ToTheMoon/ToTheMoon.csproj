@@ -254,7 +254,7 @@
     <Content Include="Views\Space\Create.cshtml" />
     <Content Include="Views\Space\Delete.cshtml" />
     <Content Include="Views\Space\Details.cshtml" />
-    <Content Include="Views\Space\Edit.cshtml" />
+    <Content Include="Views\Space\Review.cshtml" />
     <Content Include="Views\Space\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
