@@ -55,7 +55,7 @@ namespace ToTheMoon.Controllers
 
             ViewBag.readOnlyResearchers = db.UserSpaces.ToList().FindAll(usc => usc.space == space && usc.role == SpaceRole.COLLAB_RO);
             ViewBag.readWriteResearchers = db.UserSpaces.ToList().FindAll(usc => usc.space == space && usc.role == SpaceRole.COLLAB_RW);
-            ViewBag.dataManagers = db.UserSpaces.ToList();
+            ViewBag.dataManagers = db.UserSpaces.ToList().FindAll(usc => usc.space == space && usc.role == SpaceRole.DATAMANAGER);
 
             ViewBag.canChangeCapacity = false;
             ViewBag.canRequestSpace   = false;
