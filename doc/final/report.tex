@@ -1036,6 +1036,14 @@ Due to most of the group being new to web development, we focused on achieving
 the functionality of the user stories, and decided to adjust the frontend to
 match the inital mockups at a later date.
 
+Multiple accounts with no access restrictions were successfully registered
+using the website, and all were able to submit storage requests as per the
+requirements specification. We have been testing the website using the latest
+released of Google Chrome, Mozilla Firefox and Internet Explorer. At this stage
+the registration screen accepted a username and password, with no requirement
+for Curtin ID or email address, therefore checking for a valid email address
+was not required.
+
 The task effort breakdown for the first sprint is illustrated in
 Figure~\ref{fig:effort1}.
 
@@ -1043,9 +1051,83 @@ Figure~\ref{fig:effort1}.
 
 \subsection{Sprint 2}
 
+Planned tasks:
+
+\begin{itemize}
+	\item View a list of all storage requests;
+	\item Grant other researchers access to my storage spaces;
+	\item Approve and review storage requests;
+	\item User access levels and privileges; and
+	\item UML diagram.
+\end{itemize}
+
+Completed tasks:
+
+\begin{itemize}
+	\item Dashboard frontend with static HTML;
+	\item Cancellation and deletion of space requests;
+	\item Recorded timestamps for each request; and
+	\item UML diagram.
+\end{itemize}
+
+In an earlier meeting Callum suggested using the Decorator software pattern to
+implement the different user roles as they have subset permissions. The group
+agreed to research the Decorator pattern in order to use it. However, due to
+the complexity of the MVC5 framework and our lack of experience using it, it
+was decided that the pattern was too complex to implement using a foreign
+framework.
+
+We then decided our account level types will be implemented as different
+viewing permissions. This allows us to base what the user is allowed to see on
+their role as per the requirement specification. Although, the tradeoff is that
+the website is not as secure as would be preferred. Due to the time constraints
+the group decided to pursue the safer option of fulfilling the required
+functionality with lesser security measures.
+
+The task effort breakdown for the second sprint is illustrated in
+Figure~\ref{fig:effort2}.
+
 \newpage
 
 \subsection{Sprint 3}
+
+Planned tasks:
+
+\begin{itemize}
+	\item Viewing a list of all storage requests;
+	\item Approve and review storage requests;
+	\item User access levels and privileges;
+	\item Granting access to storage spaces;
+	\item Granting manager level access to storage spaces;
+	\item Sending appropriate notifications;
+	\item Receiving email notifications;
+	\item Viewing status of requests;
+	\item Revoking access to storage spaces; and
+	\item Adding comments to requests.
+\end{itemize}
+
+Completed tasks:
+
+\begin{itemize}
+	\item Viewing a list of all storage requests;
+	\item Approve and review storage requests;
+	\item User access levels and privileges;
+	\item Granting access to storage spaces;
+	\item Granting manager level access to storage spaces;
+	\item Sending appropriate notifications;
+	\item Receiving email notifications;
+	\item Viewing status of requests;
+	\item Revoking access to storage spaces; and
+	\item Adding comments to requests.
+\end{itemize}
+
+As the project is not being hosted online, we are unable to actually send
+email notifications. Instead, we are working around this limitation with a
+page that appears when an email notification would have been sent that will
+still have the same content and data.
+
+The task effort breakdown for the third sprint is illustrated in
+Figure~\ref{fig:effort3}.
 
 \begin{landscape}
 	\quad % ugly hack because there needs to be some text here
