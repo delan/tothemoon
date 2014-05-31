@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -26,8 +27,11 @@ namespace ToTheMoon.Models
 
     public enum SpaceRole
     {
+        [Description("Read-Only Researcher")]
         COLLAB_RO,
+        [Description("Read/Write Reasearcher")]
         COLLAB_RW,
+        [Description("Data Manager")]
         DATAMANAGER
     }
 }
