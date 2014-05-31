@@ -7,8 +7,10 @@
 *.pdf
 *.mdf
 *.ldf
+*.bbl
+*.bcf
+*.blg
 *.run.xml
-*-blx.bib
 
 #################
 ## Visual Studio
