@@ -10,7 +10,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>@Html.DisplayFor(model => model.Name)</h4>
         <hr />
@@ -22,11 +22,11 @@
             <div class="col-md-10">
                 @Html.DisplayFor(model => model.capacity) GB
                 @{if (ViewBag.canChangeCapacity)
-                  {
-                    @Html.ActionLink(" ", "ChangeCapacity", "Space", new { ID = Model.key }, new { @class = "glyphicon glyphicon-plus-sign"})
-                  }
+                {
+                    @Html.ActionLink(" ", "ChangeCapacity", "Space", new { ID = Model.key }, new { @class = "glyphicon glyphicon-plus-sign" })
                 }
-                
+                }
+
                 @Html.ValidationMessageFor(model => model.capacity)
             </div>
         </div>
@@ -59,9 +59,15 @@
             @Html.Label("Data Managers", new { @class = "col-md-2" })
             <div class="col-md-10">
                 @{foreach (UserSpace sp in ViewBag.dataManagers)
-                  {
-                      @String.Join(" ", sp.user.FirstName, sp.user.LastName)
-                  }
+                {
+                    @String.Join(" ", sp.user.FirstName, sp.user.LastName);
+                    if (!sp.space.PIKey.Equals(sp.userKey))
+                    {
+                        @(" | ")
+                        @Html.ActionLink("Edit", "../UserSpace/Edit/" + sp.ProductId);
+                        @Html.ActionLink("Remove", "../UserSpace/Delete/" + sp.ProductId);
+                    }
+                }
                 }
                 @Html.ValidationMessageFor(model => model.PI)
             </div>
