@@ -121,7 +121,6 @@ namespace ToTheMoon.Controllers
             ViewBag.HasLocalPassword = HasPassword();
             ViewBag.ReturnUrl = Url.Action("Manage");
 
-
             return View();
         }
 

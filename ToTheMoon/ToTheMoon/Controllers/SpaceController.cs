@@ -13,13 +13,6 @@ namespace ToTheMoon.Controllers
     {
         private ProjectContext db = new ProjectContext();
 
-        // GET: /Space/
-        public ActionResult Index()
-        {
-            return View(db.Spaces.ToList());
-        }
-
-        // GET: /Space/Details/5
         public ActionResult Review(int? id)
         {
             var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ProjectContext()));
@@ -30,14 +23,14 @@ namespace ToTheMoon.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Space space = db.Spaces.Find(id);
-
-
-            ViewBag.spaceRole = (db.UserSpaces.ToList<UserSpace>().Find(us => us.user.UserName.Equals(currentUser.UserName) && us.space.Equals(space))).role;
             
             if (space == null)
             {
                 return HttpNotFound();
             }
+
+            ViewBag.spaceRole = (db.UserSpaces.ToList<UserSpace>().Find(us => us.user.UserName.Equals(currentUser.UserName) && us.space.Equals(space))).role;
+
             return View(space);
         }
 
@@ -53,6 +46,65 @@ namespace ToTheMoon.Controllers
             }
             return View(space);
         }
+
+        /********
+         * Change Capacity (Admin and Approver ONLY).
+         ********/
+
+        public ActionResult ChangeCapacity(int? id)
+        {
+            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ProjectContext()));
+            ApplicationUser currentUser = manager.FindById(User.Identity.GetUserId());
+
+            // Permissions Check.
+            if (currentUser.role != GlobalRole.ADMIN && currentUser.role != GlobalRole.APPROVER)
+            {
+                return HttpNotFound();
+            }
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Space space = db.Spaces.Find(id);
+
+            if (space == null)
+            {
+                return HttpNotFound();
+            }
+
+            SpaceUpdateCapacityViewModel svm = new SpaceUpdateCapacityViewModel();
+            svm.Name = space.Name;
+            svm.SpaceID = space.key;
+            svm.capacity = space.capacity;
+            svm.used = space.used;
+
+            return View(svm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangeCapacity([Bind(Include = "SpaceID,Name,capacity,used")] SpaceUpdateCapacityViewModel space)
+        {
+            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ProjectContext()));
+            ApplicationUser currentUser = manager.FindById(User.Identity.GetUserId());
+
+            if (ModelState.IsValid && (currentUser.role == GlobalRole.ADMIN || currentUser.role == GlobalRole.APPROVER))
+            {
+                Space fullSpace = db.Spaces.Find(space.SpaceID);
+                fullSpace.capacity = space.capacity;
+                fullSpace.used = space.used;
+
+                db.Entry(fullSpace).State = EntityState.Modified;
+                db.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+
+            return View();
+        }
+
 
         // POST: /Space/Delete/5
         [HttpPost, ActionName("Delete")]

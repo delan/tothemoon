@@ -195,6 +195,7 @@
     <Compile Include="Models\Requests.cs" />
     <Compile Include="Models\Space.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\SpaceViewModels.cs" />
     <Compile Include="Models\UserSpace.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -258,6 +259,7 @@
     <Content Include="Views\Space\Review.cshtml" />
     <Content Include="Views\Space\Index.cshtml" />
     <Content Include="Views\UserSpace\Edit.cshtml" />
+    <Content Include="Views\Space\ChangeCapacity.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201405300840025_everything..resx">

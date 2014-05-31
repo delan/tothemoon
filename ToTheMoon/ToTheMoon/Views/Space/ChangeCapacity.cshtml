@@ -1,0 +1,52 @@
+﻿@model ToTheMoon.Models.SpaceUpdateCapacityViewModel
+
+@{
+    ViewBag.Title = "Change Capacity";
+}
+
+<h2><b>Change Capacity of</b> Space</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>@(Model.Name)</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.capacity, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.HiddenFor(model => model.SpaceID)
+                @Html.HiddenFor(model => model.Name)
+
+                @Html.TextBoxFor(model => model.capacity, new { @class = "form-control" }) 
+                @Html.ValidationMessageFor(model => model.capacity)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.used, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.used, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.used)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to Dashboard", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

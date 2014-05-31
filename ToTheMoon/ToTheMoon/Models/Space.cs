@@ -12,15 +12,19 @@ namespace ToTheMoon.Models
         public int key { get; set; }
 
         [Required]
+        [Display(Name = "Name")]
         public string Name { get; set; }
 
         [Required]
+        [Display(Name = "Capacity (GB)")]
         public int capacity { get; set; }
 
         [Required]
+        [Display(Name = "Used Space (GB)")]
         public int used { get; set; }
 
         [Required]
+        [Display(Name = "Yearly Increase (GB)")]
         public int increase { get; set; }
 
         //[Required]
