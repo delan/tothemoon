@@ -62,6 +62,49 @@ namespace ToTheMoon.Controllers
             return View(userspace);
         }
 
+        // GET: /UserSpace/Create/5
+        public ActionResult Create(int? id)
+        {
+            ViewBag.Users = db.Users.ToList();
+
+
+            if(id == null)
+            {
+                return Redirect("../Dashboard");
+            }
+
+            Space space = db.Spaces.Find(id);
+
+            if(space == null)
+            {
+                return Redirect("../Dashboard");
+            }
+            UserSpace userspace = new UserSpace();
+            userspace.space = space;
+
+            return View(userspace);
+        }
+
+        // POST: /UserSpace/Create/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "space,role,userkey")] UserSpace userspace)
+        {
+            userspace.user = (ApplicationUser)db.Users.Find(userspace.userKey);
+
+            if (ModelState.IsValid)
+            {
+
+                db.UserSpaces.Add(userspace);
+                db.SaveChanges();
+
+                return RedirectToAction("../Space/Review/" + userspace.space.key);
+            }
+            return View(userspace);
+        }
+
         // POST: /UserSpace/Delete/5
         //[HttpPost, ActionName("Delete")]
         //[ValidateAntiForgeryToken]

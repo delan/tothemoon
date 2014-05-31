@@ -1,0 +1,66 @@
+﻿@using Microsoft.AspNet.Identity
+@using Microsoft.AspNet.Identity.EntityFramework
+@using ToTheMoon.Models;
+@model ToTheMoon.Models.UserSpace
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>UserSpace</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.space)
+
+        <div class="form-group">
+            @Html.Label("Username", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                @{
+                    //I don't understand how this dropdown is meant to work, please fix it while i'm sleeping
+                    
+                    
+                        List<SelectListItem> userList = new List<SelectListItem>();
+                        foreach (ApplicationUser user in ViewBag.Users)
+                        {
+                            SelectListItem i = new SelectListItem();
+                            i.Text = user.FirstName + " " + user.LastName;
+                            i.Value = user.Id;
+                            userList.Add(i);
+                        }
+                        Html.DropDownList("userkey", new SelectList(userList, "Value", "Text"));
+                }
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.role, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EnumDropDownListFor(model => model.role)
+                @Html.ValidationMessageFor(model => model.role)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to Space", "../Space/Review/" + Model.space.key)
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
