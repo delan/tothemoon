@@ -137,7 +137,280 @@ project and prototype.
 
 \subsection{User interface mockups}
 
-\section{(TODO: Callum) Product backlog}
+\section{Product backlog}
+
+Our first goal with user stories was to group them into 3 groups representing
+their priority for completion with 1 being highest and 3 being lowest. In the
+highest priority group we placed stories we believed to be related to core
+parts of the system. The second group were stories that enhanced the core
+functionality of the system and added features and other useful tools for the
+users. The lowest priority group were stories that enhanced ease of access and
+usability as well as features that were not core functionality.
+
+In the first priority tier of user stories we placed any stories about login
+features and user levelling. We felt that this was core to the system because
+the users would have different permissions and access. There were quite a few
+stories relating to logging in and being able to perform their functions from
+that. Out of the seven user stories that were decided to be priority one, three
+were relating to log in functions.
+
+\begin{itemize}
+	\item As an administrator, I want to login so that I can review and
+	      approve requests;
+	\item As a user, I want to login so that I can perform appropriate
+	      functions applicable to my role; and
+	\item As an approver, I want to login so that I can approve storage
+	      requests.
+\end{itemize}
+
+In the first story we understand that the administrators of the system want to
+be able to log in and approve requests. From this we can assume that they what
+to be able to log in so that they will be able to have access to this feature,
+not just anyone.
+
+(TODO: insert login screen here)
+
+We can further assume that this is also related to wanting some level of system
+and user security so that only authorised personnel have access to requests.
+This is also seen in the third story where the approver wants to be able to log
+in to approve requests. From this we can see that approving requests is a
+privileged feature and only these two types of users are able to do this.
+
+The second user story shows that all users do want to be able to log in and
+perform functions applicable to their role. This can be expanded to users want
+to be able to log in and only see functions related to their own role,
+therefore only displaying functions that they can use. From this assumption we
+can work out that users only want to see what they can do and they don’t want
+to see everything else.
+
+(TODO: insert screenshots of different user roles)
+
+While this may seem like an ease of use story it is important to make sure that
+all users can log in in the first part of the working system; therefore this
+was classified as a first priority story.
+
+\begin{itemize}
+	\item As a principal investigator, I want to submit a storage request
+	      so that I can have access to storage space for a research
+	      project;
+	\item As a user, I want to view a list of my storage spaces so that I
+	      know my access level for my research projects;
+	\item As an administrator, I want to approve a request so that storage
+	      can be provisioned, expanded or access permissions changed; and
+	\item As an approver, I want to review and approve a storage request so
+	      that storage can be provisioned.
+\end{itemize}
+
+These four stories are the remainder of the tier one user stories. All four of
+them relate to storage access; as this system is about managing access to
+storage for researchers, it is very important that they are completed first.
+
+The first story is about the principal investigator, which is the role of the
+person who wants to have the storage set for their project. From this first
+story we can gather that principal investigators want to be able to easily
+request storage spaces as this is a key part of their role.
+
+The second story can be split into two parts, the first part being that users
+want to be able to see their storage spaces. This is a critical function of the
+system because there is no point to having storage spaces if no one can see
+them. The second part could very easily be forgotten due to the significance of
+the first part and that is that the users also want to know their access levels
+for these projects that have space allocated.
+
+(TODO: picture of storage spaces)
+
+The third story gives insight on what is wanted from the system in terms of
+changing the storage of users. From this we can understand that administrators
+want to be able to change the permissions, expand and approve storage. This
+means the system needs to be able to dynamically set storage and user
+permissions to add in or remove users' access to storage spaces. This was
+classified as a high priority because it is a core part of the system that
+access is granted and only to those who are approved.
+
+The fourth story is quite similar to the third in that it is about approving
+storage requests, which is why it is grouped with it. However it also helps
+define the roles of administrator and approver, because from this story we can
+see that only administrators want to be able to change permissions and expand
+storage, where approvers only want to be able to approve as their name would
+suggest.
+
+What we learned from this first set stories is that we need to have a
+well-defined set of rules of user permissions. From the user stories we know
+that each user has a role within a project and that while some of their roles
+do overlap or some functions they are all different. These user levels and
+roles help define what users are allowed to do and access within the system.
+Due to the key nature of system integrity we decided to come up with a diagram
+of user permission levels for all the user types. This was used throughout the
+design phase to create the different user logins in the system.
+
+(TODO: permissions.txt)
+
+For the second level of user stories we see a lot more stories about
+collaboration and changing user access levels for the existing storage spaces.
+
+\begin{itemize}
+	\item As a data manager, I want to grant other researchers access to my
+	      storage space so that I can collaborate with others;
+	\item As a data manager, I want to submit additional storage requests
+	      so that I can store more research data in my storage space;
+	\item As a principal investigator, I want to grant other researchers
+	      access to my storage space so that I can collaborate with others;
+	\item As a principal investigator, I want to grant other researchers
+	      data manager level access for my storage space so that they can
+	      submit administrative requests; and
+	\item As a principal investigator, I want to submit additional storage
+	      requests so that I can store more research data in my storage
+	      space.
+\end{itemize}
+
+From the first two stories we see a new user role, the data manager, which is a
+user who controls the data and access of the projects. From the first of these
+stories we can see that the data managers need to be able to control who has
+access to their storage spaces which they want to use for collaboration. We
+also see that in the third story the Principal Investigators want to be able to
+grant other researches access to their storage spaces as well.
+
+This pattern of data manager and principal investigator having very similar
+stories continues again when we see that they both want to be able to request
+more storage space for their projects. While most storage requests were in the
+first priority group of user stories these ones are in the second priority
+group because they are requesting additional storage which isn't a critical
+feature.
+
+The fourth story provides a good insight in to the power of the principal
+investigator as he wants to be able to create data managers from researchers.
+This functionality is important because it allows the system to be mostly run
+by users in their own project rather than having the global administrators set
+roles for each project which could become a large amount of work if the system
+is used across a large user base.
+
+There were two more user stories that were set as priority two.
+
+\begin{itemize}
+	\item As an administrator, I want to change the principal investigator
+	      for a storage space to replace the existing principal
+	      investigator; and
+	\item As an approver, I want to view a list of all storage requests so
+	      that I am aware of all requests by principal investigators in my
+	      faculty.
+\end{itemize}
+
+From this first story we see that administrators need to have the power to
+change Principal Investigators of storage spaces. This is important because if
+a Principal Investigator doesn’t do their job properly it could be damaging to
+the project. This also helps us better define the role of the administrators by
+giving more insight into their needs.
+
+The second story helps us understand the position of approvers within the
+company because of they want to be able to see faculty based requests we can
+understand that approvers would be a high position within the faculty and need
+to see what researchers within the faculty need. This also helps show us that
+the user classes we create must have a faculty identifier somewhere so that
+this story can be met.
+
+The third and final group of user stories were the stories we decided were the
+lowest priority to complete in the system. These were features and functions
+that did not have much of an impact on the functionality but were more for ease
+of use.
+
+\begin{itemize}
+	\item As a data manager, I want to revoke an existing researcher's
+	      access to my storage space so that they can't access my data;
+	\item As a principal investigator, I want to revoke an existing
+	      researcher's manager level access for my storage space so that
+	      they cannot submit administrative requests;
+	\item As a principal investigator, I want to revoke existing
+	      researchers' access to my storage space so that they can't access
+	      my data; and
+	\item As a researcher, I want to receive email notification when my
+	      access to a storage space is revoked so that I am aware that I
+	      can no longer access it.
+\end{itemize}
+
+There were quite a few user stories relating to revoking access of a researcher
+either to a space or of their administrative powers of that space. We felt that
+these would definitely not be needed to demonstrate the product in the few
+sprints and that there would be no point doing before researchers could be
+added.
+
+These user stories are much straighter forward than the earlier stories because
+they are relating to simple functions that help with the maintainability of the
+software. There is not more to be read out of the first three stories other
+than the different high level role users want to be able to remove researchers
+from their projects. It is a simple request and not a hard feature to implement
+which is why it was pushed back to the lowest priority.
+
+The fourth user story in this set is a bit different though because it is from
+the researcher who wants to be notified about being removed from the storage
+space. Email notifications were something that we decided did not need to be
+down until all of the core functionality is in and working properly. So all
+email and notification stories were placed in to the lowest priority group.
+
+\begin{itemize}
+	\item As a data manager, I want to receive email notifications so that
+	      I am aware that requests have been completed;
+	\item As a principal investigator, I want to receive email
+	      notifications so that I am aware that requests have been
+	      completed; and
+	\item As a researcher, I want to receive email notifications when I am
+	      granted access to a storage spaces so that I can access the data.
+\end{itemize}
+
+All of these stories are about email notifications for features that were
+requested in higher priority stories. From these though we see that the system
+does need to be able to sync to a mail server to deliver the email and that all
+users need to register an email with their account.
+
+One of the notification requests however was different, “As an administrator, I
+want to send appropriate notifications so that users can start using their
+storage spaces.” From this story we need to create a way for administrators to
+be able to send notifications to users. This story in particular did not
+however mention what kind of notification should be sent so it was up to us to
+decide how best to send a notification.
+
+\begin{itemize}
+	\item As an administrator, I want to view a list of requests by
+	      submission date so that I can review them chronologically; and
+	\item As an approver, I want to view a list of all storage spaces for
+	      my faculty so that I can determine storage space allocated for my
+	      faculty.
+\end{itemize}
+
+These two stories show that the high level users want to be able to list
+submission requests and have the sorted in a particular way. This meant that
+some sort of algorithm would need to be implemented to sort them, we the first
+story also refers to submission date which none of the others do which may have
+not been stored otherwise. Although similar there are other stories that make a
+note of faculty so it would be a bit more obvious to store which faculty a
+project is part of.
+
+The final user stories are about requests for storage. 
+
+\begin{itemize}
+	\item As a data manager, I want to view the status of my request so
+	      that I know its progress;
+	\item As a principal investigator, I want to view the status of my
+	      request so that I know its progress; and
+	\item As an administrator I want to add a comment to a request so that
+	      I can highlight any special requirements or additional
+	      information related to the request.
+\end{itemize}
+
+These stories show that users want to be able to see the status of their
+requests so they can then follow up with administrators personally if need be.
+The third story here does ask for something a bit different though and that is
+the ability to add comments to requests. This does require adding on some extra
+functionality however as a group we decided that it was not core functionality
+and did not need to be put in until all of the core features and functions were
+added.
+
+For the product backlog we ended up with seven user stories being classified as
+highest priority, these were the core functions and features of the system.
+There were six user stories as medium priority which was mostly usability
+features such as increased user control. The lowest priority group had thirteen
+user stories although as explained above many of these were the same story from
+different users and most of them were increased user control or notification
+requests.
 
 \section{Sprint planning}
 
