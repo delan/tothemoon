@@ -20,11 +20,9 @@
             foreach (ToTheMoon.Models.UserSpace userspace in ViewBag.UserSpaces)
             {
                 <tr>
-                    <td class="col-md-5">
+                    <td class="col-md-3">
                         <p>@userspace.space.Name</p>
                     </td>
-                    @if (ViewBag.UserRole == GlobalRole.REGULAR)
-                    {
 
                         <td class="col-md-2">
                         @{
@@ -46,13 +44,12 @@
                             }
                         }
                         </td>
-                    }
-                    <td class="col-md-3">
+                        <td class="col-md-3">
                         <p>
-                           @Html.ActionLink("Review", "Review"); @("| ");  @userspace.space.used GB of @userspace.space.capacity GB
+                            @Html.ActionLink("Review", "Review") @("| ")  @userspace.space.used GB of @userspace.space.capacity GB
                         </p>
                     </td>
-                    <td class="col-md-5">
+                    <td class="col-md-4">
                         <p>
                             <div class="progress">
                                 @{
@@ -71,7 +68,7 @@
             foreach (ToTheMoon.Models.Space space in ViewBag.Spaces)
             {
                 <tr>
-                    <td class="col-md-5">
+                    <td class="col-md-4">
                         <p>@space.Name</p>
                     </td>
                     <td class="col-md-3">

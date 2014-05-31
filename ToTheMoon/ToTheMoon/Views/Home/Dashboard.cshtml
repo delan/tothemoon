@@ -14,30 +14,33 @@
     </div>
 </div>
 <div class="row">
-    
     @{
-        //make div col-md-12 if a regular user
-        string RequestWidth = "col-md-6";
-        
-        if(ViewBag.UserRole == GlobalRole.REGULAR)
+        //Only bother to show Requests for Increased Space if user actually has the ability to make one
+        bool DM = false;
+        foreach (UserSpace us in ViewBag.UserSpaces)
         {
-            RequestWidth = "col-md-12";
+            if (us.role == SpaceRole.DATAMANAGER)
+            {
+                DM = true;
+                break;
+            }
+        }
+        //make div col-md-12 if a regular user
+        string RequestWidth = "col-md-12";
+   
+        if (ViewBag.UserRole != GlobalRole.REGULAR || DM)
+        {
+            RequestWidth = "col-md-6";
         }
     }
     <div class="@RequestWidth">
         @Html.Partial("_NewSpaceRequestsPartial")
     </div>
-
-   
-    @if(ViewBag.UserRole != GlobalRole.REGULAR)
+    @if (ViewBag.UserRole != GlobalRole.REGULAR || DM)
     { 
-    
-    //show div if not a globalrole.regular-->User
-        
     <div class="col-md-6">
         @Html.Partial("_IncreaseSpaceRequestsPartial")
-    </div>
-        
+    </div>    
     }
 </div>
 

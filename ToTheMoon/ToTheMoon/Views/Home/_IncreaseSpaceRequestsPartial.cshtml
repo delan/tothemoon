@@ -4,7 +4,9 @@
 
 <table class="table table-hover" border="1">
     <thead bgcolor="#222" style="color:white">
+    <tr>
     <th>Requests for Space Increase</th>
+    </tr>
     </thead>
     <tbody>
         @foreach (IncreaseSpaceRequest request in ViewBag.IncreaseSpaceRequests)
@@ -17,10 +19,6 @@
                         @Html.ActionLink("[Approve]", "../IncreaseSpaceRequest/Approve/" + request.ID)
                         @Html.ActionLink("[Decline]", "../IncreaseSpaceRequest/Decline/" + request.ID)}
                     }
-
-
-
-
                 </td>
             </tr>
         }
