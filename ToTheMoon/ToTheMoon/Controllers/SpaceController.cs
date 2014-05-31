@@ -6,6 +6,7 @@ using ToTheMoon.Models;
 using ToTheMoon.DAL;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 
 namespace ToTheMoon.Controllers
 {
@@ -22,6 +23,7 @@ namespace ToTheMoon.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Space space = db.Spaces.Find(id);
             
             if (space == null)
@@ -29,7 +31,58 @@ namespace ToTheMoon.Controllers
                 return HttpNotFound();
             }
 
-            ViewBag.spaceRole = (db.UserSpaces.ToList<UserSpace>().Find(us => us.user.UserName.Equals(currentUser.UserName) && us.space.Equals(space))).role;
+            space.PI = manager.FindById(space.PIKey);
+
+            UserSpace us;
+            SpaceRole role;
+
+            if (currentUser.role == GlobalRole.REGULAR)
+            {
+                try
+                {
+                    us = db.UserSpaces.ToList().First(usc => usc.userKey == currentUser.Id && usc.space == space);
+                    role = us.role;
+                }
+                catch (Exception e)
+                {
+                    return HttpNotFound();
+                }
+            }
+            else
+            {
+                role = SpaceRole.COLLAB_RO;
+            }
+
+            ViewBag.readOnlyResearchers = db.UserSpaces.ToList().FindAll(usc => usc.space == space && usc.role == SpaceRole.COLLAB_RO);
+            ViewBag.readWriteResearchers = db.UserSpaces.ToList().FindAll(usc => usc.space == space && usc.role == SpaceRole.COLLAB_RW);
+            ViewBag.dataManagers = db.UserSpaces.ToList();
+
+            ViewBag.canChangeCapacity = false;
+            ViewBag.canRequestSpace   = false;
+            ViewBag.canChangePI       = false;
+            ViewBag.canChangeRoles    = false;
+            ViewBag.canAddUsers       = false;
+
+            if (currentUser.role == GlobalRole.ADMIN)
+            {
+                ViewBag.canChangePI = true;
+            }
+
+            if (role == SpaceRole.DATAMANAGER || currentUser.role != GlobalRole.REGULAR)
+            {
+                ViewBag.canChangeRoles    = true;
+                ViewBag.canAddUsers       = true;
+            }
+
+            if (currentUser.role != GlobalRole.REGULAR)
+            {
+                ViewBag.canChangeCapacity = true;
+            }
+
+            if (role == SpaceRole.DATAMANAGER)
+            {
+                ViewBag.canRequestSpace   = true;
+            }
 
             return View(space);
         }

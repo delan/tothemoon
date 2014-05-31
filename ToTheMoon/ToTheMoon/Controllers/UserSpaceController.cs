@@ -47,9 +47,10 @@ namespace ToTheMoon.Controllers
         {
             SpaceRole role = userspace.role;
 
+            userspace = db.UserSpaces.Find(userspace.ProductId);
+
             if (ModelState.IsValid && User.Identity.GetUserId() != userspace.space.PIKey)
             {
-                userspace = db.UserSpaces.Find(userspace.ProductId);
                 userspace.role = role;
 
                 db.Entry(userspace).State = EntityState.Modified;

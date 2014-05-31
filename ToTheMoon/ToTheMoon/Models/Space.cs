@@ -16,18 +16,19 @@ namespace ToTheMoon.Models
         public string Name { get; set; }
 
         [Required]
-        [Display(Name = "Capacity (GB)")]
+        [Display(Name = "Capacity")]
         public int capacity { get; set; }
 
         [Required]
-        [Display(Name = "Used Space (GB)")]
+        [Display(Name = "Used Space")]
         public int used { get; set; }
 
         [Required]
-        [Display(Name = "Yearly Increase (GB)")]
+        [Display(Name = "Yearly Increase")]
         public int increase { get; set; }
 
         //[Required]
+        [Display(Name = "Principal Investigator")]
         public virtual ApplicationUser PI { get; set; }
 
         public string PIKey { get; set; }

@@ -16,12 +16,12 @@
         <hr />
         @Html.ValidationSummary(true)
 
+        @Html.HiddenFor(model => model.SpaceID)
+        @Html.HiddenFor(model => model.Name)
+
         <div class="form-group">
             @Html.LabelFor(model => model.capacity, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.HiddenFor(model => model.SpaceID)
-                @Html.HiddenFor(model => model.Name)
-
                 @Html.TextBoxFor(model => model.capacity, new { @class = "form-control" }) 
                 @Html.ValidationMessageFor(model => model.capacity)
             </div>
