@@ -1,6 +1,8 @@
 \documentclass[a4paper,titlepage,12pt]{article}
 \usepackage{parskip}
 \usepackage{graphicx}
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily, basewidth=0.5em}
 \usepackage{hyperref}
 \hypersetup{
 	hidelinks,
@@ -8,6 +10,11 @@
 	          Luke Mercuri; Jasmine Quek; Kye Russell,
 	pdftitle=Project Design and Management 300: FreedomSpace
 }
+\usepackage{pdflscape}
+\usepackage{textpos}
+\setlength{\TPHorizModule}{1mm}
+\setlength{\TPVertModule}{1mm}
+
 \let\stdsection\section
 \renewcommand\section{\newpage\stdsection}
 
@@ -113,21 +120,34 @@ the web-based portal and the process used during development of this project.
 
 \subsection{Initial project management approach}
 
-(TODO: Gantt chart)
-
 Our solution approach was to first prioritise the user stories given, so that
 vital functionality would be implemented in early sprints. Shortly afterwards,
 the team had a meeting to discuss the various permissions of the different user
 account roles. In this meeting we made a permissions table so as to clear up
 any confusion of the various user privileges.
 
-The overarching approach was to figure out the solutions for the larger
-problems as a group, and then to allocate tasks to be solved by assorted group
-members by the end of the next sprint.
+The overarching method was to figure out the solutions for the larger problems
+as a group, and then to allocate tasks to be solved by assorted group members
+by the end of the next sprint.
+
+The time allocated to various tasks in the project can be seen in the Gantt
+chart in Figure~\ref{fig:gantt}.
 
 \subsection{(TODO: Jasmine) Tools considered for development}
 
 \subsection{(TODO: Jasmine) User interface mockups}
+
+\begin{landscape}
+	\quad % ugly hack because there needs to be some text here
+	\thispagestyle{empty}
+	\begin{textblock}{270}(-33,-30)
+		\begin{figure}
+			\caption{Gantt chart for this project}
+			\label{fig:gantt}
+			\includegraphics[width=280mm]{gantt.png}
+		\end{figure}
+	\end{textblock}
+\end{landscape}
 
 \section{Product backlog}
 
@@ -236,7 +256,22 @@ Due to the key nature of system integrity we decided to come up with a diagram
 of user permission levels for all the user types. This was used throughout the
 design phase to create the different user logins in the system.
 
-\includegraphics{../permissions.png}
+\begin{lstlisting}
+                Receive approval notifications
+                | View available spaces
+                | | Request access to space
+                | | | Grant/revoke access to space
+                | | | | Promote/demote Data Manager
+                | | | | | Request additional space
+                | | | | | | Approve new/expanded space
+                | | | | | | | Set Pri.Inv. owning space
+                | | | | | | | | Comment on requests
+                | | | | | | | | |
+        Admins  X X X X X X X X X
+     Approvers  X X X X X X X X
+ Data Managers  X X X X X X
+   Researchers  X X X
+\end{lstlisting}
 
 For the second level of user stories we see a lot more stories about
 collaboration and changing user access levels for the existing storage spaces.
@@ -1017,7 +1052,51 @@ End time: 4:27 p.m.
 
 \section{(TODO: Jasmine) Details of the implementation}
 
-\section{(TODO: Kye) Project review}
+\section{Project review}
+
+There were many lessons learnt from working on this project using the Scrum
+process. We did quite a few things right with our process. In our initial group
+meetings we sorted out our product backlog right away which really gave us a
+good idea of what we needed to do. We also split the work load up into the
+three sprints and set our sprint goals. Our meeting organisation was quite well
+done given the size of the group and the available time everyone had given
+their respective units, we were always able to have weekly meetings even over
+the break.
+
+Initially the group was quite motivated and quite eager to get started however
+the exact work of each group member was not clearly defined and the team was
+not communicating as much as they need to be for using a process like scrum.
+
+While the group was meeting weekly, these meetings were often missing a couple
+of members, it was not having daily scrum meetings and the group was not
+communicating about the project to each other outside of the weekly meetings.
+This lead to a lot of work being done unnecessarily. Another major problem
+facing the group was the unfamiliarity of MVC/.NET, only one member had
+previously used it and the rest were learning as they were going which lead to
+some members work being of an unacceptable low quality. All of these issues led
+to the group becoming very unmotivated for the time of the second sprint. This
+was also the same time other units had begun to really require time for their
+assignments. During this time communication was at an all-time low and the
+members did not know what members were doing. During this time very little work
+was done.
+
+Another major problem was the lack of a scrum master for the group. Without a
+scrum master the group did not really know how to follow the process and it
+resulted in work not being done and time for work not being logged. If we had
+closely followed scrum like we were supposed to many of our problems would not
+have occurred however no-one in our group had a very good understanding of
+scrum.
+
+Throughout this project we learned quite a few lessons. The most important is
+having a smaller group, with a process like scrum more people only makes it
+harder and in a university setting trying to have a meeting with 7 people is
+quite hard. We learned that we need to not get unmotivated as easily otherwise
+it results in a lot more stress and rushed work down the line.
+
+For future students I would definitely recommend maintaining a small group
+rather than thinking a large group would mean less work overall. The amount of
+work in taking to work well together as a team increases a lot for each new
+person added in to the project.
 
 \section{(TODO: Delan) Conclusions and summary}
 
