@@ -20,11 +20,12 @@
 
 \let\stdsection\section
 \renewcommand\section{\newpage\stdsection}
-\newcommand\figimg[3][\textwidth]{
+
+\newcommand\figimg[4][\textwidth]{
 	\begin{figure}
-		\caption{{#3}.}
+		\caption{#4}
 		\label{fig:#2}
-		\quad\\\includegraphics[width={#1}]{{#2}.png}
+		\quad\\\includegraphics[width=#1]{#3.png}
 	\end{figure}
 }
 
@@ -49,7 +50,7 @@
 \maketitle
 \pagenumbering{roman}
 \tableofcontents
-\newpage
+\listoffigures
 \pagenumbering{arabic}
 
 \section{(TODO: Jason) Abstract}
@@ -151,19 +152,152 @@ chart in Figure~\ref{fig:gantt}.
 	\quad % ugly hack because there needs to be some text here
 	\thispagestyle{empty}
 	\begin{textblock}{270}(-33,-30)
-		\figimg[280mm]{gantt}{the Gantt chart for this project}
+		\figimg[280mm]{gantt}{gantt}
+			{The Gantt chart for this project}
 	\end{textblock}
 \end{landscape}
 
-\subsection{(TODO: Jasmine) Tools considered for development}
+\subsection{Tools considered for development}
 
 \begin{itemize}
-	\item Django `is a high-level Python Web framework that encourages
-	      rapid development and clean, pragmatic design.'
+	\item Django is a `high-level Python Web framework' that adheres to the
+	      model-view-controller pattern.
 	      (\cite{Django2014})
+	\item XAMPP is an `Apache distribution containing MySQL, PHP, and Perl'
+	      with a unified installation and configuration workflow for
+	      Windows, Mac OS X and Linux.
+	      (\cite{ApacheFriends2014})
+	\item Flask is a `microframework for Python' which provides template
+	      rendering and request routing, but avoids enforcing any
+	      particular patterns.
+	      (\cite{Ronacher2014})
+	\item Bootstrap is a frontend framework with HTML, CSS and optionally
+	      JavaScript-based `reusable components'.
+	      (\cite{Twitter2014})
+	\item ASP.NET MVC 5 is a `framework for building scalable,
+	      standards-based web applications using well-established design
+	      patterns and the power of ASP.NET and the .NET Framework.'
+	      (\cite{Microsoft2014})
+	\item Basecamp is a project management tool that provides scheduling,
+	      task management, milestones and defect tracking.
+	      (\cite{37signals2004})
+	\item Facebook Groups allow text posts, images, files and questions
+	      to be shared privately among a set of users.
+	      (\cite{Facebook2014})
+	\item Trello is a web-based group project manager that implements the
+	      \textit{kanban} paradigm.
+	      (\cite{FogCreek2014})
+	\item draw.io is a `free online diagram drawing application' which can
+	      create UML, entity-relationship, network and many other types
+	      of diagrams.
+	      (\cite{JGraph2014})
+	\item Google Drive consists of cloud storage, live collaborative
+	      document editing, and a tool for online forms.
+	      (\cite{Google2014})
+	\item GitHub provides `powerful collaboration, code review, and code
+	      management for open source and private projects.'
+	      (\cite{GitHub2014})
 \end{itemize}
 
-\subsection{(TODO: Jasmine) User interface mockups}
+\newpage
+
+\subsection{Rationale for using our tools}
+
+The tools we decided to use throughout the life of the project are:
+
+\begin{itemize}
+	\item Backend: ASP.NET MVC 5
+	\item Frontend: Bootstrap
+	\item Project management: Facebook Groups, Basecamp and Trello
+	\item Version control: GitHub
+	\item Diagrams: draw.io
+	\item Documentation: Google Docs then \LaTeX
+\end{itemize}
+
+The group had trouble deciding on what framework we would use for the project,
+as few of us had much exposure or experience in backend web development. We
+decided that it would be voted upon, and as a subset of the group were all
+familiar with C\#, we swayed towards ASP.NET MVC 5.
+
+Consequently, as ASP.NET MVC 5 comes packaged with Bootstrap it was common
+sense to use both alongside each other for the project. The team agreed that
+Bootstrap was most suitable, and as a further plus it had stock templates that
+would help us in early development stages.
+
+Shortly after a group was formed, as we were all Facebook friends with each
+other it seemed almost natural to start a Facebook Group for easy
+communications outside of tutorials and seminars. The ability to design polls
+for members of the group was a huge plus as it made it a lot easier to organise
+meetings, and especially so for a large group of seven people.
+
+A Basecamp project was also set up for the group assignment. We originally
+chose to use Basecamp because of its various services (todo lists and
+filesharing). However, we did not get much of a chance to use it as we did most
+task allocation in person during Scrum and team meetings. Additionally, many of
+the addons that were desirable for the documentation side of the project were
+rather costly and deterred us from using it.
+
+Our Trello board was only set up after the group had task allocation issues as
+can be seen in the review of the first sprint. A few members of the group
+didn't originally want to use Trello as a project management tool due to seeing
+it used with a messy result elsewhere. However after group members were
+mistakenly working on the same tasks it was decided it was necessary. We used
+one board for the entire project, with user stories as cards, and several lists
+depicting the stages of the completeness of those user stories.
+
+Alas, at this stage we were using too many project management tools and it was
+inconvenient for people to check several applications, websites and devices.
+The group then ended up having the minute taker post all meeting minutes onto
+the Facebook Group for easy access. Trello was not used after the second
+sprint.
+
+As several group members were familiar with GitHub and were very pleased with
+its offerings, it was suggested to be used in the project. GitHub also allows
+for several private repositories if signed up with a .edu email address which
+was another benefit, as we didn't want to risk other groups plagiarising our
+hard work.
+
+Draw.io was used before the unofficial `sprint zero' presentation to display
+our initial mockups of our website. At this point we had not started any
+development, and the focus was on planning the first sprint. The group decided
+to use Draw.io as a couple of members had used it previously for another group
+assignment where various UML diagrams and mockups were drawn. The only downside
+is that it does not support online live collaboration, but that wasn't too much
+of an issue. This tool was also then used for the final UML and ER diagrams of
+the project as documented in this report.
+
+Google Docs was used heavily in the making of the final report, as well as
+communicating between members progress of web backend functionality. A group
+member suggested using Google Docs and this was found in agreement with other
+members. One of Google Docs' greatest merits is its ability to support online
+live collaboration. When working among a group of seven busy university
+students, this support is necessary. This feature was extremely helpful in
+seeing where other group members were up to in their allocated section of the
+report, as well as being able to refer to others' sections when working on
+one's own sections.
+
+\subsection{User interface mockups}
+
+A handful of user interface mockups were created for the initial project
+presentation. These were completed before any development of the prototype had
+started, and can be seen in Figures \ref{fig:login-mockup},
+\ref{fig:admin-mockup}, \ref{fig:researcher-mockup},
+\ref{fig:preferences-mockup} and \ref{fig:request-mockup}.
+
+\figimg{login-mockup}{../mockups/login}
+	{A mockup for the login screen}
+
+\figimg{admin-mockup}{../mockups/admin}
+	{A mockup for the dashboard as seen by an administrator}
+
+\figimg{researcher-mockup}{../mockups/researcher}
+	{A mockup for the dashboard as seen by a researcher}
+
+\figimg{preferences-mockup}{../mockups/preferences}
+	{A mockup for the preferences screen}
+
+\figimg{request-mockup}{../mockups/request}
+	{A mockup for the storage space request form}
 
 \section{Product backlog}
 
@@ -197,7 +331,7 @@ be able to log in and approve requests. From this we can assume that they want
 to be able to log in so that they will be able to have access to this feature,
 not just anyone.
 
-\figimg{login}{the login screen}
+\figimg{login}{login}{The login screen}
 
 We can further assume that this is also related to wanting some level of system
 and user security so that only authorised personnel have access to requests.
@@ -214,9 +348,9 @@ can work out that users only want to see what they can do and they don't want
 to see everything else, as illustrated in Figure~\ref{fig:user0} and
 Figure~\ref{fig:user2}.
 
-\figimg{user0}{the dashboard as seen by a plebeian user}
+\figimg{user0}{user0}{The dashboard as seen by a plebeian user}
 
-\figimg{user2}{the dashboard as seen by an administrator}
+\figimg{user2}{user2}{The dashboard as seen by an administrator}
 
 While this may seem like an ease of use story it is important to make sure that
 all users can log in as soon as the first part of the working system is
@@ -1075,9 +1209,9 @@ team devised a set of models and their relationships as defined by the UML and
 entity-relationship diagrams in Figure~\ref{fig:uml} and Figure~\ref{fig:erd}
 respectively.
 
-\figimg{uml}{the Unified Modeling Language diagram for this prototype}
+\figimg{uml}{uml}{The Unified Modeling Language diagram for this prototype}
 
-\figimg{erd}{the entity-relationship diagram for this prototype}
+\figimg{erd}{erd}{The entity-relationship diagram for this prototype}
 
 \section{(TODO: Jasmine) Details of the implementation}
 
@@ -1094,12 +1228,12 @@ the break.
 
 Initially the group was quite motivated and quite eager to get started however
 the exact work of each group member was not clearly defined and the team was
-not communicating as much as they need to be for using a process like scrum.
+not communicating as much as they need to be for using a process like Scrum.
 
 While the group was meeting weekly, these meetings were often missing a couple
-of members, it was not having daily scrum meetings and the group was not
+of members, it was not having daily Scrum meetings and the group was not
 communicating about the project to each other outside of the weekly meetings.
-This lead to a lot of work being done unnecessarily. Another major problem
+This led to a lot of work being done unnecessarily. Another major problem
 facing the group was the unfamiliarity with ASP.NET MVC, only one member had
 previously used it and the rest were learning as they were going which led to
 some members work being of an unacceptable low quality.
@@ -1110,15 +1244,15 @@ require time for their assignments. During this time communication was at an
 all-time low and the members did not know what members were doing. During this
 time very little work was done.
 
-Another major problem was the lack of a scrum master for the group. Without a
-scrum master the group did not really know how to follow the process and it
+Another major problem was the lack of a Scrum master for the group. Without a
+Scrum master the group did not really know how to follow the process and it
 resulted in work not being done and time for work not being logged. If we had
-closely followed scrum like we were supposed to many of our problems would not
+closely followed Scrum like we were supposed to many of our problems would not
 have occurred however no-one in our group had a very good understanding of
-scrum.
+Scrum.
 
 Throughout this project we learned quite a few lessons. The most important is
-having a smaller group, with a process like scrum more people only makes it
+having a smaller group, with a process like Scrum more people only makes it
 harder and in a university setting trying to have a meeting with 7 people is
 quite hard. We learned that we need to not get unmotivated as easily otherwise
 it results in a lot more stress and rushed work down the line.
@@ -1130,8 +1264,8 @@ person added in to the project.
 
 \section{(TODO: Delan) Conclusions and summary}
 
-\section{References}
-
-\printbibliography
+\begin{sloppypar}
+	\printbibliography
+\end{sloppypar}
 
 \end{document}
