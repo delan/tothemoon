@@ -60,7 +60,7 @@
             <div class="col-md-10">
                 @{foreach (UserSpace sp in ViewBag.dataManagers)
                   {
-                      @Html.Display("Test...")
+                      @String.Join(" ", sp.user.FirstName, sp.user.LastName)
                   }
                 }
                 @Html.ValidationMessageFor(model => model.PI)
