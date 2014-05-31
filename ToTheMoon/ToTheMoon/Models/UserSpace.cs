@@ -15,6 +15,8 @@ namespace ToTheMoon.Models
         [Key, Column(Order = 1)]
         public virtual ApplicationUser user { get; set; }
 
+        public string userKey { get; set; }
+
         [Key]
         public virtual Space space { get; set; }
 

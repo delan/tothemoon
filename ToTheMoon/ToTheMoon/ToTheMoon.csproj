@@ -180,6 +180,14 @@
     <Compile Include="Migrations\201405301544498_minvalues.Designer.cs">
       <DependentUpon>201405301544498_minvalues.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201405311059013_things.cs" />
+    <Compile Include="Migrations\201405311059013_things.Designer.cs">
+      <DependentUpon>201405311059013_things.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405311107563_things1.cs" />
+    <Compile Include="Migrations\201405311107563_things1.Designer.cs">
+      <DependentUpon>201405311107563_things1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Requests.cs" />
@@ -252,6 +260,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201405301544498_minvalues.resx">
       <DependentUpon>201405301544498_minvalues.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405311059013_things.resx">
+      <DependentUpon>201405311059013_things.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405311107563_things1.resx">
+      <DependentUpon>201405311107563_things1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

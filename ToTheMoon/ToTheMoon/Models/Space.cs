@@ -24,6 +24,8 @@ namespace ToTheMoon.Models
         public int increase { get; set; }
 
         //[Required]
-        public ApplicationUser PI { get; set; }
+        public virtual ApplicationUser PI { get; set; }
+
+        public string PIKey { get; set; }
     }
 }

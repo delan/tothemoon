@@ -66,7 +66,7 @@ namespace ToTheMoon.Models
         public int increase { get; set; }
 
         //[Required]
-        public ApplicationUser requester { get; set; }
+        public virtual ApplicationUser requester { get; set; }
         public string requester_key { get; set; }
 
         //[Required]

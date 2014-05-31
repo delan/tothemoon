@@ -145,7 +145,8 @@ namespace ToTheMoon.Controllers
                 space.increase = newspacerequest.increase;
                 space.key = newspacerequest.SpaceID;
                 space.Name = newspacerequest.name;
-                space.PI = newspacerequest.requester;
+                space.PI = (ApplicationUser)db.Users.Find(newspacerequest.requester_key);
+                space.PIKey = newspacerequest.requester_key;
                 
                 //make our progress bars look pretty
                 Random random = new Random();
@@ -154,6 +155,7 @@ namespace ToTheMoon.Controllers
                 UserSpace userspace = new UserSpace();
                 userspace.space = space;
                 userspace.user = (ApplicationUser)db.Users.Find(newspacerequest.requester_key);
+                userspace.userKey = newspacerequest.requester_key;
 
                 userspace.role = SpaceRole.DATAMANAGER;
 

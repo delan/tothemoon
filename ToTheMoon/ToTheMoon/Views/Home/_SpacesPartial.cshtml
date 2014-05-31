@@ -27,7 +27,24 @@
                     {
 
                         <td class="col-md-2">
-                            <p>@userspace.role</p>
+                        @{
+                            if(userspace.space.PIKey == User.Identity.GetUserId())
+                            {
+                                <p>Principal Investigator</p>
+                            }
+                            else if(userspace.role == SpaceRole.COLLAB_RO)
+                            {
+                                <p>Read-Only Reasearcher</p>
+                            }
+                            else if(userspace.role == SpaceRole.COLLAB_RW)
+                            {
+                                <p>Read/Write Reasearcher</p>
+                            }
+                            else //SpaceRole.DATAMANAGER
+                            {
+                                <p>Data Manager</p>
+                            }
+                        }
                         </td>
                     }
                     <td class="col-md-3">
