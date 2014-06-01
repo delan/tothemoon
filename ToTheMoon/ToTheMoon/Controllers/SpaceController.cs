@@ -152,7 +152,7 @@ namespace ToTheMoon.Controllers
                 db.Entry(fullSpace).State = EntityState.Modified;
                 db.SaveChanges();
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Review", "Space", new {id = space.SpaceID });
             }
 
             return View();
