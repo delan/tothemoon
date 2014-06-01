@@ -101,7 +101,7 @@ namespace ToTheMoon.Controllers
                 db.UserSpaces.Add(userspace);
                 db.SaveChanges();
 
-                return RedirectToAction("../Space/Review/" + userspace.space.key);
+                return RedirectToAction("Review","Space",new {id = userspace.space.key});
             }
             ViewBag.Spaces = db.Spaces.ToList<Space>();
             return View(userspace);
@@ -119,7 +119,7 @@ namespace ToTheMoon.Controllers
                 db.UserSpaces.Remove(userspace);
                 db.SaveChanges();
             }
-            return RedirectToAction("../Space/Review/" + space_id);
+            return RedirectToAction("Review", "Space", new { id = space_id });
         }
 
         protected override void Dispose(bool disposing)
