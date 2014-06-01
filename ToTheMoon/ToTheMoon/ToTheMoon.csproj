@@ -288,9 +288,6 @@
     <EmbeddedResource Include="Migrations\201405312322497_kush.resx">
       <DependentUpon>201405312322497_kush.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201406010937399_dis.resx">
-      <DependentUpon>201406010937399_dis.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
