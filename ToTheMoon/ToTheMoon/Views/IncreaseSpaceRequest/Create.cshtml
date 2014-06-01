@@ -4,7 +4,7 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2><b>Create</b> Increase Space Request</h2>
 
 
 @using (Html.BeginForm()) 
@@ -12,30 +12,37 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>IncreaseSpaceRequest</h4>
-        <hr />
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.SpaceID)
 
         <div class="form-group">
             @Html.LabelFor(model => model.space.Name, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DisplayFor(model => model.space.Name)
+            <div class="col-md-4">
+                <p class="form-control-static">
+                    @Html.DisplayFor(model => model.space.Name)
+                </p>
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.brief, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.brief)
+            <div class="col-md-4">
+                @Html.TextAreaFor(model => model.brief, new { @class = "form-control" })
+            </div>
+            <div class="col-md-6">
                 @Html.ValidationMessageFor(model => model.brief)
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.increase, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.increase)
+            <div class="col-md-4">
+                <div class="input-group">
+                    @Html.TextBoxFor(model => model.increase, new { @class = "form-control" })
+                    <span class="input-group-addon">GB</span>
+                </div>
+            </div>
+            <div class="col-md-6">
                 @Html.ValidationMessageFor(model => model.increase)
             </div>
         </div>

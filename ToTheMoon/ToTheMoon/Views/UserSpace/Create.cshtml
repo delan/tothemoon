@@ -4,10 +4,10 @@
 @model ToTheMoon.Models.UserSpace
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Change Space ACL";
 }
 
-<h2>Create</h2>
+<h2><b>Add Entry to</b> Space ACL</h2>
 
 
 @using (Html.BeginForm())
@@ -15,36 +15,34 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>UserSpace</h4>
+        <h4>@(Model.space.Name)</h4>
         <hr />
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.spaceKey)
 
         <div class="form-group">
             @Html.Label("Username", new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-
+            <div class="col-md-4">
                 @{
                     //I don't understand how this dropdown is meant to work, please fix it while i'm sleeping
+                    List<SelectListItem> userList = new List<SelectListItem>();
+                    foreach (ApplicationUser user in ViewBag.Users)
+                    {
+                        SelectListItem i = new SelectListItem();
+                        i.Text = user.FirstName + " " + user.LastName + " (" + user.UserName + ")";
+                        i.Value = user.Id;
+                        userList.Add(i);
+                    }
                     
-                    
-                        List<SelectListItem> userList = new List<SelectListItem>();
-                        foreach (ApplicationUser user in ViewBag.Users)
-                        {
-                            SelectListItem i = new SelectListItem();
-                            i.Text = user.FirstName + " " + user.LastName;
-                            i.Value = user.Id;
-                            userList.Add(i);
-                        }
-                        @Html.DropDownListFor(model => model.userKey, new SelectList(userList, "Value", "Text"))
+                    @Html.DropDownListFor(model => model.userKey, new SelectList(userList, "Value", "Text"), new { @class = "form-control" })
                 }
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.role, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.role)
+            <div class="col-md-4">
+                @Html.EnumDropDownListFor(model => model.role, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.role)
             </div>
         </div>

@@ -65,8 +65,6 @@ namespace ToTheMoon.Controllers
         // GET: /UserSpace/Create/5
         public ActionResult Create(int? id)
         {
-
-
             if(id == null)
             {
                 return Redirect("../Dashboard");

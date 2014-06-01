@@ -24,6 +24,7 @@ namespace ToTheMoon.Models
         public int spaceKey { get; set; }
 
         [Required]
+        [Display(Name="Role")]
         public SpaceRole role { get; set; }
     }
 

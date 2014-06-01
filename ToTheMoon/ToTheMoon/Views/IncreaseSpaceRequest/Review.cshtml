@@ -4,22 +4,20 @@
 @model ToTheMoon.Models.IncreaseSpaceRequest
 
 @{
-    ViewBag.Title = "Review";
+    ViewBag.Title = "Review Increase Space Request";
 }
 
-<h2>Edit</h2>
-
+<h2><b>Review</b> Increase Space Request</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>IncreaseSpaceRequest</h4>
-        <hr />
-        @Html.DisplayFor(model => model.space.Name)
-        @Html.ValidationSummary(true)
+        <h4>@Html.DisplayFor(model => model.space.Name)</h4>
         @Html.HiddenFor(model => model.space.key)
+        <hr />
+        @Html.ValidationSummary(true)
 
         <div class="form-group">
             @Html.LabelFor(model => model.brief, new { @class = "control-label col-md-2" })
@@ -35,7 +33,7 @@
             @Html.LabelFor(model => model.increase, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <p class="form-control-static">
-                    @Html.DisplayFor(model => model.increase)
+                    @Html.DisplayFor(model => model.increase) GB
                     @Html.ValidationMessageFor(model => model.increase)
                 </p>
             </div>
@@ -53,8 +51,8 @@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <p class="form-control-static">
-                    @Html.ActionLink("[Approve]", "Approve/" + Model.ID)
-                    @Html.ActionLink("[Decline]", "Decline/" + Model.ID)}
+                    @Html.ActionLink("Approve", "Approve", "IncreaseSpaceRequest", new { ID = Model.ID }, new { @class = "btn btn-success"})
+                    @Html.ActionLink("Decline", "Decline", "IncreaseSpaceRequest", new { ID = Model.ID }, new { @class = "btn btn-danger" })
                 </p>
             </div>
         </div>

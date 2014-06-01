@@ -1,35 +1,38 @@
 ﻿@using Microsoft.AspNet.Identity
 @using Microsoft.AspNet.Identity.EntityFramework
+@using ToTheMoon.Models
 @model ToTheMoon.Models.UserSpace
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Change Space ACL";
 }
 
-<h2>Edit</h2>
+<h2><b>Change</b> Space ACL</h2>
 
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>UserSpace</h4>
+        <h4>@(Model.space.Name)</h4>
         <hr />
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.ProductId)
 
         <div class="form-group">
-            @Html.Label("Username", new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.Label(Model.user.FirstName + " " + Model.user.LastName)
+            @Html.Label("User", new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                <p class="form-control-static">
+                    @(Model.user.FirstName + " " + Model.user.LastName + " (" + Model.user.UserName + ")")
+                </p>
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.role, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.role)
+                @Html.EnumDropDownListFor(model => model.role, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.role)
             </div>
         </div>
@@ -37,7 +40,6 @@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-default" />
-                @Html.ActionLink("Remove", "Delete/" + Model.ProductId)
             </div>
         </div>
     </div>
