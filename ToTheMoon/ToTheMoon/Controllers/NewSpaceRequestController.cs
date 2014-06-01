@@ -70,9 +70,6 @@ namespace ToTheMoon.Controllers
             return View(newspacerequest);
         }
 
-        // POST: /NewSpaceRequest/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Review([Bind(Include = "ID,comment")] NewSpaceRequestCommentViewModel nsrViewModel)
@@ -129,6 +126,7 @@ namespace ToTheMoon.Controllers
 
             NewSpaceRequestCommentViewModel nsrViewModel = new NewSpaceRequestCommentViewModel();
             nsrViewModel.ID = newspacerequest.ID;
+            nsrViewModel.name = newspacerequest.name;
             nsrViewModel.brief = newspacerequest.brief;
             nsrViewModel.capacity = newspacerequest.capacity;
             nsrViewModel.increase = newspacerequest.increase;
