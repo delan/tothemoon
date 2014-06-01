@@ -53,8 +53,14 @@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <p class="form-control-static">
-                    @Html.ActionLink("[Approve]", "Approve/" + Model.ID)
-                    @Html.ActionLink("[Decline]", "Decline/" + Model.ID)}
+                    @{
+                        if(ViewBag.UserRole != GlobalRole.REGULAR)
+                        { 
+                            @Html.ActionLink("[Approve]", "Approve/" + Model.ID)
+                            @Html.ActionLink("[Decline]", "Decline/" + Model.ID)
+                        }
+                    }
+
                 </p>
             </div>
         </div>
