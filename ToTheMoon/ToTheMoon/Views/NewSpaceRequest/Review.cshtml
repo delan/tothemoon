@@ -57,7 +57,8 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.requester, new { @class = "col-md-2" })
                 <div class="col-md-10">
-                    @Html.DisplayFor(model => model.requester.FirstName)
+                    @*Html.DisplayFor(model => model.requester.FirstName)*@
+                    @(Model.requester.FirstName + " " + Model.requester.LastName)
                     @Html.ValidationMessageFor(model => model.requester)
                 </div>
             </div>
