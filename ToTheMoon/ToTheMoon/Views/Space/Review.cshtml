@@ -48,7 +48,6 @@
                 @Html.DisplayFor(model => model.increase) GB
                 @Html.HiddenFor(model => model.increase)
 
-
                 @Html.ValidationMessageFor(model => model.increase)
             </div>
         </div>
@@ -58,7 +57,10 @@
             <div class="col-md-10">
                 @if (ViewBag.canChangePI == false)
                 {
-                    @Html.DisplayFor(model => model.PI.FirstName) @Html.DisplayFor(model => model.PI.LastName)
+                    @Html.DisplayFor(model => model.PI.FirstName);
+                    @(" ");
+                    @Html.DisplayFor(model => model.PI.LastName);
+
                 }
                 else
                 {
@@ -71,8 +73,8 @@
                         userList.Add(i);
                     }
                     @Html.DropDownListFor(model => model.PIKey, new SelectList(userList, "Value", "Text"))
+                    <input type="submit" value="Save" class="btn btn-default" />
                 }
-                <input type="submit" value="Save" class="btn btn-default" />
 
                 @Html.ValidationMessageFor(model => model.PIKey)
             </div>
@@ -87,11 +89,11 @@
                     if (!sp.space.PIKey.Equals(sp.userKey) && ViewBag.canChangeRoles)
                     {
                         @(" | ")
-                        @Html.ActionLink("Edit", "../UserSpace/Edit/" + sp.ProductId);
-                    @(" | ")
-
-                    @Html.ActionLink("Remove", "../UserSpace/Delete/" + sp.ProductId);
+                        @Html.ActionLink("Edit", "Edit", "UserSpace", new { @ID = sp.ProductId }, null);
+                        @(" | ")
+                        @Html.ActionLink("Remove", "Delete", "UserSpace", new { @ID = sp.ProductId }, null);
                     }
+                    
                     <br />
                 }
                 }
@@ -103,15 +105,15 @@
                 @{foreach (UserSpace sp in ViewBag.readWriteResearchers)
                 {
                     @String.Join(" ", sp.user.FirstName, sp.user.LastName);
-                                                                          if (ViewBag.canChangeRoles)
-                                                                          {
-                                                                            @(" | ")
-                                                                            @Html.ActionLink("Edit", "../UserSpace/Edit/" + sp.ProductId);
-                    @(" | ")
-
-                    @Html.ActionLink("Remove", "../UserSpace/Delete/" + sp.ProductId);
+                    if (ViewBag.canChangeRoles)
+                    {
+                        @(" | ")
+                        @Html.ActionLink("Edit", "Edit", "UserSpace", new { @ID = sp.ProductId }, null);
+                        @(" | ")
+                        @Html.ActionLink("Remove", "Delete", "UserSpace", new { @ID = sp.ProductId }, null);
+                    }
+                    
                     <br />
-                                                                          }
                 }
                 }
             </div>
@@ -123,14 +125,15 @@
                 @{foreach (UserSpace sp in ViewBag.readOnlyResearchers)
                 {
                     @String.Join(" ", sp.user.FirstName, sp.user.LastName);
-                                                                          if (ViewBag.canChangeRoles)
-                                                                          {
-                                                                            @(" | ")
-                                                                            @Html.ActionLink("Edit", "../UserSpace/Edit/" + sp.ProductId);
-                    @(" | ")
-                    @Html.ActionLink("Remove", "../UserSpace/Delete/" + sp.ProductId);
+                    if (ViewBag.canChangeRoles)
+                    {
+                        @(" | ")
+                        @Html.ActionLink("Edit", "Edit", "UserSpace", new { @ID = sp.ProductId }, null);
+                        @(" | ")
+                        @Html.ActionLink("Remove", "Delete", "UserSpace", new { @ID = sp.ProductId }, null);
+                    }
+                    
                     <br />
-                                                                          }
                 }
                 }
             </div>
