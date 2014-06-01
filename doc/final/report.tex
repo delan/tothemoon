@@ -57,7 +57,30 @@
 \listoffigures
 \pagenumbering{arabic}
 
-\section{(TODO: Jason) Abstract}
+\section{Abstract}
+
+At the start of semester 1, 2014, our group of seven Curtin University
+computing students were tasked with developing a new web based portal for
+researchers to request access to storage spaces for their research projects.
+After researching the current information technology systems used at Curtin
+University, the team began designing a portal which followed a similar style to
+the Blackboard learning management system. This was a deliberate choice to
+ensure a smooth transition of staff to the new system.
+
+We faced a unique challenge when using Scrum was required despite the fact that
+the methodology assumes that the developers are in the same office, every day
+of every week. We decided to use many different collaboration tools to assist
+us in working in a group environment where everyone was on vastly differing
+schedules, including GitHub, Facebook, Trello, draw.io and Google Docs with
+varying degrees of success.
+
+After a productive few weeks of collecting requirements and designing the
+prototype, development was rather slow. Hardly any of the group members had
+previously used the ASP.NET MVC 5 development environment, so there were many
+unproductive hours, but when we reached the third and final sprint, progress
+began to hasten. We now have a working prototype that implements all of the
+user stories that were initially requested by the client during the
+requirements phase.
 
 \section{Introduction and objectives}
 
@@ -134,6 +157,30 @@ the requirements which have been decided upon for the prototype, the design of
 the web-based portal and the process used during development of this project.
 
 \section{Background}
+
+\subsection{Other systems considered}
+
+Since 2013, for large volumes of researchers' storage, Curtin University has
+used iVEC to procure its data storage. iVEC is a computing and data storage
+centre whose headquarters are based in Technology Park right next to Curtin
+University. Because they service all four of Western Australia's major
+universities, there is no integration with Curtin University's information
+technology systems. This makes applying for storage a tedious and bureaucratic
+process.
+
+The iVEC FAQ (\cite{iVEC2013}) states (emphasis by the author):
+
+\begin{quote}
+	For individuals who are granted an allocation on Data Stores @ iVEC,
+	\textbf{a pre-requisite is an iVEC account}. All researchers using iVEC
+	Data Stores should contact help@ivec.org to have an account provided.
+\end{quote}
+
+Intervention by iVEC is required in many portions of the storage space
+procurement process and this causes unnecessary delays. The procurement process
+also requires researchers to repeat a significant amount of information which
+would, in a system optimised for Curtin University, could be automatically
+generated using its LDAP directory service and other information systems.
 
 \subsection{Initial project management approach}
 
@@ -231,12 +278,12 @@ Gantt chart in Figure~\ref{fig:gantt}.
 The tools we decided to use throughout the life of the project are:
 
 \begin{itemize}
-	\item Backend: ASP.NET MVC 5;
-	\item Frontend: Bootstrap;
-	\item Project management: Facebook Groups, Basecamp and Trello;
-	\item Version control: GitHub;
-	\item Diagrams: draw.io; and
-	\item Documentation: Google Docs and \LaTeX.
+	\item ASP.NET MVC 5 for the backend;
+	\item Bootstrap on the frontend;
+	\item Facebook Groups, Basecamp and Trello for project management;
+	\item GitHub for distributed version control;
+	\item draw.io for diagrams; and
+	\item Google Docs and \LaTeX{} for documentation and the final report.
 \end{itemize}
 
 The group encountered difficulty deciding on what framework we would use for
@@ -312,9 +359,12 @@ bibliography management.
 
 A handful of user interface mockups were created for the initial project
 presentation. These were completed before any development of the prototype had
-started, and can be seen in Figures \ref{fig:login-mockup},
-\ref{fig:admin-mockup}, \ref{fig:researcher-mockup},
-\ref{fig:preferences-mockup} and \ref{fig:request-mockup}.
+started, and can be seen in
+Figure~\ref{fig:login-mockup},
+Figure~\ref{fig:admin-mockup},
+Figure~\ref{fig:researcher-mockup},
+Figure~\ref{fig:preferences-mockup} and
+Figure~\ref{fig:request-mockup}.
 
 \figimg{login-mockup}{../mockups/login}
 	{A mockup for the login screen}
@@ -431,8 +481,8 @@ see that only administrators want to be able to change permissions and expand
 storage, where approvers only want to be able to approve as their name would
 suggest.
 
-What we learned from this first set stories is that we need to have a
-well-defined set of rules of user permissions. From the user stories we know
+What we learned from this first set of stories is that we need to have a
+well-defined set of rules for user permissions. From the user stories we know
 that each user has a role within a project and that while some of their roles
 do overlap or some functions they are all different. These user levels and
 roles help define what users are allowed to do and access within the system.
@@ -681,7 +731,7 @@ Completed tasks:
 
 Due to most of the group being new to web development, we focused on achieving
 the functionality of the user stories, and decided to adjust the frontend to
-match the inital mockups at a later date.
+match the initial mockups at a later date.
 
 Multiple accounts with no access restrictions were successfully registered
 using the website, and all were able to submit storage requests as per the
@@ -1129,6 +1179,24 @@ require casting, then fail to store in the database when changed. This
 impasse forced us to allow the small amount of code duplication required
 to eliminate the inheritance relationship in our mapped classes.
 
+With regards to the user interface design, our team was not given any
+indication of a preferred visual style or an existing system to integrate our
+look and feel with. As such, we investigated existing web-based systems
+provided by Curtin University to obtain some inspiration. These include:
+
+\begin{itemize}
+	\item Blackboard: black and white, sharp rectangular corners, and boxed
+	      sections;
+	\item OASIS: sky blue, rounded rectangular corners, and tabbed style
+	      navigation; and
+	\item eStudent: dark turquoise, rounded rectangular corners, and tabbed
+	      style navigation with engraved buttons.
+\end{itemize}
+
+Due to the modular nature of our prototype, requiring the need to show or hide
+interface elements depending on users' roles, we concluded that a
+Blackboard-style approach would be the most appropriate path to take.
+
 \figimg{uml}{uml}{The Unified Modeling Language diagram for this prototype}
 
 \figimg{erd}{erd}{The entity-relationship diagram for this prototype}
@@ -1405,9 +1473,9 @@ Scrum.
 
 Throughout this project we learned quite a few lessons. The most important is
 having a smaller group, with a process like Scrum more people only makes it
-harder and in a university setting trying to have a meeting with 7 people is
-quite hard. We learned that we need to not get unmotivated as easily otherwise
-it results in a lot more stress and rushed work down the line.
+harder and in a university setting trying to have a meeting with seven people
+is quite hard. We learned that we need to not get unmotivated as easily
+otherwise it results in a lot more stress and rushed work down the line.
 
 For future students we would definitely recommend maintaining a small group
 rather than thinking a large group would mean less work overall. The amount of
@@ -1441,7 +1509,7 @@ change from histories of individual hobby projects and educational assessments.
 As such it is understandable that the project did not flourish as smoothly as
 we would have hoped.
 
-To round this report off, the following are a summary of the lessons learned:
+Some of the many lessons we learned from this project experience include:
 
 \begin{itemize}
 	\item Strive to organise \textit{regular} meetings that include
