@@ -150,23 +150,32 @@ namespace ToTheMoon.Controllers
         {
             IncreaseSpaceRequest incspacerequest = db.IncreaseSpaceRequests.Find(id);
             Space space = db.Spaces.Find(incspacerequest.SpaceID);
-            if(((Int64)space.capacity + (Int64)incspacerequest.increase) > int.MaxValue)
-            {
-                space.capacity = int.MaxValue;
-            }
-            else
-            {
-                space.capacity += incspacerequest.increase;
-            }
-            
-            db.IncreaseSpaceRequests.Remove(incspacerequest);
-            db.SaveChanges();
 
-            ///////////////////////////////
-            ///////////////////////////////
-            ////Send Email to Requester////
-            ///////////////////////////////
-            ///////////////////////////////
+            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ProjectContext()));
+            ApplicationUser currentUser = manager.FindById(User.Identity.GetUserId());
+            if (currentUser.role != GlobalRole.REGULAR)
+            {
+                if(((Int64)space.capacity + (Int64)incspacerequest.increase) > int.MaxValue)
+                {
+                    space.capacity = int.MaxValue;
+                }
+                else
+                {
+                    space.capacity += incspacerequest.increase;
+                }
+
+
+                db.IncreaseSpaceRequests.Remove(incspacerequest);
+                db.SaveChanges();
+
+                ///////////////////////////////
+                ///////////////////////////////
+                ////Send Email to Requester////
+                ///////////////////////////////
+                ///////////////////////////////
+
+            }
+
 
 
             return RedirectToAction("../Dashboard");
