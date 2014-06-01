@@ -192,21 +192,12 @@ namespace ToTheMoon.Controllers
 
             var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ProjectContext()));
             ApplicationUser currentUser = manager.FindById(User.Identity.GetUserId());
-<<<<<<< HEAD
 
             if(currentUser.role != GlobalRole.REGULAR)
             {
                 db.IncreaseSpaceRequests.Remove(incspacerequest);
                 db.SaveChanges();
 
-=======
-
-            if(currentUser.role != GlobalRole.REGULAR)
-            {
-                db.IncreaseSpaceRequests.Remove(incspacerequest);
-                db.SaveChanges();
-
->>>>>>> FETCH_HEAD
                 ///////////////////////////////
                 ///////////////////////////////
                 ////Send Email to Requester////
