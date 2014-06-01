@@ -198,10 +198,6 @@
     <Compile Include="Migrations\201405312322497_kush.Designer.cs">
       <DependentUpon>201405312322497_kush.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201406010937399_dis.cs" />
-    <Compile Include="Migrations\201406010937399_dis.Designer.cs">
-      <DependentUpon>201406010937399_dis.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Requests.cs" />
