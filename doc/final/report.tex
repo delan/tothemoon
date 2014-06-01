@@ -135,6 +135,30 @@ the web-based portal and the process used during development of this project.
 
 \section{Background}
 
+\subsection{Other systems considered}
+
+Since 2013, for large volumes of researchers' storage, Curtin University has
+used iVEC to procure its data storage. iVEC is a computing and data storage
+centre whose headquarters are based in Technology Park right next to Curtin
+University. Because they service all four of Western Australia's major
+universities, there is no integration with Curtin University's information
+technology systems. This makes applying for storage a tedious and bureaucratic
+process.
+
+The iVEC FAQ (\cite{iVEC2013}) states (emphasis by the author):
+
+\begin{quote}
+	For individuals who are granted an allocation on Data Stores @ iVEC,
+	\textbf{a pre-requisite is an iVEC account}. All researchers using iVEC
+	Data Stores should contact help@ivec.org to have an account provided.
+\end{quote}
+
+Intervention by iVEC is required in many portions of the storage space
+procurement process and this causes unnecessary delays. The procurement process
+also requires researchers to repeat a significant amount of information which
+would, in a system optimised for Curtin University, could be automatically
+generated using its LDAP directory service and other information systems.
+
 \subsection{Initial project management approach}
 
 Our solution approach was to first prioritise the user stories given, so that
@@ -231,12 +255,12 @@ Gantt chart in Figure~\ref{fig:gantt}.
 The tools we decided to use throughout the life of the project are:
 
 \begin{itemize}
-	\item Backend: ASP.NET MVC 5;
-	\item Frontend: Bootstrap;
-	\item Project management: Facebook Groups, Basecamp and Trello;
-	\item Version control: GitHub;
-	\item Diagrams: draw.io; and
-	\item Documentation: Google Docs and \LaTeX.
+	\item ASP.NET MVC 5 for the backend;
+	\item Bootstrap on the frontend;
+	\item Facebook Groups, Basecamp and Trello for project management;
+	\item GitHub for distributed version control;
+	\item draw.io for diagrams; and
+	\item Google Docs and \LaTeX{} for documentation and the final report.
 \end{itemize}
 
 The group encountered difficulty deciding on what framework we would use for
@@ -681,7 +705,7 @@ Completed tasks:
 
 Due to most of the group being new to web development, we focused on achieving
 the functionality of the user stories, and decided to adjust the frontend to
-match the inital mockups at a later date.
+match the initial mockups at a later date.
 
 Multiple accounts with no access restrictions were successfully registered
 using the website, and all were able to submit storage requests as per the
