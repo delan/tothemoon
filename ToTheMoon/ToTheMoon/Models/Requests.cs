@@ -29,7 +29,7 @@ namespace ToTheMoon.Models
 
         [Required]
         [Range(1, int.MaxValue)]
-        [Display(Name = "Capacity (GB)")]
+        [Display(Name = "Capacity")]
         public int capacity { get; set; }
 
         [Required]
@@ -42,6 +42,7 @@ namespace ToTheMoon.Models
         public string requester_key { get; set; }
 
         //[Required]
+        [Display(Name = "Timestamp")]
         public DateTime timestamp { get; set; }
     }
 
@@ -58,7 +59,7 @@ namespace ToTheMoon.Models
         [Display(Name = "Comment")]
         public string comment { get; set; }
 
-        [Display(Name = "Capacity (GB)")]
+        [Display(Name = "Capacity")]
         public int capacity { get; set; }
 
         [Display(Name = "Yearly Increase")]
@@ -87,7 +88,7 @@ namespace ToTheMoon.Models
         public string brief { get; set; }
 
         [Range(1, int.MaxValue)]
-        [Display(Name = "Increase (GB)")]
+        [Display(Name = "Increase")]
         public int increase { get; set; }
 
         //[Required]
@@ -95,6 +96,8 @@ namespace ToTheMoon.Models
         public string requester_key { get; set; }
 
         //[Required]
+
+        [Display(Name = "Timestamp")]
         public DateTime timestamp { get; set; }
     }
 
