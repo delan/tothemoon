@@ -49,9 +49,15 @@ namespace ToTheMoon.Controllers
 
             userspace = db.UserSpaces.Find(userspace.ProductId);
 
-            if (ModelState.IsValid && User.Identity.GetUserId() != userspace.space.PIKey)
+            if (ModelState.IsValid && userspace.userKey != userspace.space.PIKey)
             {
                 userspace.role = role;
+
+                //////////////////////////
+                //////////////////////////
+                ////Send Email to User////
+                //////////////////////////
+                //////////////////////////
 
                 db.Entry(userspace).State = EntityState.Modified;
                 db.SaveChanges();
@@ -93,16 +99,25 @@ namespace ToTheMoon.Controllers
         {
             userspace.user = (ApplicationUser)db.Users.Find(userspace.userKey);
             userspace.space = db.Spaces.Find(userspace.spaceKey);
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && userspace.user != null)
             {
+
+                //////////////////////////
+                //////////////////////////
+                ////Send Email to User////
+                //////////////////////////
+                //////////////////////////
 
                 db.UserSpaces.Add(userspace);
                 db.SaveChanges();
 
-                return RedirectToAction("../Space/Review/" + userspace.space.key);
+                return RedirectToAction("Review","Space",new {id = userspace.space.key});
             }
-            ViewBag.Spaces = db.Spaces.ToList<Space>();
-            return View(userspace);
+            Space space = db.Spaces.Find(userspace.spaceKey);
+            List<ApplicationUser> alreadyUsers = db.UserSpaces.ToList().FindAll(us => us.spaceKey.Equals(userspace.spaceKey)).Select(s => s.user).ToList();
+            alreadyUsers.Add(space.PI);
+            ViewBag.Users = db.Users.ToList().Except(alreadyUsers);
+            return View(userspace);//RedirectToAction("Create", new { id = userspace.spaceKey});
         }
 
         // POST: /UserSpace/Delete/5
@@ -112,12 +127,19 @@ namespace ToTheMoon.Controllers
         {
             UserSpace userspace = db.UserSpaces.Find(id);
             int space_id = userspace.space.key;
-            if (User.Identity.GetUserId() != userspace.space.PIKey)
+            if (userspace.userKey != userspace.space.PIKey)
             {
+
+                //////////////////////////
+                //////////////////////////
+                ////Send Email to User////
+                //////////////////////////
+                //////////////////////////
+
                 db.UserSpaces.Remove(userspace);
                 db.SaveChanges();
             }
-            return RedirectToAction("../Space/Review/" + space_id);
+            return RedirectToAction("Review", "Space", new { id = space_id });
         }
 
         protected override void Dispose(bool disposing)
