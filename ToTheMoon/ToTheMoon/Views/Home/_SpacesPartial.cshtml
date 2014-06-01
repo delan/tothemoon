@@ -52,17 +52,15 @@
 
                     <!-- percentage bar -->
                     <td class="col-md-6">
-                        <p>
-                            <div class="progress">
-                                @{
-                                    double percentageComplete = ((float)userspace.space.used / (float)userspace.space.capacity) * 100;
-                                    percentageComplete = Math.Round(percentageComplete, 0);
-                                }
-                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="@userspace.space.used" aria-valuemin="0" aria-valuemax=@userspace.space.capacity style="width: @percentageComplete%">
-                                    @userspace.space.used GB of @userspace.space.capacity GB
-                                </div>
+                        <div class="progress" style="margin-bottom: 0px">
+                            @{
+                        double percentageComplete = ((float)userspace.space.used / (float)userspace.space.capacity) * 100;
+                        percentageComplete = Math.Round(percentageComplete, 0);
+                            }
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="@userspace.space.used" aria-valuemin="0" aria-valuemax="@userspace.space.capacity" style="width: @percentageComplete%">
+                                <p>@userspace.space.used GB of @userspace.space.capacity GB</p>
                             </div>
-                        </p>
+                        </div>
                     </td>
 
                     <!-- review link -->
