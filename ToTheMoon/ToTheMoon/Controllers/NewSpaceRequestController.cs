@@ -75,45 +75,67 @@ namespace ToTheMoon.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Review([Bind(Include = "ID,name,SpaceID,capacity,increase,comment")] NewSpaceRequest newspacerequest)
+        public ActionResult Review([Bind(Include = "ID,comment")] NewSpaceRequestCommentViewModel nsrViewModel)
         {
-            String comment = newspacerequest.comment;
-            NewSpaceRequest nsr = db.NewSpaceRequests.Find(newspacerequest.ID);
-            nsr.comment = comment;
-            nsr.timestamp = DateTime.Now;
+            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ProjectContext()));
+            ApplicationUser currentUser = manager.FindById(User.Identity.GetUserId());
+
+            if (currentUser.role != GlobalRole.ADMIN)
+            {
+                return RedirectToAction("Review", "Space", new { ID = nsrViewModel.ID });
+            }
 
             if (ModelState.IsValid)
             {
+                NewSpaceRequest nsr = db.NewSpaceRequests.Find(nsrViewModel.ID);
+                nsr.comment = nsrViewModel.comment;
+                nsr.timestamp = DateTime.Now;
+
                 db.Entry(nsr).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("../Dashboard");
+                return RedirectToAction("Dashboard", "Home");
             }
-            return View(nsr);
+
+            return View(nsrViewModel);
         }
 
-        // GET: /NewSpaceRequest/Delete/5
         public ActionResult Review(int? id)
         {
             var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ProjectContext()));
             ApplicationUser currentUser = manager.FindById(User.Identity.GetUserId());
 
             ViewBag.UserRole = currentUser.role;
+
             if (id == null)
             {
-                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-                return RedirectToAction("../Dashboard");
+                return RedirectToAction("Dashboard", "Home");
             }
+
             NewSpaceRequest newspacerequest = db.NewSpaceRequests.Find(id);
 
-            if (newspacerequest == null)
+            if (newspacerequest == null && (currentUser.role != GlobalRole.REGULAR || currentUser.Id == newspacerequest.requester_key))
             {
-                //return HttpNotFound();
-                return RedirectToAction("../Dashboard");
+                return RedirectToAction("Dashboard", "Home");
             }
 
-            newspacerequest.requester = (ApplicationUser)db.Users.Find(newspacerequest.requester_key);
-            return View(newspacerequest);
+            if (currentUser.role != GlobalRole.REGULAR)
+            {
+                ViewBag.canComment = false;
+            }
+            else
+            {
+                ViewBag.canComment = true;
+            }
 
+            NewSpaceRequestCommentViewModel nsrViewModel = new NewSpaceRequestCommentViewModel();
+            nsrViewModel.ID = newspacerequest.ID;
+            nsrViewModel.brief = newspacerequest.brief;
+            nsrViewModel.capacity = newspacerequest.capacity;
+            nsrViewModel.increase = newspacerequest.increase;
+            nsrViewModel.requester = manager.FindById(newspacerequest.requester_key);
+            nsrViewModel.comment = newspacerequest.comment;
+
+            return View(nsrViewModel);
         }
 
         // POST: /NewSpaceRequest/Delete/5

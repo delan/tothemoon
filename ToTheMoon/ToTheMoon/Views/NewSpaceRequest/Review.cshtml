@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNet.Identity
 @using Microsoft.AspNet.Identity.EntityFramework
 @using ToTheMoon.Models;
-@model ToTheMoon.Models.NewSpaceRequest
+@model ToTheMoon.Models.NewSpaceRequestCommentViewModel
 
 @{
     ViewBag.Title = "Review";
@@ -23,7 +23,6 @@
             @Html.LabelFor(model => model.name, new { @class = "col-md-2" })
             <div class="col-md-10">
                 @Html.DisplayFor(model => model.name)
-                @Html.HiddenFor(model => model.name)
                 @Html.ValidationMessageFor(model => model.name)
             </div>
         </div>
@@ -52,7 +51,7 @@
             </div>
         </div>
 
-        @{if ((ViewBag.UserRole == GlobalRole.ADMIN) || (ViewBag.UserRole == GlobalRole.APPROVER))
+        @{if (ViewBag.canComment)
         {
             <div class="form-group">
                 @Html.LabelFor(model => model.requester, new { @class = "col-md-2" })

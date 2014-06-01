@@ -45,6 +45,31 @@ namespace ToTheMoon.Models
         public DateTime timestamp { get; set; }
     }
 
+    public class NewSpaceRequestCommentViewModel
+    {
+        public int ID { get; set; }
+
+        [Display(Name = "Project Name")]
+        public string name { get; set; }
+
+        [Display(Name = "Brief")]
+        public string brief { get; set; }
+
+        [Display(Name = "Comment")]
+        public string comment { get; set; }
+
+        [Display(Name = "Capacity (GB)")]
+        public int capacity { get; set; }
+
+        [Display(Name = "Yearly Increase")]
+        public int increase { get; set; }
+
+        [Display(Name = "Requester")]
+        public ApplicationUser requester { get; set; }
+
+        public string requester_key { get; set; }
+    }
+
     public class IncreaseSpaceRequest
     {
         [Key]
