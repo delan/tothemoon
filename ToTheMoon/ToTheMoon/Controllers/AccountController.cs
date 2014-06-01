@@ -52,7 +52,6 @@ namespace ToTheMoon.Controllers
                     var identity = await UserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
                     identity.AddClaim(new Claim("FirstName", user.FirstName));
                     identity.AddClaim(new Claim("LastName", user.LastName));
-                    identity.AddClaim(new Claim("Faculty", user.faculty.ToString()));
                     identity.AddClaim(new Claim("Email", user.Email));
                     identity.AddClaim(new Claim("Role", user.role.ToString()));
 
@@ -87,12 +86,12 @@ namespace ToTheMoon.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register([Bind (Include="UserName, FirstName, LastName,faculty, Password, ConfirmPassword, Email, role")] RegisterViewModel model)
+        public async Task<ActionResult> Register([Bind (Include="UserName, FirstName, LastName, Password, ConfirmPassword, Email, role")] RegisterViewModel model)
         {
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser() { UserName = model.UserName, FirstName = model.FirstName, 
-                    LastName = model.LastName, faculty=model.faculty, Email = model.Email, role = GlobalRole.REGULAR };
+                    LastName = model.LastName, Email = model.Email, role = GlobalRole.REGULAR };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

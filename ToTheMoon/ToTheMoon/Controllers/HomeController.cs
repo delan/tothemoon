@@ -36,19 +36,11 @@ namespace ToTheMoon.Controllers
 
             ViewBag.UserRole = currentUser.role;
 
-            if(currentUser.role == GlobalRole.ADMIN)
+            if(currentUser.role != GlobalRole.REGULAR)
             {
                 ViewBag.NewSpaceRequests = db.NewSpaceRequests.ToList<NewSpaceRequest>();
                 ViewBag.IncreaseSpaceRequests = db.IncreaseSpaceRequests.ToList<IncreaseSpaceRequest>();
                 ViewBag.Spaces = db.Spaces.ToList<Space>();
-            }
-            else if (currentUser.role == GlobalRole.APPROVER)
-            {
-
-                ViewBag.NewSpaceRequests = db.NewSpaceRequests.ToList<NewSpaceRequest>().FindAll(nsr => manager.FindById(nsr.requester_key).faculty.Equals(currentUser.faculty));
-                ViewBag.IncreaseSpaceRequests = db.IncreaseSpaceRequests.ToList<IncreaseSpaceRequest>().FindAll(isr => manager.FindById(isr.requester_key).faculty.Equals(currentUser.faculty));
-                ViewBag.Spaces = db.Spaces.ToList<Space>().FindAll(s => s.PI.faculty.Equals(currentUser.faculty));
-                ViewBag.Faculty = currentUser.faculty;
             }
             else
             {
