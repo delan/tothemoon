@@ -48,15 +48,15 @@ namespace ToTheMoon.Controllers
 
 
         // GET: /IncreaseSpaceRequest/Create/<id>
-        public ActionResult Create(int? SpaceID)
+        public ActionResult Create(int? ID)
         {
-            if(SpaceID == null)
+            if (ID == null)
             {
                 return RedirectToAction("../Dashboard");
             }
             IncreaseSpaceRequest increasespacerequest = new IncreaseSpaceRequest();
-            increasespacerequest.space = db.Spaces.Find(SpaceID);
-            increasespacerequest.SpaceID = (int)SpaceID;
+            increasespacerequest.space = db.Spaces.Find(ID);
+            increasespacerequest.SpaceID = (int)ID;
             if(increasespacerequest.space == null)
             {
                 return RedirectToAction("../Dashboard");
