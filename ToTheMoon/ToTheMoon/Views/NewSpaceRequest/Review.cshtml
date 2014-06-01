@@ -4,7 +4,7 @@
 @model ToTheMoon.Models.NewSpaceRequestCommentViewModel
 
 @{
-    ViewBag.Title = "Review";
+    ViewBag.Title = "Review New Space Request";
 }
 
 <h2><b>Review</b> New Space Request</h2>
@@ -20,37 +20,40 @@
         @Html.HiddenFor(model => model.ID)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.brief, new { @class = "col-md-2" })
+            @Html.LabelFor(model => model.brief, new { @class = "col-md-2 control-label" })
             <div class="col-md-10">
-                @Html.DisplayFor(model => model.brief)
-                @Html.ValidationMessageFor(model => model.brief)
+                <p class="form-control-static">
+                    @Html.DisplayFor(model => model.brief)
+                </p>
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.capacity, new { @class = "col-md-2" })
+            @Html.LabelFor(model => model.capacity, new { @class = "col-md-2 control-label" })
             <div class="col-md-10">
-                @Html.DisplayFor(model => model.capacity) GB
-                @Html.ValidationMessageFor(model => model.increase)
+                <p class="form-control-static">
+                    @Html.DisplayFor(model => model.capacity) GB
+                </p>
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.increase, new { @class = "col-md-2" })
+            @Html.LabelFor(model => model.increase, new { @class = "col-md-2 control-label" })
             <div class="col-md-10">
-                @Html.DisplayFor(model => model.increase) GB
-                @Html.ValidationMessageFor(model => model.increase)
+                <p class="form-control-static">
+                    @Html.DisplayFor(model => model.increase) GB
+                </p>
             </div>
         </div>
 
         @{if (ViewBag.canComment)
         {
             <div class="form-group">
-                @Html.LabelFor(model => model.requester, new { @class = "col-md-2" })
+                @Html.LabelFor(model => model.requester, new { @class = "col-md-2 control-label" })
                 <div class="col-md-10">
-                    @*Html.DisplayFor(model => model.requester.FirstName)*@
-                    @(Model.requester.FirstName + " " + Model.requester.LastName)
-                    @Html.ValidationMessageFor(model => model.requester)
+                    <p class="form-control-static">
+                        @(Model.requester.FirstName + " " + Model.requester.LastName)
+                    </p>
                 </div>
             </div>
         }
@@ -59,9 +62,11 @@
         @{if (ViewBag.UserRole == GlobalRole.ADMIN)
         {
             <div class="form-group">
-                @Html.LabelFor(model => model.comment, new { @class = "col-md-2" })
-                <div class="col-md-10">
+                @Html.LabelFor(model => model.comment, new { @class = "col-md-2 control-label" })
+                <div class="col-md-4">
                     @Html.TextAreaFor(model => model.comment, new { @class = "form-control" })
+                </div>
+                <div class="col-md-6">
                     @Html.ValidationMessageFor(model => model.comment)
                 </div>
             </div>
@@ -69,10 +74,11 @@
         else if (Model.comment != null && Model.comment != "")
         {
             <div class="form-group">
-                @Html.LabelFor(model => model.comment, new { @class = "col-md-2" })
+                @Html.LabelFor(model => model.comment, new { @class = "col-md-2 control-label" })
                 <div class="col-md-10">
-                    @Html.DisplayFor(model => model.comment, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.comment)
+                    <p class="form-control-static">
+                        @Html.DisplayFor(model => model.comment, new { @class = "form-control" })
+                    </p>
                 </div>
             </div>
         }
@@ -81,9 +87,10 @@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 @{if (ViewBag.UserRole == GlobalRole.ADMIN)
-                { <input type="submit" value="Save" class="btn btn-default" />
-                    @Html.ActionLink("Approve", "Approve", "NewSpaceRequest", new { ID = Model.ID }, new { @class = "btn btn-default" })
-                    @Html.ActionLink("Decline", "Decline", "NewSpaceRequest", new { ID = Model.ID }, new { @class = "btn btn-default" })
+                {
+                    <input type="submit" value="Save Comment" class="btn btn-default" />
+                    @Html.ActionLink("Approve", "Approve", "NewSpaceRequest", new { ID = Model.ID }, new { @class = "btn btn-success" }) 
+                    @Html.ActionLink("Decline", "Decline", "NewSpaceRequest", new { ID = Model.ID }, new { @class = "btn btn-danger" })
                 }
                 }
             </div>

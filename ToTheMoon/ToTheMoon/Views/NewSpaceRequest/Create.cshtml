@@ -4,7 +4,7 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2><b>Create</b> New Space Request</h2>
 
 
 @using (Html.BeginForm()) 
@@ -12,56 +12,72 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>NewSpaceRequest</h4>
         <hr />
         @Html.ValidationSummary(true)
 
         <div class="form-group">
             @Html.LabelFor(model => model.name, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.name)
-                @Html.ValidationMessageFor(model => model.name)
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.name, new { @class = "form-control" })
+            </div>
+            <div class="col-md-6">
+                @Html.ValidationMessageFor(model => model.capacity)
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.SpaceID, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.SpaceID)
-                @Html.ValidationMessageFor(model => model.SpaceID)
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.SpaceID, new { @class = "form-control" })
+            </div>
+            <div class="col-md-6">
+                @Html.ValidationMessageFor(model => model.capacity)
             </div>
         </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.brief, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.brief)
-                    @Html.ValidationMessageFor(model => model.brief)
-                </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.brief, new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.TextAreaFor(model => model.brief, new { @class = "form-control" })
             </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.capacity, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.capacity)
-                    @Html.ValidationMessageFor(model => model.capacity)
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.increase, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.increase)
-                    @Html.ValidationMessageFor(model => model.increase)
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
-                </div>
+            <div class="col-md-6">
+                @Html.ValidationMessageFor(model => model.capacity)
             </div>
         </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.capacity, new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                <div class="input-group">
+                    @Html.TextBoxFor(model => model.capacity, new { @class = "form-control" })
+                    <span class="input-group-addon">GB</span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                @Html.ValidationMessageFor(model => model.capacity)
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.increase, new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                <div class="input-group">
+                    @Html.TextBoxFor(model => model.increase, new { @class = "form-control" })
+                    <span class="input-group-addon">GB</span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                @Html.ValidationMessageFor(model => model.increase)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-4">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
 }
 
 <div>
