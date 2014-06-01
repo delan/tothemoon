@@ -21,6 +21,8 @@ namespace ToTheMoon.Models
         [Key]
         public virtual Space space { get; set; }
 
+        public int spaceKey { get; set; }
+
         [Required]
         public SpaceRole role { get; set; }
     }

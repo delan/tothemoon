@@ -56,7 +56,7 @@ namespace ToTheMoon.Controllers
             ViewBag.readOnlyResearchers = db.UserSpaces.ToList().FindAll(usc => usc.space == space && usc.role == SpaceRole.COLLAB_RO);
             ViewBag.readWriteResearchers = db.UserSpaces.ToList().FindAll(usc => usc.space == space && usc.role == SpaceRole.COLLAB_RW);
             ViewBag.dataManagers = db.UserSpaces.ToList().FindAll(usc => usc.space == space && usc.role == SpaceRole.DATAMANAGER);
-
+            ViewBag.dataManagerUsers = db.UserSpaces.ToList().FindAll(usc => usc.space == space && usc.role == SpaceRole.DATAMANAGER).Select(usc => usc.user);
             ViewBag.canChangeCapacity = false;
             ViewBag.canRequestSpace   = false;
             ViewBag.canChangePI       = false;
@@ -89,15 +89,15 @@ namespace ToTheMoon.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Review([Bind(Include="key,Name,capacity,used,increase,PIKey")] Space space)
+        public ActionResult Review([Bind(Include="key,Name,capacity,used,increase,PIKey, PI")] Space space)
         {
+            space.PI = (ApplicationUser)db.Users.Find(space.PIKey);
             if (ModelState.IsValid)
             {
                 db.Entry(space).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
             }
-            return View(space);
+            return RedirectToAction("Review",space.key);
         }
 
         /********
@@ -167,7 +167,7 @@ namespace ToTheMoon.Controllers
             Space space = db.Spaces.Find(id);
             db.Spaces.Remove(space);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Spaces", space.key);
         }
 
         protected override void Dispose(bool disposing)

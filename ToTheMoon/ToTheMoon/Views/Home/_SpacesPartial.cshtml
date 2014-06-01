@@ -67,7 +67,7 @@
 
                     <!-- review link -->
                     <td class="col-md-1">
-                        @Html.ActionLink("Review", "Review")
+                        @Html.ActionLink("Review", "Review", "Space", new { ID = userspace.space.key }, null)
                     </td>
                 </tr>
             }

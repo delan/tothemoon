@@ -18,7 +18,7 @@
         <h4>UserSpace</h4>
         <hr />
         @Html.ValidationSummary(true)
-        @Html.HiddenFor(model => model.space)
+        @Html.HiddenFor(model => model.spaceKey)
 
         <div class="form-group">
             @Html.Label("Username", new { @class = "control-label col-md-2" })
@@ -36,7 +36,7 @@
                             i.Value = user.Id;
                             userList.Add(i);
                         }
-                        Html.DropDownList("userkey", new SelectList(userList, "Value", "Text"));
+                        @Html.DropDownListFor(model => model.userKey, new SelectList(userList, "Value", "Text"))
                 }
             </div>
         </div>

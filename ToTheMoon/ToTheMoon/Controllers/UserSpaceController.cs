@@ -65,23 +65,24 @@ namespace ToTheMoon.Controllers
         // GET: /UserSpace/Create/5
         public ActionResult Create(int? id)
         {
-            ViewBag.Users = db.Users.ToList();
 
 
             if(id == null)
             {
                 return Redirect("../Dashboard");
             }
-
             Space space = db.Spaces.Find(id);
+            List<ApplicationUser> alreadyUsers = db.UserSpaces.ToList().FindAll(us => us.spaceKey.Equals(id)).Select(s => s.user).ToList();
+            alreadyUsers.Add(space.PI);
+            ViewBag.Users = db.Users.ToList().Except(alreadyUsers);
 
             if(space == null)
             {
                 return Redirect("../Dashboard");
             }
             UserSpace userspace = new UserSpace();
-            userspace.space = space;
-
+            userspace.space = db.Spaces.Find(id);
+            userspace.spaceKey = userspace.space.key;
             return View(userspace);
         }
 
@@ -90,10 +91,10 @@ namespace ToTheMoon.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "space,role,userkey")] UserSpace userspace)
+        public ActionResult Create([Bind(Include = "spaceKey,role,userKey")] UserSpace userspace)
         {
             userspace.user = (ApplicationUser)db.Users.Find(userspace.userKey);
-
+            userspace.space = db.Spaces.Find(userspace.spaceKey);
             if (ModelState.IsValid)
             {
 
@@ -102,6 +103,7 @@ namespace ToTheMoon.Controllers
 
                 return RedirectToAction("../Space/Review/" + userspace.space.key);
             }
+            ViewBag.Spaces = db.Spaces.ToList<Space>();
             return View(userspace);
         }
 

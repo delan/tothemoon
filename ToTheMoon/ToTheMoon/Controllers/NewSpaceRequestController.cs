@@ -98,7 +98,6 @@ namespace ToTheMoon.Controllers
             ApplicationUser currentUser = manager.FindById(User.Identity.GetUserId());
 
             ViewBag.UserRole = currentUser.role;
-
             if (id == null)
             {
                 //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
