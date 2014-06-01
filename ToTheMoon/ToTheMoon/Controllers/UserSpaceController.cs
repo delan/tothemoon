@@ -95,7 +95,7 @@ namespace ToTheMoon.Controllers
         {
             userspace.user = (ApplicationUser)db.Users.Find(userspace.userKey);
             userspace.space = db.Spaces.Find(userspace.spaceKey);
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && userspace.user != null)
             {
 
                 db.UserSpaces.Add(userspace);
@@ -103,8 +103,11 @@ namespace ToTheMoon.Controllers
 
                 return RedirectToAction("Review","Space",new {id = userspace.space.key});
             }
-            ViewBag.Spaces = db.Spaces.ToList<Space>();
-            return View(userspace);
+            Space space = db.Spaces.Find(userspace.spaceKey);
+            List<ApplicationUser> alreadyUsers = db.UserSpaces.ToList().FindAll(us => us.spaceKey.Equals(userspace.spaceKey)).Select(s => s.user).ToList();
+            alreadyUsers.Add(space.PI);
+            ViewBag.Users = db.Users.ToList().Except(alreadyUsers);
+            return View(userspace);//RedirectToAction("Create", new { id = userspace.spaceKey});
         }
 
         // POST: /UserSpace/Delete/5

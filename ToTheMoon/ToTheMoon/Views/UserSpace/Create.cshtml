@@ -37,6 +37,7 @@
                             userList.Add(i);
                         }
                         @Html.DropDownListFor(model => model.userKey, new SelectList(userList, "Value", "Text"))
+                        @Html.ValidationMessageFor(model => model.userKey)
                 }
             </div>
         </div>
