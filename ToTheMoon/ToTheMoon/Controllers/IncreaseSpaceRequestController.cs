@@ -37,12 +37,14 @@ namespace ToTheMoon.Controllers
             }
 
             IncreaseSpaceRequest incspacerequest = db.IncreaseSpaceRequests.Find(id);
+
             if (incspacerequest == null)
             {
                 return RedirectToAction("../Dashboard");
             }
-            incspacerequest.requester = (ApplicationUser)db.Users.Find(incspacerequest.requester_key);
 
+            incspacerequest.requester = (ApplicationUser)db.Users.Find(incspacerequest.requester_key);
+            incspacerequest.space = db.Spaces.Find(incspacerequest.SpaceID);
             return View(incspacerequest);
         }
 
