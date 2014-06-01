@@ -14,10 +14,11 @@
             <tr>
                 <td>
                     <p>Request for +@(request.increase)GB for [@request.space.key] @request.space.Name</p>
-                    @Html.ActionLink("[Review]", "../IncreaseSpaceRequest/Review/" + request.ID)
+                    @Html.ActionLink("[Review]", "Review", "IncreaseSpaceRequest", new { ID = request.ID }, null);
                     @{if (ViewBag.UserRole == GlobalRole.ADMIN) { 
-                        @Html.ActionLink("[Approve]", "../IncreaseSpaceRequest/Approve/" + request.ID)
-                        @Html.ActionLink("[Decline]", "../IncreaseSpaceRequest/Decline/" + request.ID)}
+                        @Html.ActionLink("[Approve]", "Approve", "IncreaseSpaceRequest", new { ID = request.ID }, null);
+                        @Html.ActionLink("[Decline]", "Decline", "IncreaseSpaceRequest", new { ID = request.ID }, null);
+                    }
                     }
                 </td>
             </tr>

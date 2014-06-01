@@ -14,12 +14,13 @@
             <tr>
                 <td>
                     <p>Request for [@(request.SpaceID)] @(request.name) with @(request.capacity)GB</p>
-                    @Html.ActionLink("[Review]", "../NewSpaceRequest/Review/" + request.ID) 
+                    @Html.ActionLink("[Review]", "Review", "NewSpaceRequest", new { ID = request.ID }, null)
+
                     @{
                         if (ViewBag.UserRole != GlobalRole.REGULAR)
                         {
-                            @Html.ActionLink("[Approve] ", "../NewSpaceRequest/Approve/" + request.ID);
-                            @Html.ActionLink("[Decline]", "../NewSpaceRequest/Decline/" + request.ID);
+                            @Html.ActionLink("[Approve] ", "Approve", "NewSpaceRequest", new { ID = request.ID }, null)
+                            @Html.ActionLink("[Decline]", "Decline", "NewSpaceRequest", new { ID = request.ID }, null)
                         }
                     }
                 </td>
