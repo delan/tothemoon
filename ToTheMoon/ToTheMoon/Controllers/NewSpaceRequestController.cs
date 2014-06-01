@@ -88,6 +88,12 @@ namespace ToTheMoon.Controllers
                 nsr.comment = nsrViewModel.comment;
                 nsr.timestamp = DateTime.Now;
 
+                ///////////////////////////////
+                ///////////////////////////////
+                ////Send Email to Requester////
+                ///////////////////////////////
+                ///////////////////////////////
+
                 db.Entry(nsr).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Dashboard", "Home");
