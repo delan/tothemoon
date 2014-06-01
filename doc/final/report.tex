@@ -16,8 +16,11 @@
 }
 \usepackage{pdflscape}
 \usepackage{textpos}
+
 \setlength{\TPHorizModule}{1mm}
 \setlength{\TPVertModule}{1mm}
+\setlength{\abovecaptionskip}{15pt plus 3pt minus 2pt}
+\setlength{\belowcaptionskip}{15pt plus 3pt minus 2pt}
 
 \let\stdsection\section
 \renewcommand\section{\newpage\stdsection}
@@ -63,7 +66,7 @@ integral factor in research at universities. While the technology and its role
 has increased, Curtin University still uses traditional methods such as paper
 forms for allocating storage for research projects. In order for us to keep up
 with the increasing demand of information technology services, many of these
-traditional methods should be digitised and automated.
+methods should be digitised and automated.
 
 In order to eliminate this needless paperwork and bureaucracy, Curtin
 University could implement a web-based portal for staff members to request and
@@ -90,6 +93,8 @@ prototype of this user experience. Actual functionality and requirements
 regarding integration with Curtin University's information systems is outside
 the scope of this project, and will depend on the reception of the prototype by
 Curtin University's information technology department.
+
+\newpage
 
 \subsection{Limitations}
 
@@ -136,19 +141,16 @@ Our solution approach was to first prioritise the user stories given, so that
 vital functionality would be implemented in early sprints. Shortly afterwards,
 the team had a meeting to discuss the various permissions of the different user
 account roles. In this meeting we made a permissions table, as shown in
-Figure~\ref{fig:permissions}, so as to clear up any confusion of the various
-user privileges.
+Figure~\ref{fig:permissions}, so as to clear up any confusion surrounding the
+wide variety of user privileges.
 
 The overarching method was to figure out the solutions for the larger problems
 as a group, and then to allocate tasks to be solved by assorted group members
-by the end of the next sprint.
-
-Existing free technologies were used to coordinate project management and
-communications, including a Facebook group, Google form for time logging,
-Trello to organise user stories as well as Basecamp.
-
-The time allocated to various tasks in the project can be seen in the Gantt
-chart in Figure~\ref{fig:gantt}.
+by the end of the next sprint. Existing free technologies were used to
+coordinate project management and communications, including a Facebook group,
+Google form for time logging, Trello to organise user stories as well as
+Basecamp. The time allocated to various tasks in the project can be seen in the
+Gantt chart in Figure~\ref{fig:gantt}.
 
 \begin{figure}[h]
 	\caption{The user access permissions model for this prototype}
@@ -229,20 +231,20 @@ chart in Figure~\ref{fig:gantt}.
 The tools we decided to use throughout the life of the project are:
 
 \begin{itemize}
-	\item Backend: ASP.NET MVC 5
-	\item Frontend: Bootstrap
-	\item Project management: Facebook Groups, Basecamp and Trello
-	\item Version control: GitHub
-	\item Diagrams: draw.io
-	\item Documentation: Google Docs then \LaTeX
+	\item Backend: ASP.NET MVC 5;
+	\item Frontend: Bootstrap;
+	\item Project management: Facebook Groups, Basecamp and Trello;
+	\item Version control: GitHub;
+	\item Diagrams: draw.io; and
+	\item Documentation: Google Docs and \LaTeX.
 \end{itemize}
 
-The group had trouble deciding on what framework we would use for the project,
-as few of us had much exposure or experience in backend web development. We
-decided that it would be voted upon, and as a subset of the group were all
-familiar with C\#, we swayed towards ASP.NET MVC 5.
+The group encountered difficulty deciding on what framework we would use for
+the project, as few of us had much exposure or experience in backend web
+development. We decided that it would be voted upon, and as a subset of the
+group were all familiar with C\#, we swayed towards ASP.NET MVC 5.
 
-Consequently, as ASP.NET MVC 5 comes packaged with Bootstrap it was common
+As ASP.NET MVC 5 comes packaged with Bootstrap, it was consequently common
 sense to use both alongside each other for the project. The team agreed that
 Bootstrap was most suitable, and as a further plus it had stock templates that
 would help us in early development stages.
@@ -251,11 +253,11 @@ Shortly after a group was formed, as we were all Facebook friends with each
 other it seemed almost natural to start a Facebook Group for easy
 communications outside of tutorials and seminars. The ability to design polls
 for members of the group was a huge plus as it made it a lot easier to organise
-meetings, and especially so for a large group of seven people.
+meetings, and especially so for our relatively large group of seven people.
 
 A Basecamp project was also set up for the group assignment. We originally
-chose to use Basecamp because of its various services (todo lists and
-filesharing). However, we did not get much of a chance to use it as we did most
+chose to use Basecamp because of its various services such as to-do lists and
+file sharing. However, we did not get much of a chance to use it as we did most
 task allocation in person during Scrum and team meetings. Additionally, many of
 the addons that were desirable for the documentation side of the project were
 rather costly and deterred us from using it.
@@ -263,22 +265,22 @@ rather costly and deterred us from using it.
 Our Trello board was only set up after the group had task allocation issues as
 can be seen in the review of the first sprint. A few members of the group
 didn't originally want to use Trello as a project management tool due to seeing
-it used with a messy result elsewhere. However after group members were
+it used to a messy result elsewhere. However after group members were
 mistakenly working on the same tasks it was decided it was necessary. We used
 one board for the entire project, with user stories as cards, and several lists
 depicting the stages of the completeness of those user stories.
 
-Alas, at this stage we were using too many project management tools and it was
-inconvenient for people to check several applications, websites and devices.
-The group then ended up having the minute taker post all meeting minutes onto
-the Facebook Group for easy access. Trello was not used after the second
-sprint.
+Alas, by this point we were using too many project management tools and it was
+inconvenient for people to regularly check on several applications, websites
+and devices. The group then ended up having the minute taker post all meeting
+minutes onto the Facebook Group for easy access. Trello ceased to be used after
+the second sprint.
 
 As several group members were familiar with GitHub and were very pleased with
 its offerings, it was suggested to be used in the project. GitHub also allows
-for several private repositories if signed up with a .edu email address which
-was another benefit, as we didn't want to risk other groups plagiarising our
-hard work.
+for several private repositories if signed up with an educational email address
+which was another benefit, as we didn't want to risk other groups plagiarising
+our hard work.
 
 draw.io was used before the unofficial `sprint zero' presentation to display
 our initial mockups of our website. At this point we had not started any
@@ -286,10 +288,10 @@ development, and the focus was on planning the first sprint. The group decided
 to use Draw.io as a couple of members had used it previously for another group
 assignment where various UML diagrams and mockups were drawn. The only downside
 is that it does not support online live collaboration, but that wasn't too much
-of an issue. This tool was also then used for the final UML and ER diagrams of
+of an issue. This tool was also then used for the final UML and ER diagrams for
 the project as documented in this report.
 
-Google Docs was used heavily in the making of the final report, as well as
+Google Docs was used heavily in the creation of the final report, as well as
 communicating between members progress of web backend functionality. A group
 member suggested using Google Docs and this was found in agreement with other
 members. One of its greatest merits is its ability to support online live
@@ -303,6 +305,8 @@ The final report was transcribed from a Google Docs file to be typeset using
 \LaTeX, in order to exercise a greater degree of control over the aesthetics
 and typography, while automating tedious tasks such as figure layout and
 bibliography management.
+
+\newpage
 
 \subsection{User interface mockups}
 
@@ -569,11 +573,13 @@ decide how best to send a notification.
 
 These two stories show that the high level users want to be able to list
 submission requests and have the sorted in a particular way. This meant that
-some sort of algorithm would need to be implemented to sort them, we the first
-story also refers to submission date which none of the others do which may have
-not been stored otherwise. Although similar there are other stories that make a
-note of faculty so it would be a bit more obvious to store which faculty a
-project is part of.
+some sort of algorithm would need to be implemented to sort them; while the
+first story also refers to submission date which none of the others do, this
+may have not been stored otherwise. Although similar there are other stories
+that make a note of faculty so it would be a bit more obvious to store which
+faculty a project is part of.
+
+\newpage
 
 The final user stories are about requests for storage.
 
@@ -653,6 +659,43 @@ will be allocated to implement the viewing of lists and reviewing of storage
 requests. The remaining four days would go towards fixing defects and polishing
 what has been done thus far, in addition to working on other projects.
 
+\subsection{Sprint 1 implementation}
+
+Planned tasks:
+
+\begin{itemize}
+	\item Set up project management tools;
+	\item Authentication system;
+	\item Submit storage and additional storage requests;
+	\item View a list of all users' and faculty storage spaces; and
+	\item Approve and review requests.
+\end{itemize}
+
+Completed tasks:
+
+\begin{itemize}
+	\item Set up project management tools;
+	\item Authentication system;
+	\item Submit storage and additional storage requests;
+	\item Redesign of navigation bar; and
+	\item Frontend addition of interleaved links to relevant pages.
+\end{itemize}
+
+Due to most of the group being new to web development, we focused on achieving
+the functionality of the user stories, and decided to adjust the frontend to
+match the inital mockups at a later date.
+
+Multiple accounts with no access restrictions were successfully registered
+using the website, and all were able to submit storage requests as per the
+requirements specification. We have been testing the website using the latest
+released of Google Chrome, Mozilla Firefox and Internet Explorer. At this stage
+the registration screen accepted a username and password, with no requirement
+for Curtin ID or email address, therefore checking for a valid email address
+was not required.
+
+The task effort breakdown for the first sprint is illustrated in
+Figure~\ref{fig:effort1}.
+
 \subsection{Sprint 1 review}
 
 In the first sprint, the user stories decided upon were fairly ambitious. As a
@@ -710,9 +753,7 @@ Unfortunately, due to a combination of insufficient time management, informal
 role allocation and a general team-wide unfamiliarity with the chosen
 development environment, these user stories were not addressed.
 
-Finally, there existed additional items completed concerning improvements to
-user experience that were not initially addressed in meetings prior to the
-commencement of the sprint, such as:
+Additional items completed concerning improvements to user experience include:
 
 \begin{itemize}
 	\item Redesign of navigation bar; and
@@ -799,6 +840,44 @@ request submission should only take three days at most to implement, and the
 remaining days would be allocated to the ability to view and change the
 principal investigator of storage spaces.
 
+\subsection{Sprint 2 implementation}
+
+Planned tasks:
+
+\begin{itemize}
+	\item View a list of all storage requests;
+	\item Grant other researchers access to my storage spaces;
+	\item Approve and review storage requests;
+	\item User access levels and privileges; and
+	\item UML diagram.
+\end{itemize}
+
+Completed tasks:
+
+\begin{itemize}
+	\item Dashboard frontend with static HTML;
+	\item Cancellation and deletion of space requests;
+	\item Recorded timestamps for each request; and
+	\item UML diagram.
+\end{itemize}
+
+In an earlier meeting Callum suggested using the Decorator software pattern to
+implement the different user roles as they have subset permissions. The group
+agreed to research the Decorator pattern in order to use it. However, due to
+the complexity of the MVC5 framework and our lack of experience using it, it
+was decided that the pattern was too complex to implement using a foreign
+framework.
+
+We then decided our account level types will be implemented as different
+viewing permissions. This allows us to base what the user is allowed to see on
+their role as per the requirement specification. Although, the tradeoff is that
+the website is not as secure as would be preferred. Due to the time constraints
+the group decided to pursue the safer option of fulfilling the required
+functionality with lesser security measures.
+
+The task effort breakdown for the second sprint is illustrated in
+Figure~\ref{fig:effort2}.
+
 \subsection{Sprint 2 review}
 
 At the epoch of the second sprint, user stories decided on were scaled back
@@ -880,9 +959,7 @@ By the third sprint hopefully, the previous user stories would have been
 completed and implemented correctly. The rest of the user stories are small
 additions onto the already existing system, so even though there are a vast
 quantity more user stories in the sprint than others, these user stories all
-function in a similar fashion to one another, so implementation would require
-one function each, plus significant reusability for the other user stories that
-require that functionality.
+function in a similar fashion to one another.
 
 The user stories selected to be implemented in the third sprint were:
 
@@ -921,12 +998,6 @@ The user stories selected to be implemented in the third sprint were:
 	      faculty.
 \end{itemize}
 
-This would be the last level of the breakdown, where all of the more
-superficial additions are implemented. As a team, the decision was made that
-because these user stories did not involve \textit{changing} access levels, but
-still relied on the \textit{existence} of access levels, they would be easier
-to implement.
-
 The time available would be three weeks, and this would include finishing the
 formatting and patching all remaining defects, as well as ensuring that the
 system runs in accordance with the client's requirements.
@@ -936,6 +1007,46 @@ of requests would require a further four days to implement. The second week
 would be dedicated to revocation of storage space access, as this involves
 changing the access control data between a user and a space, rather than the
 access role of a user.
+
+\subsection{Sprint 3 implementation}
+
+Planned tasks:
+
+\begin{itemize}
+	\item Viewing a list of all storage requests;
+	\item Approve and review storage requests;
+	\item User access levels and privileges;
+	\item Granting access to storage spaces;
+	\item Granting manager level access to storage spaces;
+	\item Sending appropriate notifications;
+	\item Receiving email notifications;
+	\item Viewing status of requests;
+	\item Revoking access to storage spaces; and
+	\item Adding comments to requests.
+\end{itemize}
+
+Completed tasks:
+
+\begin{itemize}
+	\item Viewing a list of all storage requests;
+	\item Approve and review storage requests;
+	\item User access levels and privileges;
+	\item Granting access to storage spaces;
+	\item Granting manager level access to storage spaces;
+	\item Sending appropriate notifications;
+	\item Receiving email notifications;
+	\item Viewing status of requests;
+	\item Revoking access to storage spaces; and
+	\item Adding comments to requests.
+\end{itemize}
+
+As the project is not being hosted online, we are unable to actually send
+email notifications. Instead, we are working around this limitation with a
+page that appears when an email notification would have been sent that will
+still have the same content and data.
+
+The task effort breakdown for the third sprint is illustrated in
+Figure~\ref{fig:effort3}.
 
 \subsection{Sprint 3 review}
 
@@ -989,14 +1100,21 @@ time. These were the remaining user stories that required work:
 	      my faculty.
 \end{itemize}
 
-With this happening, Jasmine and Callum were cleaning and polishing the project
-so that for the final presentation it would work as intended. At the end of
-this sprint the initial plan was that the project would be complete, and with
-a joint effort from all members the project was completed on time.
+\subsection{Sprint 3 retrospective}
 
-\subsection{(TODO: Delan) Sprint 3 retrospective}
+Our team eventually managed to coordinate efforts relatively smoothly,
+finishing the prototype --- and more broadly, the project --- on time, although
+the stage at which this occurred was significantly later than what would be
+optimal.
 
-\section{Details of the design}
+The vast majority of the user stories provided by the client were implemented
+in this final sprint, in an effort to count the subpar productivity yielded by
+the former two sprints. By this time in the semester however, the ability of
+group members to find enough time to complete the shared workload became
+significantly more difficult, which bolstered the fragility of our commitment
+to the project deadline.
+
+\subsection{Details of the design}
 
 After much deliberation over the user stories and the permissions model, our
 team devised a set of models and their relationships as defined by the UML and
@@ -1011,132 +1129,11 @@ parent class \texttt{Request}, this conflicted with the
 ASP.NET MVC 5. The ORM would return instances of the parent class, which would
 require casting, then fail to store in the database when changed. This
 impasse forced us to allow the small amount of code duplication required
-through the elimination of inheritance.
+to eliminate the inheritance relationship in our mapped classes.
 
 \figimg{uml}{uml}{The Unified Modeling Language diagram for this prototype}
 
 \figimg{erd}{erd}{The entity-relationship diagram for this prototype}
-
-\section{Details of the implementation}
-
-\subsection{Sprint 1}
-
-Planned tasks:
-
-\begin{itemize}
-	\item Set up project management tools;
-	\item Authentication system;
-	\item Submit storage and additional storage requests;
-	\item View a list of all users' and faculty storage spaces; and
-	\item Approve and review requests.
-\end{itemize}
-
-Completed tasks:
-
-\begin{itemize}
-	\item Set up project management tools;
-	\item Authentication system;
-	\item Submit storage and additional storage requests;
-	\item Redesign of navigation bar; and
-	\item Frontend addition of interleaved links to relevant pages.
-\end{itemize}
-
-Due to most of the group being new to web development, we focused on achieving
-the functionality of the user stories, and decided to adjust the frontend to
-match the inital mockups at a later date.
-
-Multiple accounts with no access restrictions were successfully registered
-using the website, and all were able to submit storage requests as per the
-requirements specification. We have been testing the website using the latest
-released of Google Chrome, Mozilla Firefox and Internet Explorer. At this stage
-the registration screen accepted a username and password, with no requirement
-for Curtin ID or email address, therefore checking for a valid email address
-was not required.
-
-The task effort breakdown for the first sprint is illustrated in
-Figure~\ref{fig:effort1}.
-
-\newpage
-
-\subsection{Sprint 2}
-
-Planned tasks:
-
-\begin{itemize}
-	\item View a list of all storage requests;
-	\item Grant other researchers access to my storage spaces;
-	\item Approve and review storage requests;
-	\item User access levels and privileges; and
-	\item UML diagram.
-\end{itemize}
-
-Completed tasks:
-
-\begin{itemize}
-	\item Dashboard frontend with static HTML;
-	\item Cancellation and deletion of space requests;
-	\item Recorded timestamps for each request; and
-	\item UML diagram.
-\end{itemize}
-
-In an earlier meeting Callum suggested using the Decorator software pattern to
-implement the different user roles as they have subset permissions. The group
-agreed to research the Decorator pattern in order to use it. However, due to
-the complexity of the MVC5 framework and our lack of experience using it, it
-was decided that the pattern was too complex to implement using a foreign
-framework.
-
-We then decided our account level types will be implemented as different
-viewing permissions. This allows us to base what the user is allowed to see on
-their role as per the requirement specification. Although, the tradeoff is that
-the website is not as secure as would be preferred. Due to the time constraints
-the group decided to pursue the safer option of fulfilling the required
-functionality with lesser security measures.
-
-The task effort breakdown for the second sprint is illustrated in
-Figure~\ref{fig:effort2}.
-
-\newpage
-
-\subsection{Sprint 3}
-
-Planned tasks:
-
-\begin{itemize}
-	\item Viewing a list of all storage requests;
-	\item Approve and review storage requests;
-	\item User access levels and privileges;
-	\item Granting access to storage spaces;
-	\item Granting manager level access to storage spaces;
-	\item Sending appropriate notifications;
-	\item Receiving email notifications;
-	\item Viewing status of requests;
-	\item Revoking access to storage spaces; and
-	\item Adding comments to requests.
-\end{itemize}
-
-Completed tasks:
-
-\begin{itemize}
-	\item Viewing a list of all storage requests;
-	\item Approve and review storage requests;
-	\item User access levels and privileges;
-	\item Granting access to storage spaces;
-	\item Granting manager level access to storage spaces;
-	\item Sending appropriate notifications;
-	\item Receiving email notifications;
-	\item Viewing status of requests;
-	\item Revoking access to storage spaces; and
-	\item Adding comments to requests.
-\end{itemize}
-
-As the project is not being hosted online, we are unable to actually send
-email notifications. Instead, we are working around this limitation with a
-page that appears when an email notification would have been sent that will
-still have the same content and data.
-
-The task effort breakdown for the third sprint is illustrated in
-Figure~\ref{fig:effort3}.
 
 \begin{landscape}
 	\quad % ugly hack because there needs to be some text here
@@ -1194,8 +1191,6 @@ Front end tasks to complete during the first sprint:
 
 End time: 5:00 p.m.
 
-\newpage
-
 \subsection{Scrum meeting 2}
 
 Date: 2014-04-15
@@ -1228,8 +1223,6 @@ users, which would be done in the second sprint.
 
 End time: 1:00 p.m.
 
-\newpage
-
 \subsection{Scrum meeting 3}
 
 Date: 2014-04-25
@@ -1258,8 +1251,6 @@ approve requests or not.
 The UML diagram was designed for the implementation.
 
 End time: 2:34 p.m.
-
-\newpage
 
 \subsection{Scrum meeting 4}
 
