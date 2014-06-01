@@ -5,7 +5,13 @@
 <table class="table table-hover" border="1">
     <thead bgcolor="#222" style="color:white">
         <tr>
-            <th>Faculty Storage Spaces</th>
+            <th>@if (ViewBag.UserRole != GlobalRole.APPROVER)
+                {
+@("Faculty")
+            }
+            else
+            {@ViewBag.Faculty.ToString()}
+             Storage Spaces</th>
 
             @if (ViewBag.UserRole == GlobalRole.REGULAR)
             {
