@@ -57,7 +57,30 @@
 \listoffigures
 \pagenumbering{arabic}
 
-\section{(TODO: Jason) Abstract}
+\section{Abstract}
+
+At the start of semester 1, 2014, our group of seven Curtin University
+computing students were tasked with developing a new web based portal for
+researchers to request access to storage spaces for their research projects.
+After researching the current information technology systems used at Curtin
+University, the team began designing a portal which followed a similar style to
+the Blackboard learning management system. This was a deliberate choice to
+ensure a smooth transition of staff to the new system.
+
+We faced a unique challenge when using Scrum was required despite the fact that
+the methodology assumes that the developers are in the same office, every day
+of every week. We decided to use many different collaboration tools to assist
+us in working in a group environment where everyone was on vastly differing
+schedules, including GitHub, Facebook, Trello, draw.io and Google Docs with
+varying degrees of success.
+
+After a productive few weeks of collecting requirements and designing the
+prototype, development was rather slow. Hardly any of the group members had
+previously used the ASP.NET MVC 5 development environment, so there were many
+unproductive hours, but when we reached the third and final sprint, progress
+began to hasten. We now have a working prototype that implements all of the
+user stories that were initially requested by the client during the
+requirements phase.
 
 \section{Introduction and objectives}
 
@@ -1152,6 +1175,24 @@ ASP.NET MVC 5. The ORM would return instances of the parent class, which would
 require casting, then fail to store in the database when changed. This
 impasse forced us to allow the small amount of code duplication required
 to eliminate the inheritance relationship in our mapped classes.
+
+With regards to the user interface design, our team was not given any
+indication of a preferred visual style or an existing system to integrate our
+look and feel with. As such, we investigated existing web-based systems
+provided by Curtin University to obtain some inspiration. These include:
+
+\begin{itemize}
+	\item Blackboard: black and white, sharp rectangular corners, and boxed
+	      sections;
+	\item OASIS: sky blue, rounded rectangular corners, and tabbed style
+	      navigation; and
+	\item eStudent: dark turquoise, rounded rectangular corners, and tabbed
+	      style navigation with engraved buttons.
+\end{itemize}
+
+Due to the modular nature of our prototype, requiring the need to show or hide
+interface elements depending on users' roles, we concluded that a
+Blackboard-style approach would be the most appropriate path to take.
 
 \figimg{uml}{uml}{The Unified Modeling Language diagram for this prototype}
 
