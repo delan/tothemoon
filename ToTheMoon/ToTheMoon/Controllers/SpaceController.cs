@@ -92,20 +92,20 @@ namespace ToTheMoon.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Review([Bind(Include="key,Name,capacity,used,increase,PIKey, PI")] Space space)
+        public ActionResult Review([Bind(Include="key,PIKey,PI")] Space space)
         {
-            space.PI = (ApplicationUser)db.Users.Find(space.PIKey);
-            if (ModelState.IsValid)
-            {
-                ////////////////////////////////////////////
-                ////////////////////////////////////////////
-                ////Send Email to Principal Investigator////
-                ////////////////////////////////////////////
-                ////////////////////////////////////////////
+            Space masterSpace = db.Spaces.Find(space.key);
+            masterSpace.PIKey = space.PIKey;
+            
+            ////////////////////////////////////////////
+            ////////////////////////////////////////////
+            ////Send Email to Principal Investigator////
+            ////////////////////////////////////////////
+            ////////////////////////////////////////////
 
-                db.Entry(space).State = EntityState.Modified;
-                db.SaveChanges();
-            }
+            db.Entry(masterSpace).State = EntityState.Modified;
+            db.SaveChanges();
+
             return RedirectToAction("Review",space.key);
         }
 
