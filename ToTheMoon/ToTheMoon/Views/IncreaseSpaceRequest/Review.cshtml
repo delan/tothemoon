@@ -54,10 +54,18 @@
                     @{
                         if(ViewBag.UserRole != GlobalRole.REGULAR)
                         { 
+<<<<<<< HEAD
                             @Html.ActionLink("Approve", "Approve", "IncreaseSpaceRequest", new { ID = Model.ID }, new { @class = "btn btn-success"})
                             @Html.ActionLink("Decline", "Decline", "IncreaseSpaceRequest", new { ID = Model.ID }, new { @class = "btn btn-danger" })
                         }
                     }
+=======
+                            @Html.ActionLink("[Approve]", "Approve/" + Model.ID)
+                            @Html.ActionLink("[Decline]", "Decline/" + Model.ID)
+                        }
+                    }
+
+>>>>>>> FETCH_HEAD
                 </p>
             </div>
         </div>

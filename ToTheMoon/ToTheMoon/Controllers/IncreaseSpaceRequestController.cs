@@ -192,12 +192,21 @@ namespace ToTheMoon.Controllers
 
             var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ProjectContext()));
             ApplicationUser currentUser = manager.FindById(User.Identity.GetUserId());
+<<<<<<< HEAD
 
             if(currentUser.role != GlobalRole.REGULAR)
             {
                 db.IncreaseSpaceRequests.Remove(incspacerequest);
                 db.SaveChanges();
 
+=======
+
+            if(currentUser.role != GlobalRole.REGULAR)
+            {
+                db.IncreaseSpaceRequests.Remove(incspacerequest);
+                db.SaveChanges();
+
+>>>>>>> FETCH_HEAD
                 ///////////////////////////////
                 ///////////////////////////////
                 ////Send Email to Requester////
@@ -207,17 +216,6 @@ namespace ToTheMoon.Controllers
 
             return RedirectToAction("../Dashboard");
         }
-/*
-        // POST: /IncreaseSpaceRequest/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            IncreaseSpaceRequest increasespacerequest = db.IncreaseSpaceRequests.Find(id);
-            db.IncreaseSpaceRequests.Remove(increasespacerequest);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }*/
 
         protected override void Dispose(bool disposing)
         {
