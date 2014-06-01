@@ -24,30 +24,38 @@
         <div class="form-group">
             @Html.LabelFor(model => model.brief, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DisplayFor(model => model.brief)
-                @Html.ValidationMessageFor(model => model.brief)
+                <p class="form-control-static">
+                    @Html.DisplayFor(model => model.brief)
+                    @Html.ValidationMessageFor(model => model.brief)
+                </p>
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.increase, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DisplayFor(model => model.increase)
-                @Html.ValidationMessageFor(model => model.increase)
+                <p class="form-control-static">
+                    @Html.DisplayFor(model => model.increase)
+                    @Html.ValidationMessageFor(model => model.increase)
+                </p>
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.timestamp, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DisplayFor(model => model.timestamp)
+                <p class="form-control-static">
+                    @Html.DisplayFor(model => model.timestamp)
+                </p>
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                @Html.ActionLink("[Approve]", "Approve/" + Model.ID)
-                @Html.ActionLink("[Decline]", "Decline/" + Model.ID)}
+                <p class="form-control-static">
+                    @Html.ActionLink("[Approve]", "Approve/" + Model.ID)
+                    @Html.ActionLink("[Decline]", "Decline/" + Model.ID)}
+                </p>
             </div>
         </div>
     </div>
