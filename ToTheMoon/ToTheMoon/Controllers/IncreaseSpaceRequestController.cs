@@ -118,7 +118,11 @@ namespace ToTheMoon.Controllers
             IncreaseSpaceRequest isr = db.IncreaseSpaceRequests.Find(increasespacerequest.ID);
             isr.brief = increasespacerequest.brief;
             isr.space = db.Spaces.Find(increasespacerequest.SpaceID);
-            if (ModelState.IsValid)
+
+            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ProjectContext()));
+            ApplicationUser currentUser = manager.FindById(User.Identity.GetUserId());
+
+            if (ModelState.IsValid && currentUser.role != GlobalRole.REGULAR)
             {
                 isr.timestamp = DateTime.Now;
                 db.SaveChanges();
@@ -148,23 +152,32 @@ namespace ToTheMoon.Controllers
         {
             IncreaseSpaceRequest incspacerequest = db.IncreaseSpaceRequests.Find(id);
             Space space = db.Spaces.Find(incspacerequest.SpaceID);
-            if(((Int64)space.capacity + (Int64)incspacerequest.increase) > int.MaxValue)
-            {
-                space.capacity = int.MaxValue;
-            }
-            else
-            {
-                space.capacity += incspacerequest.increase;
-            }
-            
-            db.IncreaseSpaceRequests.Remove(incspacerequest);
-            db.SaveChanges();
 
-            ///////////////////////////////
-            ///////////////////////////////
-            ////Send Email to Requester////
-            ///////////////////////////////
-            ///////////////////////////////
+            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ProjectContext()));
+            ApplicationUser currentUser = manager.FindById(User.Identity.GetUserId());
+            if (currentUser.role != GlobalRole.REGULAR)
+            {
+                if(((Int64)space.capacity + (Int64)incspacerequest.increase) > int.MaxValue)
+                {
+                    space.capacity = int.MaxValue;
+                }
+                else
+                {
+                    space.capacity += incspacerequest.increase;
+                }
+
+
+                db.IncreaseSpaceRequests.Remove(incspacerequest);
+                db.SaveChanges();
+
+                ///////////////////////////////
+                ///////////////////////////////
+                ////Send Email to Requester////
+                ///////////////////////////////
+                ///////////////////////////////
+
+            }
+
 
 
             return RedirectToAction("../Dashboard");
@@ -177,14 +190,20 @@ namespace ToTheMoon.Controllers
         {
             IncreaseSpaceRequest incspacerequest = db.IncreaseSpaceRequests.Find(id);
 
-            db.IncreaseSpaceRequests.Remove(incspacerequest);
-            db.SaveChanges();
+            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ProjectContext()));
+            ApplicationUser currentUser = manager.FindById(User.Identity.GetUserId());
 
-            ///////////////////////////////
-            ///////////////////////////////
-            ////Send Email to Requester////
-            ///////////////////////////////
-            ///////////////////////////////
+            if(currentUser.role != GlobalRole.REGULAR)
+            {
+                db.IncreaseSpaceRequests.Remove(incspacerequest);
+                db.SaveChanges();
+
+                ///////////////////////////////
+                ///////////////////////////////
+                ////Send Email to Requester////
+                ///////////////////////////////
+                ///////////////////////////////
+            }
 
             return RedirectToAction("../Dashboard");
         }
