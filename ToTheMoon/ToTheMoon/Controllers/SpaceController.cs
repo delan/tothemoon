@@ -21,14 +21,16 @@ namespace ToTheMoon.Controllers
 
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return Redirect("../../Dashboard");
             }
 
             Space space = db.Spaces.Find(id);
             
             if (space == null)
             {
-                return HttpNotFound();
+                //return HttpNotFound();
+                return Redirect("../../Dashboard");
             }
 
             space.PI = manager.FindById(space.PIKey);
@@ -45,7 +47,8 @@ namespace ToTheMoon.Controllers
                 }
                 catch (Exception e)
                 {
-                    return HttpNotFound();
+                    //return HttpNotFound();
+                    return Redirect("../../Dashboard");
                 }
             }
             else
@@ -94,6 +97,12 @@ namespace ToTheMoon.Controllers
             space.PI = (ApplicationUser)db.Users.Find(space.PIKey);
             if (ModelState.IsValid)
             {
+                ////////////////////////////////////////////
+                ////////////////////////////////////////////
+                ////Send Email to Principal Investigator////
+                ////////////////////////////////////////////
+                ////////////////////////////////////////////
+
                 db.Entry(space).State = EntityState.Modified;
                 db.SaveChanges();
             }
@@ -112,7 +121,8 @@ namespace ToTheMoon.Controllers
             // Permissions Check.
             if (currentUser.role != GlobalRole.ADMIN && currentUser.role != GlobalRole.APPROVER)
             {
-                return HttpNotFound();
+                //return HttpNotFound();
+                return Redirect("../../Dashboard");
             }
 
             if (id == null)
@@ -124,7 +134,8 @@ namespace ToTheMoon.Controllers
 
             if (space == null)
             {
-                return HttpNotFound();
+                //return HttpNotFound();
+                return Redirect("../../Dashboard");
             }
 
             SpaceUpdateCapacityViewModel svm = new SpaceUpdateCapacityViewModel();
@@ -149,6 +160,12 @@ namespace ToTheMoon.Controllers
                 fullSpace.capacity = space.capacity;
                 fullSpace.used = space.used;
 
+                ////////////////////////////////////////////
+                ////////////////////////////////////////////
+                ////Send Email to Principal Investigator////
+                ////////////////////////////////////////////
+                ////////////////////////////////////////////
+
                 db.Entry(fullSpace).State = EntityState.Modified;
                 db.SaveChanges();
 
@@ -159,16 +176,16 @@ namespace ToTheMoon.Controllers
         }
 
 
-        // POST: /Space/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id)
-        {
-            Space space = db.Spaces.Find(id);
-            db.Spaces.Remove(space);
-            db.SaveChanges();
-            return RedirectToAction("Spaces", space.key);
-        }
+        //// POST: /Space/Delete/5
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Delete(int id)
+        //{
+        //    Space space = db.Spaces.Find(id);
+        //    db.Spaces.Remove(space);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Spaces", space.key);
+        //}
 
         protected override void Dispose(bool disposing)
         {

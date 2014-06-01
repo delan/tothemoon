@@ -49,9 +49,15 @@ namespace ToTheMoon.Controllers
 
             userspace = db.UserSpaces.Find(userspace.ProductId);
 
-            if (ModelState.IsValid && User.Identity.GetUserId() != userspace.space.PIKey)
+            if (ModelState.IsValid && userspace.userKey != userspace.space.PIKey)
             {
                 userspace.role = role;
+
+                //////////////////////////
+                //////////////////////////
+                ////Send Email to User////
+                //////////////////////////
+                //////////////////////////
 
                 db.Entry(userspace).State = EntityState.Modified;
                 db.SaveChanges();
@@ -98,6 +104,12 @@ namespace ToTheMoon.Controllers
             if (ModelState.IsValid)
             {
 
+                //////////////////////////
+                //////////////////////////
+                ////Send Email to User////
+                //////////////////////////
+                //////////////////////////
+
                 db.UserSpaces.Add(userspace);
                 db.SaveChanges();
 
@@ -114,8 +126,15 @@ namespace ToTheMoon.Controllers
         {
             UserSpace userspace = db.UserSpaces.Find(id);
             int space_id = userspace.space.key;
-            if (User.Identity.GetUserId() != userspace.space.PIKey)
+            if (userspace.userKey != userspace.space.PIKey)
             {
+
+                //////////////////////////
+                //////////////////////////
+                ////Send Email to User////
+                //////////////////////////
+                //////////////////////////
+
                 db.UserSpaces.Remove(userspace);
                 db.SaveChanges();
             }
