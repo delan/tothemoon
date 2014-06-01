@@ -23,6 +23,9 @@ namespace ToTheMoon.Models
 
         [Required]
         public GlobalRole role { get; set; }
+
+        [Required]
+        public Faculty faculty { get; set; }
     }
 
     public enum GlobalRole
@@ -30,5 +33,12 @@ namespace ToTheMoon.Models
         REGULAR,
         APPROVER,
         ADMIN
+    }
+    public enum Faculty
+    {
+        SAE,
+        HUMANITIES,
+        BUSINESS,
+        HEALTHSCI
     }
 }
