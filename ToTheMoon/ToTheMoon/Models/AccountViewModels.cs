@@ -51,6 +51,10 @@ namespace ToTheMoon.Models
         public string LastName { get; set; }
 
         [Required]
+        [Display(Name = "Faculty")]
+        public Faculty faculty { get; set; }
+
+        [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
