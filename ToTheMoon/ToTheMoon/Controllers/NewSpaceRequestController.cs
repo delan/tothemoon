@@ -169,16 +169,23 @@ namespace ToTheMoon.Controllers
 
                 userspace.role = SpaceRole.DATAMANAGER;
 
-                db.Spaces.Add(space);
-                db.UserSpaces.Add(userspace);
-                db.NewSpaceRequests.Remove(newspacerequest);
-                db.SaveChanges();
+                var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ProjectContext()));
+                ApplicationUser currentUser = manager.FindById(User.Identity.GetUserId());
+                if (currentUser.role != GlobalRole.REGULAR)
+                {
 
-            ///////////////////////////////
-            ///////////////////////////////
-            ////Send Email to Requester////
-            ///////////////////////////////
-            ///////////////////////////////
+                    db.Spaces.Add(space);
+                    db.UserSpaces.Add(userspace);
+                    db.NewSpaceRequests.Remove(newspacerequest);
+                    db.SaveChanges();
+
+                    ///////////////////////////////
+                    ///////////////////////////////
+                    ////Send Email to Requester////
+                    ///////////////////////////////
+                    ///////////////////////////////
+
+                }
 
             }
 
@@ -193,14 +200,22 @@ namespace ToTheMoon.Controllers
         {
             NewSpaceRequest newspacerequest = db.NewSpaceRequests.Find(id);
            
-            db.NewSpaceRequests.Remove(newspacerequest);
-            db.SaveChanges();
+            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ProjectContext()));
+            ApplicationUser currentUser = manager.FindById(User.Identity.GetUserId());
 
-            ///////////////////////////////
-            ///////////////////////////////
-            ////Send Email to Requester////
-            ///////////////////////////////
-            ///////////////////////////////
+            if(currentUser.role != GlobalRole.REGULAR)
+            {
+
+                db.NewSpaceRequests.Remove(newspacerequest);
+                db.SaveChanges();
+
+                ///////////////////////////////
+                ///////////////////////////////
+                ////Send Email to Requester////
+                ///////////////////////////////
+                ///////////////////////////////
+
+            }
 
             return RedirectToAction("../Dashboard");
         }
